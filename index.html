@@ -74,20 +74,48 @@
       justify-content: flex-end;
       align-items: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 6rem 2rem 3rem;
       overflow: hidden;
     }
     .hero-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      position: absolute; inset: -20%;
+      width: 140%; height: 140%;
       object-fit: cover;
-      object-position: center 35%;
+      object-position: center 30%;
       z-index: 0;
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(11,15,20,0.1) 0%, rgba(11,15,20,0.3) 40%, rgba(11,15,20,0.85) 65%, rgba(11,15,20,0.98) 100%);
+      background: linear-gradient(to bottom, rgba(11,15,20,0.0) 0%, rgba(11,15,20,0.2) 30%, rgba(11,15,20,0.8) 55%, rgba(11,15,20,0.98) 100%);
       z-index: 1;
+    }
+    .hero-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-flow-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .hero-flow-icon {
+      font-size: 1.8rem;
+    }
+    .hero-flow-label {
+      font-size: 0.6rem;
+      color: rgba(237,230,214,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .hero-flow-arrow {
+      font-size: 1.2rem;
+      color: var(--dorado);
+      opacity: 0.5;
+      margin-top: -0.8rem;
     }
     .hero-content {
       position: relative; z-index: 2;
@@ -534,6 +562,27 @@
   <img class="hero-bg" src="youtube.jpg" alt="Hype Agent" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
+    <div class="hero-flow">
+      <div class="hero-flow-item">
+        <span class="hero-flow-icon">💡</span>
+        <span class="hero-flow-label">Idea</span>
+      </div>
+      <span class="hero-flow-arrow">›</span>
+      <div class="hero-flow-item">
+        <span class="hero-flow-icon">📖</span>
+        <span class="hero-flow-label">Libro</span>
+      </div>
+      <span class="hero-flow-arrow">›</span>
+      <div class="hero-flow-item">
+        <span class="hero-flow-icon">✍️</span>
+        <span class="hero-flow-label">Autor</span>
+      </div>
+      <span class="hero-flow-arrow">›</span>
+      <div class="hero-flow-item">
+        <span class="hero-flow-icon">👥👥👥</span>
+        <span class="hero-flow-label">Lectores</span>
+      </div>
+    </div>
     <h1 class="hero-logo">HYPE AGENT</h1>
     <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
     <p class="hero-sub">Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar.</p>
