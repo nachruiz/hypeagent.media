@@ -333,7 +333,11 @@
       padding: 2.5rem 2rem;
       position: relative;
       transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
     }
+    .price-card ul { flex: 1; }
+    .price-card .btn-primary { margin-top: auto; }
     .price-card:hover { border-color: rgba(200,169,106,0.3); transform: translateY(-4px); }
     .price-card.featured {
       border-color: var(--dorado);
