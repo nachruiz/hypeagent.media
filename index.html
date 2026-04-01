@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hype Agent — Agencia digital para autores</title>
+  <meta name="description" content="Multiplico tus lectores. Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar." />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --negro: #0B0F14;
+      --dorado: #C8A96A;
+      --crema: #EDE6D6;
+      --cyan: #00e5ff;
+      --magenta: #c060ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--negro);
+      color: var(--crema);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ══ NAV ══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,15,20,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,169,106,0.1);
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--dorado);
+      letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a {
+      color: rgba(237,230,214,0.6);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--dorado); }
+    .nav-cta {
+      background: var(--dorado) !important;
+      color: var(--negro) !important;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(200,169,106,0.3); }
+
+    /* ══ HERO ══ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(11,15,20,0.1) 0%, rgba(11,15,20,0.3) 40%, rgba(11,15,20,0.85) 65%, rgba(11,15,20,0.98) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 700px;
+    }
+    .hero-logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 4rem;
+      color: var(--dorado);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 60px rgba(200,169,106,0.3);
+    }
+    .hero-tagline {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--crema);
+      margin-bottom: 0.5rem;
+    }
+    .hero-tagline strong { color: var(--dorado); font-weight: 700; }
+    .hero-sub {
+      font-size: 0.9rem;
+      color: rgba(237,230,214,0.5);
+      margin-bottom: 2rem;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--dorado);
+      color: var(--negro);
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(200,169,106,0.4); }
+    .btn-secondary {
+      border: 1px solid rgba(200,169,106,0.3);
+      color: var(--dorado);
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+      background: transparent;
+    }
+    .btn-secondary:hover { border-color: var(--dorado); background: rgba(200,169,106,0.08); }
+
+    /* ══ SECTIONS ══ */
+    section { padding: 5rem 2rem; }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--dorado);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      text-align: center;
+      color: rgba(237,230,214,0.5);
+      font-size: 0.95rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ══ SERVICES ══ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: rgba(200,169,106,0.04);
+      border: 1px solid rgba(200,169,106,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      border-color: rgba(200,169,106,0.3);
+      background: rgba(200,169,106,0.08);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: var(--crema);
+      margin-bottom: 0.5rem;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: rgba(237,230,214,0.55);
+      line-height: 1.7;
+    }
+    .service-card .examples {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--dorado);
+    }
+    .service-card .examples a {
+      color: var(--dorado);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ══ STATS / SOCIAL PROOF ══ */
+    #resultados { background: rgba(200,169,106,0.03); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .stat-number {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--dorado);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(237,230,214,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .stat-detail {
+      font-size: 0.75rem;
+      color: rgba(237,230,214,0.35);
+      margin-top: 0.3rem;
+    }
+
+    /* ══ PORTFOLIO ══ */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .portfolio-item {
+      background: rgba(200,169,106,0.04);
+      border: 1px solid rgba(200,169,106,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .portfolio-item:hover {
+      border-color: rgba(200,169,106,0.3);
+      transform: translateY(-4px);
+    }
+    .portfolio-embed {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      background: #000;
+    }
+    .portfolio-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .portfolio-info {
+      padding: 1.2rem;
+    }
+    .portfolio-info h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: var(--crema);
+      margin-bottom: 0.3rem;
+    }
+    .portfolio-info p {
+      font-size: 0.8rem;
+      color: rgba(237,230,214,0.5);
+    }
+    .portfolio-info .tag {
+      display: inline-block;
+      background: rgba(200,169,106,0.1);
+      color: var(--dorado);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 10px;
+      letter-spacing: 0.05em;
+      margin-top: 0.5rem;
+    }
+
+    /* ══ PRICING ══ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .price-card {
+      background: rgba(200,169,106,0.04);
+      border: 1px solid rgba(200,169,106,0.1);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .price-card:hover { border-color: rgba(200,169,106,0.3); transform: translateY(-4px); }
+    .price-card.featured {
+      border-color: var(--dorado);
+      background: rgba(200,169,106,0.08);
+    }
+    .price-badge {
+      position: absolute;
+      top: -12px; right: 20px;
+      background: var(--dorado);
+      color: var(--negro);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 0.1em;
+    }
+    .price-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--dorado);
+      margin-bottom: 0.3rem;
+    }
+    .price-card .price {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--crema);
+      margin-bottom: 0.2rem;
+    }
+    .price-card .price-note {
+      font-size: 0.75rem;
+      color: rgba(237,230,214,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .price-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+    .price-card li {
+      font-size: 0.85rem;
+      color: rgba(237,230,214,0.65);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(200,169,106,0.06);
+    }
+    .price-card li::before {
+      content: '>';
+      color: var(--dorado);
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+    .pricing-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .ph-item {
+      background: rgba(200,169,106,0.04);
+      border: 1px solid rgba(200,169,106,0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .ph-item:hover { border-color: rgba(200,169,106,0.3); transform: translateY(-4px); }
+    .ph-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .ph-item h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--crema);
+      margin-bottom: 0.4rem;
+    }
+    .ph-item p {
+      font-size: 0.85rem;
+      color: rgba(237,230,214,0.55);
+    }
+    .ambassador-box {
+      background: linear-gradient(135deg, rgba(0,229,255,0.05), rgba(192,96,255,0.05));
+      border: 1px solid rgba(192,96,255,0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .ambassador-box h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--magenta);
+      margin-bottom: 0.5rem;
+    }
+    .ambassador-box p {
+      font-size: 0.85rem;
+      color: rgba(237,230,214,0.6);
+    }
+    .ambassador-box strong { color: var(--crema); }
+    .ambassador-box .discount {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--cyan);
+      margin: 0.5rem 0;
+    }
+
+    /* ══ ONBOARDING / CTA ══ */
+    #empezar {
+      background: rgba(200,169,106,0.03);
+    }
+    .onboarding-box {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .onboarding-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+    .onboarding-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .step-num {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: rgba(200,169,106,0.2);
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+    .step-text h4 {
+      color: var(--crema);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    .step-text p {
+      font-size: 0.85rem;
+      color: rgba(237,230,214,0.55);
+    }
+    .step-text a { color: var(--dorado); }
+    .email-cta {
+      display: inline-block;
+      background: var(--dorado);
+      color: var(--negro);
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+    .email-cta:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(200,169,106,0.4); }
+    .onboarding-note {
+      font-size: 0.78rem;
+      color: rgba(237,230,214,0.35);
+      margin-top: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .guarantee {
+      max-width: 600px;
+      margin: 3rem auto 0;
+      border-left: 3px solid var(--dorado);
+      padding: 1rem 1.5rem;
+      background: rgba(200,169,106,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+    .guarantee h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--dorado);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    .guarantee p {
+      font-size: 0.8rem;
+      color: rgba(237,230,214,0.55);
+    }
+
+    /* ══ FOOTER ══ */
+    footer {
+      border-top: 1px solid rgba(200,169,106,0.08);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(237,230,214,0.25);
+    }
+    footer a { color: var(--dorado); text-decoration: none; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 768px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero-logo { font-size: 2.5rem; }
+      .hero-tagline { font-size: 1rem; }
+      .section-title { font-size: 1.6rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nav-logo">HYPE AGENT</a>
+  <div class="nav-links">
+    <a href="#empezar">Empezar</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#precios" class="nav-cta">PRECIOS</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <img class="hero-bg" src="youtube.jpg" alt="Hype Agent" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-logo">HYPE AGENT</h1>
+    <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
+    <p class="hero-sub">Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar.</p>
+    <div class="hero-buttons">
+      <a href="#empezar" class="btn-primary">QUIERO EMPEZAR</a>
+      <a href="#servicios" class="btn-secondary">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EMPEZAR ══ -->
+<section id="empezar">
+  <div class="container">
+    <div class="onboarding-box">
+      <h2 class="section-title">Empezar es facil</h2>
+      <p class="section-sub">Solo necesito una cosa de ti: un enlace a una carpeta de Google Drive con tu material.</p>
+
+      <div class="onboarding-steps">
+        <div class="onboarding-step">
+          <span class="step-num">01</span>
+          <div class="step-text">
+            <h4>Crea una carpeta en Google Drive</h4>
+            <p>Sube tu material: portada, fotos de autor, booktrailer (si tienes), sinopsis, enlaces de compra, redes sociales, tono de contenido deseado y dominio preferido. <strong>Si las fotos tienen nombre descriptivo (ej: foto_montana.jpg) me ayuda mucho.</strong></p>
+          </div>
+        </div>
+        <div class="onboarding-step">
+          <span class="step-num">02</span>
+          <div class="step-text">
+            <h4>Enviame el enlace de la carpeta</h4>
+            <p>Un solo email a <a href="mailto:contact@hypeagent.media">contact@hypeagent.media</a> con el link de Drive compartido. Nada mas.</p>
+          </div>
+        </div>
+        <div class="onboarding-step">
+          <span class="step-num">03</span>
+          <div class="step-text">
+            <h4>Yo me encargo del resto</h4>
+            <p>Reviso tu material, te contacto si necesito algo mas, y empiezo a trabajar. Te entrego todo en tu propia carpeta de Google Drive.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="mailto:contact@hypeagent.media?subject=Quiero%20empezar%20con%20Hype%20Agent&body=Hola!%20Te%20comparto%20mi%20carpeta%20de%20Google%20Drive%20con%20el%20material%20de%20mi%20libro:%20%0A%0A[Pega%20aqui%20el%20enlace%20de%20tu%20carpeta%20de%20Drive]%0A%0APlan%20que%20me%20interesa:%20%0A%0AGracias!" class="email-cta">ENVIAR MI MATERIAL</a>
+
+      <p class="onboarding-note">
+        Organizar la carpeta por subcarpetas (portada/, fotos/, booktrailer/) es opcional, pero me ayuda.<br>
+        Si no tienes algun elemento, no pasa nada — trabajo con lo que tengas.
+      </p>
+
+      <div class="guarantee">
+        <h4>Tus archivos siempre son tuyos</h4>
+        <p>Todo lo que creo (web, imagenes, videos, newsletters) te lo entrego en Google Drive. Si algun dia decides no seguir trabajando conmigo, tienes todo tu material para continuar por tu cuenta. Sin ataduras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICIOS ══ -->
+<section id="servicios">
+  <div class="container">
+    <h2 class="section-title">Que hago por ti</h2>
+    <p class="section-sub">Me encargo de todo lo digital para que tu te centres en escribir.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🎬</div>
+        <h3>Booktrailers</h3>
+        <p>Creo o mejoro tu booktrailer con imagenes generadas por IA, voz en off y musica. Resultado cinematografico que engancha en los primeros 3 segundos.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Web oficial de autor</h3>
+        <p>Tu web profesional con dominio propio. Landing page, enlaces de compra, biografia, reseñas y newsletter integrada.</p>
+        <p class="examples">Ejemplos: <a href="https://elguardiandechamberi.com" target="_blank">elguardiandechamberi.com</a> · <a href="https://primaveragomez.es" target="_blank">primaveragomez.es</a></p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Redes sociales</h3>
+        <p>Estrategia de contenido, creacion de reels y carruseles, gestion de perfiles. Contenido que conecta con lectores y genera comunidad.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📰</div>
+        <h3>Newsletter</h3>
+        <p>Configuro y gestiono tu newsletter. Comunico firmas, eventos, lanzamientos y contenido exclusivo directamente a tus lectores.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Selector de portadas</h3>
+        <p>Te ayudo a elegir o crear la portada perfecta para tu libro. Analisis de mercado, tendencias del genero y testing visual.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Amazon Ads</h3>
+        <p>Creo y gestiono tus campanas de publicidad en Amazon. Keywords, pujas y optimizacion para maximizar ventas con el minimo coste.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESULTADOS ══ -->
+<section id="resultados">
+  <div class="container">
+    <h2 class="section-title">Resultados reales</h2>
+    <p class="section-sub">Numeros que hablan por si solos.</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">4M+</div>
+        <div class="stat-label">Visualizaciones</div>
+        <div class="stat-detail">Un solo TikTok sobre Arzan Cuernoscuro</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">250K</div>
+        <div class="stat-label">Visualizaciones</div>
+        <div class="stat-detail">TikTok sobre relaciones padres-hijos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">600K</div>
+        <div class="stat-label">Visualizaciones</div>
+        <div class="stat-detail">Charla TEDx</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7.000</div>
+        <div class="stat-label">Likes</div>
+        <div class="stat-detail">Engagement real, no bots</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2.300</div>
+        <div class="stat-label">Guardados</div>
+        <div class="stat-detail">Contenido que la gente quiere volver a ver</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PORTFOLIO ══ -->
+<section id="portfolio">
+  <div class="container">
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-sub">Ejemplos reales de lo que hago.</p>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item">
+        <div class="portfolio-embed">
+          <iframe src="https://www.tiktok.com/embed/v2/7507041127741969697" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>Booktrailer Arzan Cuernoscuro</h3>
+          <p>4M+ visualizaciones</p>
+          <span class="tag">TIKTOK VIRAL</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div class="portfolio-embed">
+          <iframe src="https://www.tiktok.com/embed/v2/7507041127741969697" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>Relaciones padres-hijos</h3>
+          <p>250K views · 7K likes · 2.3K guardados</p>
+          <span class="tag">ALTO ENGAGEMENT</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item">
+        <div class="portfolio-embed" style="padding-top:125%;">
+          <iframe src="https://www.instagram.com/p/DWhhwvYFwhX/embed" allowfullscreen></iframe>
+        </div>
+        <div class="portfolio-info">
+          <h3>Carrusel de consejos para escritores</h3>
+          <p>Estrategia de contenido en Instagram</p>
+          <span class="tag">CARRUSEL</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRECIOS ══ -->
+<section id="precios">
+  <div class="container">
+    <h2 class="section-title">Invierte en tu carrera</h2>
+    <p class="section-sub">Tu booktrailer cinematografico por menos de lo que cuesta Netflix. Cancela cuando quieras, sin penalizacion.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <h3>Cineasta</h3>
+        <div class="price">24,50€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
+        <div class="price-note">o 147€ pago unico</div>
+        <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Es menos que Netflix."</p>
+        <ul>
+          <li>Booktrailer cinematografico con IA</li>
+          <li>Imagenes generadas de alta calidad</li>
+          <li>Entrega en Google Drive</li>
+        </ul>
+        <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir Cineasta</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Starter</h3>
+        <div class="price">32,80€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
+        <div class="price-note">o 197€ pago unico</div>
+        <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Una cena fuera al mes por mi carrera."</p>
+        <ul>
+          <li>Web oficial de autor con dominio propio</li>
+          <li>Diseño / selector de portada</li>
+          <li>Configuracion de newsletter</li>
+          <li>Entrega en Google Drive</li>
+        </ul>
+        <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir Starter</a>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-badge">MAS POPULAR</span>
+        <h3>Impulso</h3>
+        <div class="price">66,15€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
+        <div class="price-note">o 397€ pago unico</div>
+        <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Inversion profesional real."</p>
+        <ul>
+          <li>Todo lo de Starter</li>
+          <li>Booktrailer cinematografico con IA</li>
+          <li>Estrategia de redes sociales (1 mes)</li>
+          <li>4 carruseles/reels diseñados</li>
+          <li>Setup de Amazon Ads</li>
+        </ul>
+        <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir Impulso</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Total</h3>
+        <div class="price">116,15€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
+        <div class="price-note">o 697€ pago unico</div>
+        <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Tengo una agencia propia."</p>
+        <ul>
+          <li>Todo lo de Impulso</li>
+          <li>Social media management (3 meses)</li>
+          <li>Newsletter mensual gestionada</li>
+          <li>Estrategia de contenido continua</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir Total</a>
+      </div>
+
+    </div>
+
+    <div class="pricing-highlights" style="margin-top:2.5rem;">
+      <div class="ph-item">
+        <div class="ph-icon">🚪</div>
+        <h4>Cancela cuando quieras</h4>
+        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion. Asumo el riesgo de que mis servicios te convenzan.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">💳</div>
+        <h4>Pago fraccionable</h4>
+        <p>Cuotas a 6 meses o pago unico con descuento. Tu eliges.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">📂</div>
+        <h4>Todo tuyo en Drive</h4>
+        <p>Todos los archivos te pertenecen. Si algun dia decides irte, te llevas todo.</p>
+      </div>
+    </div>
+
+    <!-- Ambassador -->
+    <div class="ambassador-box" style="margin-top:2.5rem;">
+      <h3>Programa Embajador</h3>
+      <div class="discount">Hasta -20%</div>
+      <p>Reduce el precio compartiendo contenido de Hype Agent en tus redes. <strong>Minimo 2 reposts por semana</strong> (carruseles, reels, tips). Cuanto mas compartes, menos pagas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>
+    <a href="mailto:contact@hypeagent.media">contact@hypeagent.media</a><br>
+    Hype Agent — Multiplico tus lectores.<br><br>
+    <a href="https://www.tiktok.com/@hypeagent" target="_blank">TikTok</a> ·
+    <a href="https://www.instagram.com/hypeagent/" target="_blank">Instagram</a> ·
+    <a href="https://www.youtube.com/@hypeagent" target="_blank">YouTube</a>
+  </p>
+</footer>
+
+</body>
+</html>
