@@ -127,7 +127,12 @@
       color: var(--dorado);
       letter-spacing: 0.12em;
       margin-bottom: 0.5rem;
-      text-shadow: 0 0 20px rgba(200,169,106,0.6), 0 0 60px rgba(200,169,106,0.3), 0 0 120px rgba(200,169,106,0.15);
+      text-shadow: 0 0 20px rgba(200,169,106,0.6), 0 0 60px rgba(200,169,106,0.3), 0 0 120px rgba(200,169,106,0.15), 2px 2px 0px rgba(0,0,0,0.8), -1px -1px 0px rgba(255,230,180,0.2);
+      background: linear-gradient(180deg, #e8d5a3 0%, #C8A96A 40%, #8a6d3b 70%, #C8A96A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 30px rgba(200,169,106,0.4));
     }
     .hero-tagline {
       font-size: 1.3rem;
@@ -629,7 +634,7 @@
 </section>
 
 <!-- ══ EMPEZAR ══ -->
-<section id="empezar">
+<section id="empezar" style="background:rgba(237,230,214,0.03);">
   <div class="container">
     <div class="onboarding-box">
       <h2 class="section-title">Empezar es facil</h2>
@@ -837,7 +842,7 @@
 </section>
 
 <!-- ══ PRECIOS ══ -->
-<section id="precios">
+<section id="precios" style="background:rgba(237,230,214,0.03);">
   <div class="container">
     <h2 class="section-title">Invierte en tu carrera</h2>
     <p class="section-sub">Cancela cuando quieras, sin penalizacion.</p>
