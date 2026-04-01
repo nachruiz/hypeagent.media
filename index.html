@@ -71,23 +71,19 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       align-items: center;
       text-align: center;
-      padding: 6rem 2rem 3rem;
+      padding: 5rem 2rem 2rem;
       overflow: hidden;
+      background: var(--negro);
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 15%;
-      z-index: 0;
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(11,15,20,0.0) 0%, rgba(11,15,20,0.1) 45%, rgba(11,15,20,0.75) 65%, rgba(11,15,20,0.98) 100%);
-      z-index: 1;
+    .hero-photo {
+      width: 45%;
+      max-width: 500px;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .hero-flow {
       display: flex;
@@ -118,7 +114,6 @@
       margin-top: -0.8rem;
     }
     .hero-content {
-      position: relative; z-index: 2;
       max-width: 700px;
     }
     .hero-logo {
@@ -559,9 +554,8 @@
 
 <!-- ══ HERO ══ -->
 <section class="hero">
-  <img class="hero-bg" src="youtube.jpg" alt="Hype Agent" />
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
+  <div class="hero-content" style="display:flex;flex-direction:column;align-items:center;">
+    <img class="hero-photo" src="youtube.jpg" alt="Hype Agent" />
     <h1 class="hero-logo">HYPE AGENT</h1>
     <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
     <p style="font-size:0.85rem;color:var(--dorado);margin-bottom:0.3rem;position:relative;z-index:2;">Cancela cuando quieras.</p>
