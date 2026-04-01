@@ -559,12 +559,19 @@
     /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       .nav-links a:not(.nav-cta) { display: none; }
-      .hero-logo { font-size: 2.5rem; }
+      .hero { min-height: auto; padding: 5rem 1.5rem 2rem; }
+      .hero-bg { object-position: center 25%; }
+      .hero-logo { font-size: 2.2rem; }
       .hero-tagline { font-size: 1rem; }
+      .hero-flow { gap: 0.3rem; }
+      .hero-flow-icon { font-size: 1.2rem; }
+      .hero-flow-label { font-size: 0.5rem; }
       .section-title { font-size: 1.6rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr; }
+      .pricing-highlights { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr !important; }
+      .pay-toggle { padding: 0.5rem 1rem; font-size: 0.7rem; }
     }
   </style>
 </head>
@@ -739,41 +746,41 @@
   </div>
 </section>
 
-<!-- ══ RESULTADOS con NEW HERO 2 de fondo ══ -->
-<section id="resultados" style="position:relative;padding:0;overflow:hidden;">
-  <img src="new hero 2.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;" />
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(11,15,20,0.0) 0%,rgba(11,15,20,0.5) 30%,rgba(11,15,20,0.9) 50%,rgba(11,15,20,0.98) 100%);z-index:1;"></div>
-  <div style="position:relative;z-index:2;display:flex;justify-content:flex-end;padding:4rem 2rem;">
-    <div style="width:55%;max-width:600px;">
-      <h2 class="section-title" style="text-align:left;">Resultados reales</h2>
-      <p style="color:rgba(237,230,214,0.5);font-size:0.9rem;margin-bottom:2rem;">Numeros que hablan por si solos.</p>
+<!-- ══ IMAGEN HYPE AGENT ══ -->
+<section style="padding:0;">
+  <img src="new hero 2.png" alt="Hype Agent" style="width:100%;display:block;" />
+</section>
 
-      <div style="display:flex;flex-direction:column;gap:1.2rem;">
-        <a href="https://youtu.be/tBhUbHQxeQ0" target="_blank" class="service-card" style="text-align:left;padding:1.2rem 1.5rem;text-decoration:none;display:flex;gap:1rem;align-items:center;">
-          <img src="https://img.youtube.com/vi/tBhUbHQxeQ0/mqdefault.jpg" alt="TEDx" style="width:120px;border-radius:8px;flex-shrink:0;" />
-          <div>
-            <h3 style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--crema);margin-bottom:0.3rem;">🎤 Charla TEDx</h3>
-            <div class="stat-number" style="font-size:2rem;">+600K</div>
-            <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);">48.000 likes · 490 comentarios</p>
-          </div>
-        </a>
-        <a href="https://www.tiktok.com/t/ZTkjur32Q/" target="_blank" class="service-card" style="text-align:left;padding:1.2rem 1.5rem;text-decoration:none;display:flex;gap:1rem;align-items:center;">
-          <div style="width:120px;height:68px;background:rgba(200,169,106,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.5rem;">▶️</div>
-          <div>
-            <h3 style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--crema);margin-bottom:0.3rem;">🔥 TikTok Feria del Libro</h3>
-            <div class="stat-number" style="font-size:2rem;">4M+</div>
-            <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);">15K likes · 450 comentarios · 1.8K guardados</p>
-          </div>
-        </a>
-        <a href="https://www.tiktok.com/t/ZTkjuNnht/" target="_blank" class="service-card" style="text-align:left;padding:1.2rem 1.5rem;text-decoration:none;display:flex;gap:1rem;align-items:center;">
-          <div style="width:120px;height:68px;background:rgba(200,169,106,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.5rem;">▶️</div>
-          <div>
-            <h3 style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--crema);margin-bottom:0.3rem;">💬 Relaciones padres e hijos</h3>
-            <div class="stat-number" style="font-size:2rem;">+250K</div>
-            <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);">+6.800 likes · 335 comentarios · 2.200 guardados</p>
-          </div>
-        </a>
-      </div>
+<!-- ══ RESULTADOS ══ -->
+<section id="resultados" style="background:rgba(237,230,214,0.03);">
+  <div class="container">
+    <h2 class="section-title">Resultados reales</h2>
+    <p class="section-sub">Numeros que hablan por si solos.</p>
+
+    <div class="services-grid">
+      <a href="https://www.tiktok.com/t/ZTkjur32Q/" target="_blank" class="service-card" style="text-align:center;text-decoration:none;">
+        <div class="service-icon">🔥</div>
+        <h3>TikTok Feria del Libro</h3>
+        <div class="stat-number" style="font-size:2.5rem;">4M+</div>
+        <div class="stat-label">Visualizaciones</div>
+        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">15K likes · 450 comentarios · 1.8K guardados</p>
+      </a>
+
+      <a href="https://youtu.be/tBhUbHQxeQ0" target="_blank" class="service-card" style="text-align:center;text-decoration:none;">
+        <img src="https://img.youtube.com/vi/tBhUbHQxeQ0/mqdefault.jpg" alt="TEDx" style="width:100%;border-radius:8px;margin-bottom:1rem;" />
+        <h3>Charla TEDx</h3>
+        <div class="stat-number" style="font-size:2.5rem;">+600K</div>
+        <div class="stat-label">Visualizaciones</div>
+        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">48.000 likes · 490 comentarios</p>
+      </a>
+
+      <a href="https://www.tiktok.com/t/ZTkjuNnht/" target="_blank" class="service-card" style="text-align:center;text-decoration:none;">
+        <div class="service-icon">💬</div>
+        <h3>Relaciones padres e hijos</h3>
+        <div class="stat-number" style="font-size:2.5rem;">+250K</div>
+        <div class="stat-label">Visualizaciones</div>
+        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">+6.800 likes · 335 comentarios · 2.200 guardados</p>
+      </a>
     </div>
   </div>
 </section>
