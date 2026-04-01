@@ -71,19 +71,23 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       align-items: center;
       text-align: center;
-      padding: 5rem 2rem 2rem;
+      padding: 6rem 2rem 3rem;
       overflow: hidden;
-      background: var(--negro);
     }
-    .hero-photo {
-      width: 90%;
-      max-width: 900px;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 2;
+    .hero-bg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(11,15,20,0.0) 0%, rgba(11,15,20,0.15) 40%, rgba(11,15,20,0.8) 60%, rgba(11,15,20,0.98) 100%);
+      z-index: 1;
     }
     .hero-flow {
       display: flex;
@@ -554,8 +558,9 @@
 
 <!-- ══ HERO ══ -->
 <section class="hero">
-  <div class="hero-content" style="display:flex;flex-direction:column;align-items:center;">
-    <img class="hero-photo" src="new hero.png" alt="Hype Agent" />
+  <img class="hero-bg" src="new hero.png" alt="Hype Agent" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content" style="position:relative;z-index:2;">
     <h1 class="hero-logo">HYPE AGENT</h1>
     <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
     <p style="font-size:0.85rem;color:var(--dorado);margin-bottom:0.3rem;position:relative;z-index:2;">Cancela cuando quieras.</p>
@@ -694,40 +699,31 @@
   </div>
 </section>
 
-<!-- ══ BREAK IMAGE ══ -->
-<section style="padding:0;">
-  <img src="new hero 2.png" alt="Hype Agent" style="width:100%;display:block;" />
-</section>
+<!-- ══ RESULTADOS con NEW HERO 2 de fondo ══ -->
+<section id="resultados" style="position:relative;padding:0;min-height:500px;overflow:hidden;">
+  <img src="new hero 2.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center;z-index:0;" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(11,15,20,0.0) 0%,rgba(11,15,20,0.7) 35%,rgba(11,15,20,0.95) 55%,rgba(11,15,20,0.98) 100%);z-index:1;"></div>
+  <div style="position:relative;z-index:2;display:flex;justify-content:flex-end;min-height:500px;padding:3rem 2rem;">
+    <div style="width:55%;max-width:600px;">
+      <h2 class="section-title" style="text-align:left;">Resultados reales</h2>
+      <p style="color:rgba(237,230,214,0.5);font-size:0.9rem;margin-bottom:2rem;">Numeros que hablan por si solos.</p>
 
-<!-- ══ RESULTADOS ══ -->
-<section id="resultados">
-  <div class="container">
-    <h2 class="section-title">Resultados reales</h2>
-    <p class="section-sub">Numeros que hablan por si solos.</p>
-
-    <div class="services-grid" style="margin-bottom:2rem;">
-      <div class="service-card" style="text-align:center;">
-        <div class="service-icon">🎤</div>
-        <h3>Charla TEDx</h3>
-        <div class="stat-number" style="font-size:2.5rem;">+600K</div>
-        <div class="stat-label">Visualizaciones</div>
-        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">48.000 likes · 490 comentarios</p>
-      </div>
-
-      <div class="service-card" style="text-align:center;">
-        <div class="service-icon">🔥</div>
-        <h3>TikTok Feria del Libro</h3>
-        <div class="stat-number" style="font-size:2.5rem;">4M+</div>
-        <div class="stat-label">Visualizaciones</div>
-        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">15K likes · 450 comentarios · 1.8K guardados</p>
-      </div>
-
-      <div class="service-card" style="text-align:center;">
-        <div class="service-icon">💬</div>
-        <h3>Relaciones padres e hijos</h3>
-        <div class="stat-number" style="font-size:2.5rem;">+250K</div>
-        <div class="stat-label">Visualizaciones</div>
-        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">+6.800 likes · 335 comentarios · 2.200 guardados</p>
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div class="service-card" style="text-align:left;padding:1.2rem 1.5rem;">
+          <h3 style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--crema);margin-bottom:0.3rem;">🎤 Charla TEDx</h3>
+          <div class="stat-number" style="font-size:2rem;">+600K</div>
+          <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);">48.000 likes · 490 comentarios</p>
+        </div>
+        <div class="service-card" style="text-align:left;padding:1.2rem 1.5rem;">
+          <h3 style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--crema);margin-bottom:0.3rem;">🔥 TikTok Feria del Libro</h3>
+          <div class="stat-number" style="font-size:2rem;">4M+</div>
+          <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);">15K likes · 450 comentarios · 1.8K guardados</p>
+        </div>
+        <div class="service-card" style="text-align:left;padding:1.2rem 1.5rem;">
+          <h3 style="font-family:'Cinzel',serif;font-size:0.9rem;color:var(--crema);margin-bottom:0.3rem;">💬 Relaciones padres e hijos</h3>
+          <div class="stat-number" style="font-size:2rem;">+250K</div>
+          <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);">+6.800 likes · 335 comentarios · 2.200 guardados</p>
+        </div>
       </div>
     </div>
   </div>
@@ -901,11 +897,11 @@
 </section>
 
 <!-- ══ CTA FINAL ══ -->
-<section style="padding:0;position:relative;">
-  <img src="youtube.jpg" alt="Hype Agent" style="width:100%;display:block;" />
-  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(11,15,20,0.0) 0%,rgba(11,15,20,0.6) 45%,rgba(11,15,20,0.95) 100%);display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:3rem 5rem;">
+<section style="padding:3rem 2rem;background:var(--negro);text-align:center;">
+  <div class="container" style="max-width:800px;">
+    <img src="youtube.jpg" alt="Hype Agent" style="width:70%;border-radius:12px;margin-bottom:2rem;" />
     <h2 style="font-family:'Cinzel',serif;font-weight:900;font-size:3rem;color:var(--dorado);margin-bottom:1rem;">Empezamos?</h2>
-    <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;text-align:right;max-width:350px;">Crea una carpeta en Google Drive con tu material y enviame el enlace. Yo me encargo del resto.</p>
+    <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto;">Crea una carpeta en Google Drive con tu material y enviame el enlace. Yo me encargo del resto.</p>
     <a href="mailto:contact@hypeagent.media?subject=Quiero%20empezar%20con%20Hype%20Agent&body=Hola!%20Te%20comparto%20mi%20carpeta%20de%20Google%20Drive%20con%20el%20material%20de%20mi%20libro:%20%0A%0A[Pega%20aqui%20el%20enlace%20de%20tu%20carpeta%20de%20Drive]%0A%0APlan%20que%20me%20interesa:%20%0A%0AGracias!" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">ENVIAR MI MATERIAL</a>
     <p style="margin-top:0.8rem;font-size:0.75rem;color:rgba(237,230,214,0.4);">contact@hypeagent.media</p>
   </div>
