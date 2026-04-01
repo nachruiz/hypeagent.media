@@ -555,7 +555,7 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-content" style="display:flex;flex-direction:column;align-items:center;">
-    <img class="hero-photo" src="hero.png" alt="Hype Agent" />
+    <img class="hero-photo" src="new hero.png" alt="Hype Agent" />
     <h1 class="hero-logo">HYPE AGENT</h1>
     <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
     <p style="font-size:0.85rem;color:var(--dorado);margin-bottom:0.3rem;position:relative;z-index:2;">Cancela cuando quieras.</p>
@@ -694,6 +694,11 @@
   </div>
 </section>
 
+<!-- ══ BREAK IMAGE ══ -->
+<section style="padding:0;">
+  <img src="new hero 2.png" alt="Hype Agent" style="width:100%;display:block;" />
+</section>
+
 <!-- ══ RESULTADOS ══ -->
 <section id="resultados">
   <div class="container">
@@ -812,7 +817,25 @@
 <section id="precios">
   <div class="container">
     <h2 class="section-title">Invierte en tu carrera</h2>
-    <p class="section-sub">Tu booktrailer cinematografico por menos de lo que cuesta Netflix. Cancela cuando quieras, sin penalizacion.</p>
+    <p class="section-sub">Cancela cuando quieras, sin penalizacion.</p>
+
+    <!-- Ambassador Toggle -->
+    <div class="ambassador-box" style="margin-bottom:2rem;">
+      <h3>Programa Embajador</h3>
+      <p style="margin-bottom:1rem;font-size:0.85rem;color:rgba(237,230,214,0.6);">Comparte contenido de Hype Agent en tus redes (minimo 2 reposts/semana) y desbloquea un <strong>30% de descuento</strong> en cualquier plan.</p>
+      <label style="display:inline-flex;align-items:center;gap:0.8rem;cursor:pointer;" onclick="var cb=document.getElementById('ambassador-toggle');cb.checked=!cb.checked;toggleAmbassador(cb.checked);">
+        <span style="font-size:0.85rem;color:var(--crema);">Activar descuento embajador</span>
+        <div style="position:relative;width:50px;height:26px;">
+          <input type="checkbox" id="ambassador-toggle" style="opacity:0;width:0;height:0;position:absolute;">
+          <span id="toggle-track" style="position:absolute;inset:0;background:rgba(200,169,106,0.2);border-radius:13px;transition:all 0.3s;cursor:pointer;"></span>
+          <span id="toggle-thumb" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:rgba(237,230,214,0.5);border-radius:50%;transition:all 0.3s;pointer-events:none;"></span>
+        </div>
+      </label>
+      <div id="ambassador-badge" style="display:none;margin-top:0.8rem;">
+        <span style="background:var(--magenta);color:#fff;font-size:0.7rem;font-weight:700;padding:0.3rem 1rem;border-radius:20px;letter-spacing:0.1em;">-30% ACTIVADO</span>
+      </div>
+    </div>
+
     <div class="pricing-grid">
 
       <div class="price-card">
@@ -874,35 +897,17 @@
       </div>
 
     </div>
-
-    <!-- Ambassador Toggle -->
-    <div class="ambassador-box" style="margin-top:2.5rem;">
-      <h3>Programa Embajador</h3>
-      <p style="margin-bottom:1rem;font-size:0.85rem;color:rgba(237,230,214,0.6);">Comparte contenido de Hype Agent en tus redes (minimo 2 reposts/semana) y desbloquea un <strong>30% de descuento</strong> en cualquier plan.</p>
-      <label style="display:inline-flex;align-items:center;gap:0.8rem;cursor:pointer;">
-        <span style="font-size:0.85rem;color:var(--crema);">Activar descuento embajador</span>
-        <div style="position:relative;width:50px;height:26px;">
-          <input type="checkbox" id="ambassador-toggle" style="opacity:0;width:0;height:0;" onchange="toggleAmbassador(this.checked)">
-          <span id="toggle-track" style="position:absolute;inset:0;background:rgba(200,169,106,0.2);border-radius:13px;transition:all 0.3s;cursor:pointer;" onclick="document.getElementById('ambassador-toggle').click()"></span>
-          <span id="toggle-thumb" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:rgba(237,230,214,0.5);border-radius:50%;transition:all 0.3s;pointer-events:none;"></span>
-        </div>
-      </label>
-      <div id="ambassador-badge" style="display:none;margin-top:0.8rem;">
-        <span style="background:var(--magenta);color:#fff;font-size:0.7rem;font-weight:700;padding:0.3rem 1rem;border-radius:20px;letter-spacing:0.1em;">-30% ACTIVADO</span>
-      </div>
-    </div>
   </div>
 </section>
 
 <!-- ══ CTA FINAL ══ -->
-<section style="background:rgba(200,169,106,0.03);padding:4rem 2rem;">
-  <div class="container">
-    <div class="onboarding-box">
-      <h2 class="section-title">Listo para empezar?</h2>
-      <p class="section-sub">Crea una carpeta en Google Drive con tu material y enviame el enlace. Yo me encargo del resto.</p>
-      <a href="mailto:contact@hypeagent.media?subject=Quiero%20empezar%20con%20Hype%20Agent&body=Hola!%20Te%20comparto%20mi%20carpeta%20de%20Google%20Drive%20con%20el%20material%20de%20mi%20libro:%20%0A%0A[Pega%20aqui%20el%20enlace%20de%20tu%20carpeta%20de%20Drive]%0A%0APlan%20que%20me%20interesa:%20%0A%0AGracias!" class="email-cta">ENVIAR MI MATERIAL</a>
-      <p style="margin-top:1rem;font-size:0.8rem;color:rgba(237,230,214,0.4);">contact@hypeagent.media</p>
-    </div>
+<section style="padding:0;position:relative;">
+  <img src="youtube.jpg" alt="Hype Agent" style="width:100%;display:block;" />
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(11,15,20,0.0) 0%,rgba(11,15,20,0.6) 45%,rgba(11,15,20,0.95) 100%);display:flex;flex-direction:column;justify-content:center;align-items:flex-end;padding:3rem 5rem;">
+    <h2 style="font-family:'Cinzel',serif;font-weight:900;font-size:3rem;color:var(--dorado);margin-bottom:1rem;">Empezamos?</h2>
+    <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;text-align:right;max-width:350px;">Crea una carpeta en Google Drive con tu material y enviame el enlace. Yo me encargo del resto.</p>
+    <a href="mailto:contact@hypeagent.media?subject=Quiero%20empezar%20con%20Hype%20Agent&body=Hola!%20Te%20comparto%20mi%20carpeta%20de%20Google%20Drive%20con%20el%20material%20de%20mi%20libro:%20%0A%0A[Pega%20aqui%20el%20enlace%20de%20tu%20carpeta%20de%20Drive]%0A%0APlan%20que%20me%20interesa:%20%0A%0AGracias!" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">ENVIAR MI MATERIAL</a>
+    <p style="margin-top:0.8rem;font-size:0.75rem;color:rgba(237,230,214,0.4);">contact@hypeagent.media</p>
   </div>
 </section>
 
