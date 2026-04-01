@@ -78,15 +78,15 @@
       overflow: hidden;
     }
     .hero-bg {
-      position: absolute; inset: -40%;
-      width: 180%; height: 180%;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
-      object-position: center 32%;
+      object-position: center 15%;
       z-index: 0;
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(11,15,20,0.0) 0%, rgba(11,15,20,0.2) 30%, rgba(11,15,20,0.8) 55%, rgba(11,15,20,0.98) 100%);
+      background: linear-gradient(to bottom, rgba(11,15,20,0.0) 0%, rgba(11,15,20,0.1) 45%, rgba(11,15,20,0.75) 65%, rgba(11,15,20,0.98) 100%);
       z-index: 1;
     }
     .hero-flow {
@@ -565,7 +565,12 @@
     <h1 class="hero-logo">HYPE AGENT</h1>
     <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
     <p style="font-size:0.85rem;color:var(--dorado);margin-bottom:0.3rem;position:relative;z-index:2;">Cancela cuando quieras.</p>
-    <div class="hero-flow">
+    <p class="hero-sub">Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar.</p>
+    <div class="hero-buttons">
+      <a href="#empezar" class="btn-primary">QUIERO EMPEZAR</a>
+      <a href="#servicios" class="btn-secondary">Ver servicios</a>
+    </div>
+    <div class="hero-flow" style="margin-top:2rem;margin-bottom:0;">
       <div class="hero-flow-item">
         <span class="hero-flow-icon">💡</span>
         <span class="hero-flow-label">Idea</span>
@@ -584,34 +589,6 @@
       <div class="hero-flow-item">
         <span class="hero-flow-icon">👥👥👥</span>
         <span class="hero-flow-label">Lectores</span>
-      </div>
-    </div>
-    <p class="hero-sub">Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar.</p>
-    <div class="hero-buttons">
-      <a href="#empezar" class="btn-primary">QUIERO EMPEZAR</a>
-      <a href="#servicios" class="btn-secondary">Ver servicios</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ TRUST BADGES ══ -->
-<section style="padding:3rem 2rem;">
-  <div class="container">
-    <div class="pricing-highlights">
-      <div class="ph-item">
-        <div class="ph-icon">🚪</div>
-        <h4>Cancela cuando quieras</h4>
-        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion.</p>
-      </div>
-      <div class="ph-item">
-        <div class="ph-icon">💳</div>
-        <h4>Pago fraccionable</h4>
-        <p>Cuotas a 3 o 6 meses. Pago unico con descuento.</p>
-      </div>
-      <div class="ph-item">
-        <div class="ph-icon">📂</div>
-        <h4>Todo tuyo en Drive</h4>
-        <p>Todos los archivos te pertenecen. Si decides irte, te llevas todo.</p>
       </div>
     </div>
   </div>
@@ -654,6 +631,24 @@
         Organizar la carpeta por subcarpetas (portada/, fotos/, booktrailer/) es opcional, pero me ayuda.<br>
         Si no tienes algun elemento, no pasa nada — trabajo con lo que tengas.
       </p>
+    </div>
+
+    <div class="pricing-highlights" style="margin-top:3rem;">
+      <div class="ph-item">
+        <div class="ph-icon">🚪</div>
+        <h4>Cancela cuando quieras</h4>
+        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">💳</div>
+        <h4>Pago fraccionable</h4>
+        <p>Cuotas a 3 o 6 meses. Pago unico con descuento.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">📂</div>
+        <h4>Todo tuyo en Drive</h4>
+        <p>Todos los archivos te pertenecen. Si decides irte, te llevas todo.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -798,6 +793,23 @@
         </div>
       </div>
 
+      <div class="portfolio-item">
+        <a href="https://nachruiz.github.io/votacion-portadas" target="_blank" style="text-decoration:none;">
+          <div class="portfolio-embed" style="display:flex;align-items:center;justify-content:center;padding-top:0;height:280px;background:linear-gradient(135deg,rgba(192,96,255,0.08),rgba(11,15,20,0.9));">
+            <div style="text-align:center;padding:2rem;">
+              <div style="font-size:3rem;margin-bottom:0.5rem;">🎨</div>
+              <h3 style="font-family:'Cinzel',serif;color:var(--dorado);font-size:1.1rem;margin-bottom:0.3rem;">Votacion de portadas</h3>
+              <p style="font-size:0.8rem;color:rgba(237,230,214,0.5);">Tus lectores eligen la portada</p>
+            </div>
+          </div>
+        </a>
+        <div class="portfolio-info">
+          <h3>Selector de portadas interactivo</h3>
+          <p>Grietas y Arquitectas — los lectores votan su portada favorita</p>
+          <span class="tag">PORTADAS</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -813,7 +825,7 @@
         <h3>Cineasta</h3>
         <div class="price">29€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
         <div class="price-note">6 cuotas · o 147€ pago unico (ahorra 27€)</div>
-        <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Es menos que Netflix."</p>
+        <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Menos que un cafe al dia."</p>
         <ul>
           <li>Booktrailer cinematografico con IA</li>
           <li>Imagenes generadas de alta calidad</li>
@@ -845,7 +857,7 @@
         <ul>
           <li>Todo lo de Starter</li>
           <li>Booktrailer cinematografico con IA</li>
-          <li>Estrategia de redes sociales (1 mes incluido, renovable)</li>
+          <li>Estrategia de redes sociales (1 mes incluido, despues 79€/mes si quieres continuar)</li>
           <li>4 carruseles/reels diseñados</li>
           <li>Setup de Amazon Ads</li>
         </ul>
@@ -859,7 +871,7 @@
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Tengo una agencia propia."</p>
         <ul>
           <li>Todo lo de Impulso</li>
-          <li>Social media management (3 meses incluidos, renovable)</li>
+          <li>Social media management (3 meses incluidos, despues 139€/mes si quieres continuar)</li>
           <li>Newsletter mensual gestionada</li>
           <li>Estrategia de contenido continua</li>
           <li>Soporte prioritario</li>
@@ -869,11 +881,21 @@
 
     </div>
 
-    <!-- Ambassador -->
+    <!-- Ambassador Toggle -->
     <div class="ambassador-box" style="margin-top:2.5rem;">
       <h3>Programa Embajador</h3>
-      <div class="discount">Hasta -20%</div>
-      <p>Reduce el precio compartiendo contenido de Hype Agent en tus redes. <strong>Minimo 2 reposts por semana</strong> (carruseles, reels, tips). Cuanto mas compartes, menos pagas.</p>
+      <p style="margin-bottom:1rem;font-size:0.85rem;color:rgba(237,230,214,0.6);">Comparte contenido de Hype Agent en tus redes (minimo 2 reposts/semana) y desbloquea un <strong>30% de descuento</strong> en cualquier plan.</p>
+      <label style="display:inline-flex;align-items:center;gap:0.8rem;cursor:pointer;">
+        <span style="font-size:0.85rem;color:var(--crema);">Activar descuento embajador</span>
+        <div style="position:relative;width:50px;height:26px;">
+          <input type="checkbox" id="ambassador-toggle" style="opacity:0;width:0;height:0;" onchange="toggleAmbassador(this.checked)">
+          <span id="toggle-track" style="position:absolute;inset:0;background:rgba(200,169,106,0.2);border-radius:13px;transition:all 0.3s;cursor:pointer;" onclick="document.getElementById('ambassador-toggle').click()"></span>
+          <span id="toggle-thumb" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:rgba(237,230,214,0.5);border-radius:50%;transition:all 0.3s;pointer-events:none;"></span>
+        </div>
+      </label>
+      <div id="ambassador-badge" style="display:none;margin-top:0.8rem;">
+        <span style="background:var(--magenta);color:#fff;font-size:0.7rem;font-weight:700;padding:0.3rem 1rem;border-radius:20px;letter-spacing:0.1em;">-30% ACTIVADO</span>
+      </div>
     </div>
   </div>
 </section>
@@ -901,5 +923,46 @@
   </p>
 </footer>
 
+<script>
+const prices = {
+  normal: ['29€', '39€', '79€', '139€'],
+  ambassador: ['20€', '27€', '55€', '97€'],
+  normalFull: ['147€', '197€', '397€', '697€'],
+  ambassadorFull: ['103€', '138€', '278€', '488€']
+};
+
+function toggleAmbassador(on) {
+  const cards = document.querySelectorAll('.price-card');
+  const track = document.getElementById('toggle-track');
+  const thumb = document.getElementById('toggle-thumb');
+  const badge = document.getElementById('ambassador-badge');
+
+  if (on) {
+    track.style.background = 'var(--magenta)';
+    thumb.style.left = '27px';
+    thumb.style.background = '#fff';
+    badge.style.display = 'block';
+  } else {
+    track.style.background = 'rgba(200,169,106,0.2)';
+    thumb.style.left = '3px';
+    thumb.style.background = 'rgba(237,230,214,0.5)';
+    badge.style.display = 'none';
+  }
+
+  const set = on ? 'ambassador' : 'normal';
+  const setFull = on ? 'ambassadorFull' : 'normalFull';
+
+  cards.forEach((card, i) => {
+    const priceEl = card.querySelector('.price');
+    const noteEl = card.querySelector('.price-note');
+    if (priceEl && prices[set][i]) {
+      priceEl.innerHTML = prices[set][i] + '<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
+    }
+    if (noteEl && prices[setFull][i]) {
+      noteEl.textContent = '6 cuotas · o ' + prices[setFull][i] + ' pago unico';
+    }
+  });
+}
+</script>
 </body>
 </html>
