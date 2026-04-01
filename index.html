@@ -410,6 +410,23 @@
       font-size: 0.85rem;
       color: rgba(237,230,214,0.55);
     }
+    .pay-toggle {
+      background: rgba(200,169,106,0.08);
+      border: 1px solid rgba(200,169,106,0.2);
+      color: rgba(237,230,214,0.5);
+      padding: 0.6rem 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .pay-toggle:hover { border-color: var(--dorado); color: var(--crema); }
+    .pay-toggle.active {
+      background: var(--dorado);
+      color: var(--negro);
+      border-color: var(--dorado);
+    }
     .ambassador-box {
       background: linear-gradient(135deg, rgba(0,229,255,0.05), rgba(192,96,255,0.05));
       border: 1px solid rgba(192,96,255,0.2);
@@ -829,6 +846,13 @@
     <h2 class="section-title">Invierte en tu carrera</h2>
     <p class="section-sub">Cancela cuando quieras, sin penalizacion.</p>
 
+    <!-- Payment Toggle -->
+    <div style="display:flex;justify-content:center;gap:0;margin-bottom:2rem;">
+      <button class="pay-toggle active" onclick="setPayment('unico')" id="pay-unico" style="border-radius:20px 0 0 20px;">Pago unico</button>
+      <button class="pay-toggle" onclick="setPayment('3m')" id="pay-3m">3 meses</button>
+      <button class="pay-toggle" onclick="setPayment('6m')" id="pay-6m" style="border-radius:0 20px 20px 0;">6 meses</button>
+    </div>
+
     <!-- Ambassador Toggle -->
     <div class="ambassador-box" style="margin-bottom:2rem;">
       <h3>Programa Embajador</h3>
@@ -850,8 +874,8 @@
 
       <div class="price-card">
         <h3>Cineasta</h3>
-        <div class="price">29€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
-        <div class="price-note">6 cuotas · o 147€ pago unico (ahorra 27€)</div>
+        <div class="price">147€</div>
+        <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Menos que un cafe al dia."</p>
         <ul>
           <li>Booktrailer cinematografico con IA</li>
@@ -863,8 +887,8 @@
 
       <div class="price-card">
         <h3>Starter</h3>
-        <div class="price">39€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
-        <div class="price-note">6 cuotas · o 197€ pago unico (ahorra 37€)</div>
+        <div class="price">197€</div>
+        <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Una cena fuera al mes por mi carrera."</p>
         <ul>
           <li>Web oficial de autor con dominio propio</li>
@@ -878,8 +902,8 @@
       <div class="price-card featured">
         <span class="price-badge">MAS POPULAR</span>
         <h3>Impulso</h3>
-        <div class="price">79€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
-        <div class="price-note">6 cuotas · o 397€ pago unico (ahorra 77€)</div>
+        <div class="price">397€</div>
+        <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Inversion profesional real."</p>
         <ul>
           <li>Todo lo de Starter</li>
@@ -893,8 +917,8 @@
 
       <div class="price-card">
         <h3>Total</h3>
-        <div class="price">139€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span></div>
-        <div class="price-note">6 cuotas · o 697€ pago unico (ahorra 137€)</div>
+        <div class="price">697€</div>
+        <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Tengo una agencia propia."</p>
         <ul>
           <li>Todo lo de Impulso</li>
@@ -933,19 +957,29 @@
 </footer>
 
 <script>
-const prices = {
-  normal: ['29€', '39€', '79€', '139€'],
-  ambassador: ['20€', '27€', '55€', '97€'],
-  normalFull: ['147€', '197€', '397€', '697€'],
-  ambassadorFull: ['103€', '138€', '278€', '488€']
-};
+// Prices: [Cineasta, Starter, Impulso, Total]
+// Base prices (pago unico)
+const base = [147, 197, 397, 697];
+// +10% for 3 months, +20% for 6 months
+const markup3m = 1.10;
+const markup6m = 1.20;
+const ambassadorDiscount = 0.70; // 30% off
+
+let currentPeriod = 'unico';
+let ambassadorOn = false;
+
+function setPayment(period) {
+  currentPeriod = period;
+  document.querySelectorAll('.pay-toggle').forEach(b => b.classList.remove('active'));
+  document.getElementById('pay-' + period).classList.add('active');
+  updatePrices();
+}
 
 function toggleAmbassador(on) {
-  const cards = document.querySelectorAll('.price-card');
+  ambassadorOn = on;
   const track = document.getElementById('toggle-track');
   const thumb = document.getElementById('toggle-thumb');
   const badge = document.getElementById('ambassador-badge');
-
   if (on) {
     track.style.background = 'var(--magenta)';
     thumb.style.left = '27px';
@@ -957,18 +991,39 @@ function toggleAmbassador(on) {
     thumb.style.background = 'rgba(237,230,214,0.5)';
     badge.style.display = 'none';
   }
+  updatePrices();
+}
 
-  const set = on ? 'ambassador' : 'normal';
-  const setFull = on ? 'ambassadorFull' : 'normalFull';
+function updatePrices() {
+  const cards = document.querySelectorAll('.price-card');
+  const quotes = [
+    '"Menos que un cafe al dia."',
+    '"Una cena fuera al mes por mi carrera."',
+    '"Inversion profesional real."',
+    '"Tengo una agencia propia."'
+  ];
 
   cards.forEach((card, i) => {
     const priceEl = card.querySelector('.price');
     const noteEl = card.querySelector('.price-note');
-    if (priceEl && prices[set][i]) {
-      priceEl.innerHTML = prices[set][i] + '<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
-    }
-    if (noteEl && prices[setFull][i]) {
-      noteEl.textContent = '6 cuotas · o ' + prices[setFull][i] + ' pago unico';
+    if (!priceEl || !noteEl) return;
+
+    let basePrice = base[i];
+    if (ambassadorOn) basePrice = Math.round(basePrice * ambassadorDiscount);
+
+    if (currentPeriod === 'unico') {
+      priceEl.innerHTML = basePrice + '€';
+      noteEl.textContent = 'Pago unico';
+    } else if (currentPeriod === '3m') {
+      const total = Math.round(basePrice * markup3m);
+      const monthly = Math.round(total / 3);
+      priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
+      noteEl.textContent = '3 cuotas de ' + monthly + '€ (total ' + total + '€)';
+    } else {
+      const total = Math.round(basePrice * markup6m);
+      const monthly = Math.round(total / 6);
+      priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
+      noteEl.textContent = '6 cuotas de ' + monthly + '€ (total ' + total + '€)';
     }
   });
 }
