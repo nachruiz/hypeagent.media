@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; }
+    .banner {
+      width: 1280px;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(11,15,20,0.45);
+    }
+    .banner-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .banner-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 5rem;
+      letter-spacing: 0.15em;
+      background: linear-gradient(170deg, #fff5dc 0%, #f5e6c8 8%, #e8d5a3 18%, #d4b87a 35%, #8a6530 50%, #a8844a 55%, #d4b87a 65%, #f5e6c8 78%, #fff5dc 85%, #d4b87a 95%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter:
+        drop-shadow(0 1px 0 #8a6530)
+        drop-shadow(0 2px 0 #7a5a28)
+        drop-shadow(0 3px 4px rgba(0,0,0,0.3))
+        drop-shadow(0 0 25px rgba(200,169,106,0.35));
+    }
+    .banner-sub {
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      font-size: 1.3rem;
+      letter-spacing: 0.25em;
+      color: rgba(237,230,214,0.7);
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <img src="new hero 5.png" alt="Hype Agents" />
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+      <div class="banner-title">HYPE AGENTS</div>
+      <div class="banner-sub">La forja del autor estratega</div>
+    </div>
+  </div>
+</body>
+</html>

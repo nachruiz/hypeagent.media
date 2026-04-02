@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hype Agent — Agencia digital para autores</title>
-  <meta name="description" content="Multiplico tus lectores. Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar." />
+  <meta name="description" content="Multiplico tus lectores. Booktrailers, redes sociales, web oficial de autor, newsletter, marca personal y estrategia digital. Todo en un solo lugar." />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -127,11 +127,15 @@
       color: var(--dorado);
       letter-spacing: 0.12em;
       margin-bottom: 0.5rem;
-      background: linear-gradient(180deg, #f5e6c8 0%, #e8d5a3 20%, #d4b87a 40%, #a8844a 55%, #d4b87a 70%, #f0deb5 85%, #e8d5a3 100%);
+      background: linear-gradient(170deg, #fff5dc 0%, #f5e6c8 8%, #e8d5a3 18%, #d4b87a 35%, #8a6530 50%, #a8844a 55%, #d4b87a 65%, #f5e6c8 78%, #fff5dc 85%, #d4b87a 95%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 0 30px rgba(200,169,106,0.5)) drop-shadow(2px 3px 1px rgba(0,0,0,0.7)) drop-shadow(-1px -1px 0px rgba(255,240,200,0.15));
+      filter:
+        drop-shadow(0 1px 0 #8a6530)
+        drop-shadow(0 2px 0 #7a5a28)
+        drop-shadow(0 3px 4px rgba(0,0,0,0.3))
+        drop-shadow(0 0 25px rgba(200,169,106,0.35));
     }
     .hero-tagline {
       font-size: 1.3rem;
@@ -267,6 +271,75 @@
       font-size: 0.75rem;
       color: rgba(237,230,214,0.35);
       margin-top: 0.3rem;
+    }
+
+    /* ══ RESULTS LAYOUT ══ */
+    .results-section {
+      position: relative;
+      padding: 5rem 2rem;
+      overflow: hidden;
+    }
+    .results-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 25% top;
+      z-index: 0;
+    }
+    .results-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(11,15,20,0.15) 0%, rgba(11,15,20,0.5) 40%, rgba(11,15,20,0.92) 65%);
+      z-index: 1;
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .results-title-area {
+      padding-right: 2rem;
+    }
+    .results-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .results-card {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: rgba(11,15,20,0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(200,169,106,0.15);
+      border-radius: 12px;
+      padding: 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .results-card:hover {
+      border-color: rgba(200,169,106,0.4);
+      background: rgba(11,15,20,0.88);
+      transform: translateX(-6px);
+    }
+    .results-card-thumb {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .results-card-info {
+      text-align: left;
+    }
+    .results-card-info h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: var(--crema);
+      margin-bottom: 0.2rem;
     }
 
     /* ══ PORTFOLIO ══ */
@@ -555,6 +628,52 @@
     }
     footer a { color: var(--dorado); text-decoration: none; }
 
+    /* ══ FAQ ══ */
+    .faq-list { max-width: 750px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid rgba(200,169,106,0.1);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      text-align: left;
+    }
+    .faq-question h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: var(--crema);
+      font-weight: 700;
+    }
+    .faq-question:hover h4 { color: var(--dorado); }
+    .faq-arrow {
+      color: var(--dorado);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+    .faq-answer p {
+      font-size: 0.85rem;
+      color: rgba(237,230,214,0.6);
+      line-height: 1.8;
+      padding-bottom: 1.5rem;
+    }
+
     /* ══ RESPONSIVE ══ */
     @media (max-width: 768px) {
       .nav-links a:not(.nav-cta) { display: none; }
@@ -569,6 +688,19 @@
       .services-grid { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .pricing-highlights { grid-template-columns: 1fr; }
+      .results-section { padding-bottom: 2rem; }
+      .results-bg { object-position: 30% center; }
+      .results-overlay {
+        background: linear-gradient(to bottom, rgba(11,15,20,0.3) 0%, rgba(11,15,20,0.85) 60%, rgba(11,15,20,0.95) 100%);
+      }
+      .results-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .results-title-area { padding-right: 0; text-align: center; }
+      .results-title-area .section-title { text-align: center !important; }
+      .results-title-area .section-sub { text-align: center !important; }
+      .results-card-thumb { width: 70px; height: 70px; }
       .portfolio-grid { grid-template-columns: 1fr !important; }
       .portfolio-embed { height: 350px !important; }
       .portfolio-embed img { object-position: center center !important; }
@@ -586,19 +718,20 @@
     <a href="#servicios">Servicios</a>
     <a href="#resultados">Resultados</a>
     <a href="#portfolio">Portfolio</a>
+    <a href="#faq">FAQ</a>
     <a href="#precios" class="nav-cta">PRECIOS</a>
   </div>
 </nav>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
-  <img class="hero-bg" src="new hero.png" alt="Hype Agent" />
+  <img class="hero-bg" src="new hero.jpg" alt="Hype Agent" />
   <div class="hero-overlay"></div>
   <div class="hero-content" style="position:relative;z-index:2;">
     <h1 class="hero-logo">HYPE AGENT</h1>
     <p class="hero-tagline"><strong>Multiplico</strong> tus lectores.</p>
     <p style="font-size:0.85rem;color:var(--dorado);margin-bottom:0.3rem;position:relative;z-index:2;">Cancela cuando quieras.</p>
-    <p class="hero-sub">Booktrailers, redes sociales, web oficial de autor, newsletter y estrategia digital. Todo en un solo lugar.</p>
+    <p class="hero-sub">Booktrailers, redes sociales, web oficial de autor, newsletter, marca personal y estrategia digital. Todo en un solo lugar.</p>
     <div class="hero-buttons">
       <a href="#empezar" class="btn-primary">QUIERO EMPEZAR</a>
       <a href="#servicios" class="btn-secondary">Ver servicios</a>
@@ -642,45 +775,51 @@
 </section>
 
 <!-- ══ EMPEZAR ══ -->
-<section id="empezar" style="background:rgba(237,230,214,0.03);">
+<section id="empezar" style="background:#d6d3cd;">
   <div class="container">
     <div class="onboarding-box">
-      <h2 class="section-title">Empezar es facil</h2>
-      <p class="section-sub">Solo necesito una cosa de ti: un enlace a una carpeta de Google Drive con tu material.</p>
+      <h2 class="section-title" style="color:var(--negro);">Empezar es facil</h2>
+      <p class="section-sub" style="color:rgba(11,15,20,0.6);">Solo necesito una cosa de ti: un enlace a una carpeta de Google Drive con tu material.</p>
 
       <div class="onboarding-steps">
         <div class="onboarding-step">
-          <span class="step-num">01</span>
+          <span class="step-num" style="color:rgba(11,15,20,0.15);">01</span>
           <div class="step-text">
-            <h4>Crea una carpeta en Google Drive</h4>
-            <p>Sube tu material: portada, fotos de autor, booktrailer (si tienes), sinopsis, enlaces de compra, redes sociales, tono de contenido deseado y dominio preferido. <strong>Si las fotos tienen nombre descriptivo (ej: foto_montana.jpg) me ayuda mucho.</strong></p>
+            <h4 style="color:var(--negro);">Crea una carpeta en Google Drive</h4>
+            <p style="color:rgba(11,15,20,0.6);">Sube tu material: portada, fotos de autor, booktrailer (si tienes), sinopsis, enlaces de compra, redes sociales, tono de contenido deseado y dominio preferido. <strong style="color:var(--negro);">Si las fotos tienen nombre descriptivo (ej: foto_montana.jpg) me ayuda mucho.</strong></p>
           </div>
         </div>
         <div class="onboarding-step">
-          <span class="step-num">02</span>
+          <span class="step-num" style="color:rgba(11,15,20,0.15);">02</span>
           <div class="step-text">
-            <h4>Enviame el enlace de la carpeta</h4>
-            <p>Un solo email a <a href="mailto:contact@hypeagent.media">contact@hypeagent.media</a> con el link de Drive compartido. Nada mas.</p>
+            <h4 style="color:var(--negro);">Enviame el enlace de la carpeta</h4>
+            <p style="color:rgba(11,15,20,0.6);">Un solo email a <a href="mailto:contact@hypeagent.media" style="color:#8a6d35;">contact@hypeagent.media</a> con el link de Drive compartido. Nada mas.</p>
           </div>
         </div>
         <div class="onboarding-step">
-          <span class="step-num">03</span>
+          <span class="step-num" style="color:rgba(11,15,20,0.15);">03</span>
           <div class="step-text">
-            <h4>Yo me encargo del resto</h4>
-            <p>Reviso tu material, te contacto si necesito algo mas, y empiezo a trabajar. Te entrego todo en tu propia carpeta de Google Drive.</p>
+            <h4 style="color:var(--negro);">Yo me encargo del resto</h4>
+            <p style="color:rgba(11,15,20,0.6);">Reviso tu material, te contacto si necesito algo mas, y empiezo a trabajar. Te entrego todo en tu propia carpeta de Google Drive.</p>
           </div>
         </div>
       </div>
 
-      <a href="mailto:contact@hypeagent.media?subject=Quiero%20empezar%20con%20Hype%20Agent&body=Hola!%20Te%20comparto%20mi%20carpeta%20de%20Google%20Drive%20con%20el%20material%20de%20mi%20libro:%20%0A%0A[Pega%20aqui%20el%20enlace%20de%20tu%20carpeta%20de%20Drive]%0A%0APlan%20que%20me%20interesa:%20%0A%0AGracias!" class="email-cta">ENVIAR MI MATERIAL</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSffCzZaO8WDdG0NkjP7wI5zSEtNd9c1VeK--O4KethyKSakWQ/viewform" target="_blank" class="email-cta" style="background:var(--negro);color:var(--crema);">ENVIAR MI MATERIAL</a>
 
-      <p class="onboarding-note">
+      <p class="onboarding-note" style="color:rgba(11,15,20,0.55);">
         Organizar la carpeta por subcarpetas (portada/, fotos/, booktrailer/) es opcional, pero me ayuda.<br>
         Si no tienes algun elemento, no pasa nada — trabajo con lo que tengas.
       </p>
     </div>
 
-    <div class="pricing-highlights" style="margin-top:3rem;">
+  </div>
+</section>
+
+<!-- ══ HIGHLIGHTS ══ -->
+<section style="background:linear-gradient(to bottom, #d6d3cd 0%, #b0a999 20%, #5a5248 40%, #2a2520 60%, #1a1d22 100%);padding:5rem 2rem 3.5rem;">
+  <div class="container">
+    <div class="pricing-highlights">
       <div class="ph-item">
         <div class="ph-icon">🚪</div>
         <h4>Cancela cuando quieras</h4>
@@ -701,16 +840,16 @@
 </section>
 
 <!-- ══ SERVICIOS ══ -->
-<section id="servicios" style="background:linear-gradient(135deg, rgba(30,20,50,0.6) 0%, rgba(11,15,20,1) 100%);">
+<section id="servicios" style="background:linear-gradient(to bottom, #1a1d22 0%, #1e1530 30%, #130e20 65%, #0b0f14 100%);">
   <div class="container">
     <h2 class="section-title">Que hago por ti</h2>
-    <p class="section-sub">Me encargo de todo lo digital para que tu te centres en escribir.</p>
+    <p class="section-sub">Tu marketing editorial y marca personal de autor, resueltos.<br>Tu escribe, yo me encargo del resto</p>
     <div class="services-grid">
 
       <div class="service-card">
         <div class="service-icon">🎬</div>
         <h3>Booktrailers</h3>
-        <p>Creo o mejoro tu booktrailer con imagenes generadas por IA, voz en off y musica. Resultado cinematografico que engancha en los primeros 3 segundos.</p>
+        <p>Creo o mejoro tu booktrailer con imagenes de alta calidad, voz en off y musica. Resultado cinematografico que engancha en los primeros 3 segundos.</p>
       </div>
 
       <div class="service-card">
@@ -747,41 +886,47 @@
   </div>
 </section>
 
-<!-- ══ IMAGEN HYPE AGENT ══ -->
-<section style="padding:0;">
-  <img src="new hero 2.png" alt="Hype Agent" style="width:100%;display:block;" />
-</section>
-
 <!-- ══ RESULTADOS ══ -->
-<section id="resultados" style="background:rgba(237,230,214,0.03);">
-  <div class="container">
-    <h2 class="section-title">Resultados reales</h2>
-    <p class="section-sub">Numeros que hablan por si solos.</p>
-
-    <div class="services-grid">
-      <a href="https://www.tiktok.com/t/ZTkjur32Q/" target="_blank" class="service-card" style="text-align:center;text-decoration:none;">
-        <div class="service-icon">🔥</div>
-        <h3>TikTok Feria del Libro</h3>
-        <div class="stat-number" style="font-size:2.5rem;">4M+</div>
-        <div class="stat-label">Visualizaciones</div>
-        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">15K likes · 450 comentarios · 1.8K guardados</p>
+<section id="resultados" class="results-section">
+  <img src="new hero 2.jpg" alt="Hype Agent" class="results-bg" />
+  <div class="results-overlay"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="results-grid">
+      <div class="results-title-area">
+        <h2 class="section-title" style="text-align:left;">Resultados reales</h2>
+        <p class="section-sub" style="text-align:left;margin-left:0;color:rgba(237,230,214,0.75);">Numeros que hablan por si solos</p>
+      </div>
+      <div class="results-cards-stack">
+      <a href="https://www.tiktok.com/t/ZTkjur32Q/" target="_blank" class="results-card">
+        <img src="Feria del libro.jpg" alt="TikTok Feria del Libro" class="results-card-thumb" />
+        <div class="results-card-info">
+          <h3>TikTok Feria del Libro</h3>
+          <div class="stat-number" style="font-size:2rem;">4M+</div>
+          <div class="stat-label">Visualizaciones</div>
+          <p style="margin-top:0.3rem;font-size:0.75rem;color:rgba(237,230,214,0.5);">15K likes · 450 comentarios · 1.8K guardados</p>
+        </div>
       </a>
 
-      <a href="https://youtu.be/tBhUbHQxeQ0" target="_blank" class="service-card" style="text-align:center;text-decoration:none;">
-        <img src="https://img.youtube.com/vi/tBhUbHQxeQ0/mqdefault.jpg" alt="TEDx" style="width:100%;border-radius:8px;margin-bottom:1rem;" />
-        <h3>Charla TEDx</h3>
-        <div class="stat-number" style="font-size:2.5rem;">+600K</div>
-        <div class="stat-label">Visualizaciones</div>
-        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">48.000 likes · 490 comentarios</p>
+      <a href="https://youtu.be/tBhUbHQxeQ0" target="_blank" class="results-card">
+        <img src="https://img.youtube.com/vi/tBhUbHQxeQ0/mqdefault.jpg" alt="TEDx" class="results-card-thumb" />
+        <div class="results-card-info">
+          <h3>Charla TEDx</h3>
+          <div class="stat-number" style="font-size:2rem;">+600K</div>
+          <div class="stat-label">Visualizaciones</div>
+          <p style="margin-top:0.3rem;font-size:0.75rem;color:rgba(237,230,214,0.5);">48.000 likes · 490 comentarios</p>
+        </div>
       </a>
 
-      <a href="https://www.tiktok.com/t/ZTkjuNnht/" target="_blank" class="service-card" style="text-align:center;text-decoration:none;">
-        <div class="service-icon">💬</div>
-        <h3>Relaciones padres e hijos</h3>
-        <div class="stat-number" style="font-size:2.5rem;">+250K</div>
-        <div class="stat-label">Visualizaciones</div>
-        <p style="margin-top:0.8rem;font-size:0.8rem;color:rgba(237,230,214,0.5);">+6.800 likes · 335 comentarios · 2.200 guardados</p>
+      <a href="https://www.tiktok.com/t/ZTkjuNnht/" target="_blank" class="results-card">
+        <img src="padres adolescentes.jpg" alt="Relaciones padres e hijos" class="results-card-thumb" />
+        <div class="results-card-info">
+          <h3>Relaciones padres e hijos</h3>
+          <div class="stat-number" style="font-size:2rem;">+250K</div>
+          <div class="stat-label">Visualizaciones</div>
+          <p style="margin-top:0.3rem;font-size:0.75rem;color:rgba(237,230,214,0.5);">+6.800 likes · 335 comentarios · 2.200 guardados</p>
+        </div>
       </a>
+      </div>
     </div>
   </div>
 </section>
@@ -790,7 +935,7 @@
 <section id="portfolio">
   <div class="container">
     <h2 class="section-title">Portfolio</h2>
-    <p class="section-sub">Ejemplos reales de lo que hago.</p>
+    <p class="section-sub">Ejemplos reales de lo que hago</p>
     <div class="portfolio-grid" style="grid-template-columns:repeat(2,1fr);">
 
       <div class="portfolio-item">
@@ -853,13 +998,22 @@
 <section id="precios" style="background:rgba(237,230,214,0.03);">
   <div class="container">
     <h2 class="section-title">Invierte en tu carrera</h2>
-    <p class="section-sub">Cancela cuando quieras, sin penalizacion.</p>
+    <p class="section-sub">Cancela cuando quieras, sin penalizacion</p>
 
     <!-- Payment Toggle -->
     <div style="display:flex;justify-content:center;gap:0;margin-bottom:2rem;">
       <button class="pay-toggle active" onclick="setPayment('unico')" id="pay-unico" style="border-radius:20px 0 0 20px;">Pago unico</button>
       <button class="pay-toggle" onclick="setPayment('3m')" id="pay-3m">3 meses</button>
       <button class="pay-toggle" onclick="setPayment('6m')" id="pay-6m" style="border-radius:0 20px 20px 0;">6 meses</button>
+    </div>
+
+    <!-- MAPEA Toggle -->
+    <div style="display:flex;justify-content:center;gap:0;margin-bottom:1.5rem;">
+      <button class="pay-toggle" onclick="setMapea(false)" id="mapea-general" style="border-radius:20px 0 0 20px;">General</button>
+      <button class="pay-toggle" onclick="setMapea(true)" id="mapea-on" style="border-radius:0 20px 20px 0;">Soy MAPEA</button>
+    </div>
+    <div id="mapea-badge" style="display:none;text-align:center;margin-bottom:1.5rem;">
+      <span style="background:var(--cyan);color:var(--negro);font-size:0.7rem;font-weight:700;padding:0.3rem 1rem;border-radius:20px;letter-spacing:0.1em;">PRECIO MAPEA ACTIVADO</span>
     </div>
 
     <!-- Ambassador Toggle -->
@@ -882,12 +1036,12 @@
     <div class="pricing-grid">
 
       <div class="price-card">
-        <h3>Cineasta</h3>
-        <div class="price">147€</div>
+        <h3>Booktrailer</h3>
+        <div class="price">113€</div>
         <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Menos que un cafe al dia."</p>
         <ul>
-          <li>Booktrailer cinematografico con IA</li>
+          <li>Booktrailer cinematografico</li>
           <li>Imagenes generadas de alta calidad</li>
           <li>Entrega en Google Drive</li>
         </ul>
@@ -895,8 +1049,8 @@
       </div>
 
       <div class="price-card">
-        <h3>Starter</h3>
-        <div class="price">197€</div>
+        <h3>Website</h3>
+        <div class="price">434€</div>
         <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Una cena fuera al mes por mi carrera."</p>
         <ul>
@@ -910,14 +1064,14 @@
 
       <div class="price-card featured">
         <span class="price-badge">MAS POPULAR</span>
-        <h3>Impulso</h3>
-        <div class="price">397€</div>
+        <h3>Estrategia Redes</h3>
+        <div class="price">747€</div>
         <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Inversion profesional real."</p>
         <ul>
           <li>Todo lo de Starter</li>
-          <li>Booktrailer cinematografico con IA</li>
-          <li>Estrategia de redes sociales (1 mes incluido, despues 79€/mes si quieres continuar)</li>
+          <li>Booktrailer cinematografico</li>
+          <li>Estrategia de redes sociales (1 mes incluido, despues <strong style="color:var(--dorado);font-size:0.95rem;" class="monthly-price" data-mapea="119" data-general="149">119€/mes</strong> si quieres continuar)</li>
           <li>4 carruseles/reels diseñados</li>
           <li>Setup de Amazon Ads</li>
         </ul>
@@ -926,12 +1080,12 @@
 
       <div class="price-card">
         <h3>Total</h3>
-        <div class="price">697€</div>
+        <div class="price">1309€</div>
         <div class="price-note">Pago unico</div>
         <p style="font-size:0.8rem;color:var(--dorado);font-style:italic;margin-bottom:1.2rem;">"Tengo una agencia propia."</p>
         <ul>
           <li>Todo lo de Impulso</li>
-          <li>Social media management (3 meses incluidos, despues 139€/mes si quieres continuar)</li>
+          <li>Social media management (3 meses incluidos, despues <strong style="color:var(--dorado);font-size:0.95rem;" class="monthly-price" data-mapea="209" data-general="261">209€/mes</strong> si quieres continuar)</li>
           <li>Newsletter mensual gestionada</li>
           <li>Estrategia de contenido continua</li>
           <li>Soporte prioritario</li>
@@ -943,14 +1097,103 @@
   </div>
 </section>
 
+<!-- ══ SKOOL ══ -->
+<section style="padding:4rem 2rem;background:var(--negro);text-align:center;">
+  <div class="container" style="max-width:600px;">
+    <div style="position:relative;border-radius:12px;overflow:hidden;margin-bottom:2rem;">
+      <img src="banner_skool.html" style="display:none;" />
+      <img src="new hero 5.png" alt="Hype Agents" style="width:100%;height:200px;object-fit:cover;object-position:center;" />
+      <div style="position:absolute;inset:0;background:rgba(11,15,20,0.45);"></div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+        <span style="font-family:'Cinzel',serif;font-weight:900;font-size:2.5rem;letter-spacing:0.15em;background:linear-gradient(170deg,#fff5dc 0%,#d4b87a 35%,#8a6530 50%,#d4b87a 65%,#fff5dc 85%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">HYPE AGENTS</span>
+        <span style="font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.25em;color:rgba(237,230,214,0.7);text-transform:uppercase;">La forja del autor estratega</span>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;letter-spacing:0.15em;color:var(--dorado);text-transform:uppercase;margin-bottom:0.5rem;">Comunidad gratuita</p>
+    <p style="font-size:0.95rem;color:rgba(237,230,214,0.7);margin-bottom:0.5rem;">Estrategia digital y marketing editorial para autores que quieren vender mas libros.</p>
+    <p style="font-size:0.85rem;color:rgba(237,230,214,0.45);margin-bottom:2rem;">Sin humo, solo lo que funciona.</p>
+    <a href="https://www.skool.com/hype-agents-5337/about" target="_blank" class="btn-primary" style="font-size:0.9rem;padding:0.8rem 2rem;">UNIRME A LA COMUNIDAD</a>
+  </div>
+</section>
+
 <!-- ══ CTA FINAL ══ -->
 <section style="padding:3rem 2rem;background:var(--negro);text-align:center;">
   <div class="container" style="max-width:800px;">
     <img src="youtube.jpg" alt="Hype Agent" style="width:70%;border-radius:12px;margin-bottom:2rem;" />
     <h2 style="font-family:'Cinzel',serif;font-weight:900;font-size:3rem;color:var(--dorado);margin-bottom:1rem;">Empezamos?</h2>
-    <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto;">Crea una carpeta en Google Drive con tu material y enviame el enlace. Yo me encargo del resto.</p>
-    <a href="mailto:contact@hypeagent.media?subject=Quiero%20empezar%20con%20Hype%20Agent&body=Hola!%20Te%20comparto%20mi%20carpeta%20de%20Google%20Drive%20con%20el%20material%20de%20mi%20libro:%20%0A%0A[Pega%20aqui%20el%20enlace%20de%20tu%20carpeta%20de%20Drive]%0A%0APlan%20que%20me%20interesa:%20%0A%0AGracias!" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">ENVIAR MI MATERIAL</a>
-    <p style="margin-top:0.8rem;font-size:0.75rem;color:rgba(237,230,214,0.4);">contact@hypeagent.media</p>
+    <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto;">Rellena el formulario y te contacto con una propuesta personalizada.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSffCzZaO8WDdG0NkjP7wI5zSEtNd9c1VeK--O4KethyKSakWQ/viewform" target="_blank" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;">ENVIAR MI MATERIAL</a>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" style="background:var(--negro);">
+  <div class="container">
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <p class="section-sub">Todo lo que necesitas saber antes de empezar</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <h4>Necesito darte mis contraseñas de redes sociales?</h4>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. Nunca necesito tus contraseñas. Instagram y TikTok permiten añadir colaboradores con roles de editor sin compartir credenciales. Tu me das acceso como colaborador a traves de Meta Business Suite (Instagram) o TikTok Business Center, y yo publico directamente en tu perfil. Si en algun momento quieres dejar de trabajar conmigo, simplemente me revocas el acceso y listo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <h4>Que pasa si quiero cancelar?</h4>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Cancelas y punto. Sin penalizacion, sin permanencia, sin preguntas. Todos los archivos que he creado para ti (web, trailers, diseños) te pertenecen y se quedan en tu carpeta de Google Drive.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <h4>Cuanto tardo en ver resultados?</h4>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>La web y el booktrailer los tienes en 5-7 dias habiles. Para redes sociales, los primeros contenidos se publican en la primera semana. Los resultados organicos (crecimiento de seguidores, engagement) empiezan a notarse a partir del primer mes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <h4>Que material necesitas de mi?</h4>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Lo basico: portada del libro, fotos de autor, sinopsis y enlaces de compra. Si tienes booktrailer, dominio preferido, tono de contenido o extractos del libro, tambien me ayuda. Pero si solo tienes la portada y una foto, con eso empezamos.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <h4>Puedo cambiar de plan mas adelante?</h4>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Si. Puedes empezar con Cineasta o Starter y ampliar a Impulso o Total cuando quieras. Solo pagas la diferencia.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+          <h4>Usas inteligencia artificial?</h4>
+          <span class="faq-arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+          <p>Si, para generar imagenes, editar video y optimizar contenido. Pero todo pasa por mi criterio creativo y mi conocimiento del mundo editorial. La IA es la herramienta, no el piloto.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -959,30 +1202,43 @@
   <p>
     <a href="mailto:contact@hypeagent.media">contact@hypeagent.media</a><br>
     Hype Agent — Multiplico tus lectores.<br><br>
-    <a href="https://www.tiktok.com/@hypeagent" target="_blank">TikTok</a> ·
-    <a href="https://www.instagram.com/hypeagent/" target="_blank">Instagram</a> ·
-    <a href="https://www.youtube.com/@hypeagent" target="_blank">YouTube</a>
+    <a href="https://www.tiktok.com/@nachoruizhens" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.75a8.18 8.18 0 004.76 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>TikTok</a> ·
+    <a href="https://www.instagram.com/nachoruizhens/" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a> ·
+    <a href="https://www.youtube.com/@hypeagent" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:4px;"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
   </p>
 </footer>
 
 <script>
 // Prices: [Cineasta, Starter, Impulso, Total]
-// Base prices (pago unico)
-const base = [147, 197, 397, 697];
-// +10% for 3 months, +20% for 6 months
+const pricesMapea = [90, 347, 597, 1047];
+const pricesGeneral = [113, 434, 747, 1309];
 const markup3m = 1.10;
 const markup6m = 1.20;
 const ambassadorDiscount = 0.70; // 30% off
 
 let currentPeriod = 'unico';
 let ambassadorOn = false;
+let mapeaOn = false;
 
 function setPayment(period) {
   currentPeriod = period;
-  document.querySelectorAll('.pay-toggle').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#pay-unico,#pay-3m,#pay-6m').forEach(b => b.classList.remove('active'));
   document.getElementById('pay-' + period).classList.add('active');
   updatePrices();
 }
+
+function setMapea(on) {
+  mapeaOn = on;
+  document.getElementById('mapea-general').classList.toggle('active', !on);
+  document.getElementById('mapea-on').classList.toggle('active', on);
+  document.getElementById('mapea-badge').style.display = on ? 'block' : 'none';
+  updatePrices();
+}
+
+// Init General as active
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('mapea-general').classList.add('active');
+});
 
 function toggleAmbassador(on) {
   ambassadorOn = on;
@@ -1005,12 +1261,7 @@ function toggleAmbassador(on) {
 
 function updatePrices() {
   const cards = document.querySelectorAll('.price-card');
-  const quotes = [
-    '"Menos que un cafe al dia."',
-    '"Una cena fuera al mes por mi carrera."',
-    '"Inversion profesional real."',
-    '"Tengo una agencia propia."'
-  ];
+  const base = mapeaOn ? pricesMapea : pricesGeneral;
 
   cards.forEach((card, i) => {
     const priceEl = card.querySelector('.price');
@@ -1034,6 +1285,14 @@ function updatePrices() {
       priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
       noteEl.textContent = '6 cuotas de ' + monthly + '€ (total ' + total + '€)';
     }
+  });
+
+  // Update monthly prices
+  document.querySelectorAll('.monthly-price').forEach(el => {
+    const price = mapeaOn ? el.dataset.mapea : el.dataset.general;
+    let p = parseInt(price);
+    if (ambassadorOn) p = Math.round(p * ambassadorDiscount);
+    el.textContent = p + '€/mes';
   });
 }
 </script>
