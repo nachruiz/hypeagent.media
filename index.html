@@ -828,6 +828,10 @@
             <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">EMAIL *</label>
             <input type="email" name="email" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="tu@email.com" />
           </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WHATSAPP *</label>
+            <input type="tel" name="whatsapp" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="+34 600 000 000" />
+          </div>
           <div style="display:flex;gap:1rem;flex-wrap:wrap;">
             <div style="flex:1;min-width:150px;">
               <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">INSTAGRAM</label>
@@ -843,7 +847,7 @@
             </div>
           </div>
           <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿TIENES LIBRO PUBLICADO? *</label>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿TIENES LIBRO(S) PUBLICADO(S)? *</label>
             <select name="publicado" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;">
               <option value="" disabled selected style="color:rgba(237,230,214,0.4);">Selecciona una opcion</option>
               <option value="si">Si</option>
@@ -872,20 +876,33 @@
           <div>
             <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.5rem;">¿QUE SERVICIOS TE INTERESAN?</label>
             <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="booktrailer_30s" style="accent-color:var(--dorado);"> Booktrailer 30 segundos</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="booktrailer_1min" style="accent-color:var(--dorado);"> Booktrailer 1 minuto</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="booktrailer" style="accent-color:var(--dorado);"> Booktrailer</label>
               <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="web" style="accent-color:var(--dorado);"> Web</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="redes" style="accent-color:var(--dorado);"> Redes sociales</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="newsletter" style="accent-color:var(--dorado);"> Newsletter</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="portadas" style="accent-color:var(--dorado);"> Portadas</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="amazon_ads" style="accent-color:var(--dorado);"> Amazon Ads</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="asesoramiento" style="accent-color:var(--dorado);"> No se, asesorarme</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="posts_sueltos" style="accent-color:var(--dorado);"> Posts sueltos</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="social_media_management" style="accent-color:var(--dorado);"> Social Media Management</label>
             </div>
+            <div style="margin-top:0.8rem;">
+              <button type="button" onclick="var d=document.getElementById('otros-servicios');d.style.display=d.style.display==='none'?'flex':'none';this.querySelector('span').textContent=d.style.display==='none'?'▼':'▲'" style="background:none;border:none;color:var(--dorado);font-size:0.8rem;cursor:pointer;font-family:'Montserrat',sans-serif;">Otros servicios <span>▼</span></button>
+              <div id="otros-servicios" style="display:none;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;">
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="newsletter" style="accent-color:var(--dorado);"> Newsletter</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="portadas" style="accent-color:var(--dorado);"> Selector de portadas</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="testeo" style="accent-color:var(--dorado);"> Testeo en mercado</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="amazon_ads" style="accent-color:var(--dorado);"> Amazon Ads</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="informe" style="accent-color:var(--dorado);"> Informe editorial</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="ventas_amazon" style="accent-color:var(--dorado);"> Analisis ventas Amazon</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="presentacion" style="accent-color:var(--dorado);"> Presentacion del libro</label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">LINK A TU MATERIAL (si ya lo tienes)</label>
+            <input type="url" name="material_link" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Link a Google Drive, Dropbox, etc." />
           </div>
           <div>
             <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿ALGO QUE QUIERAS CONTARME?</label>
             <textarea name="mensaje" rows="3" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;resize:vertical;" placeholder="Titulo del libro, genero, lo que quieras..."></textarea>
           </div>
+          <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);text-align:center;line-height:1.6;">Tras enviar el formulario te creo una carpeta privada en Google Drive.<br>Necesitare: portada, contraportada, sinopsis, fotos de autor, enlaces de compra y booktrailer (si tienes).</p>
           <button type="submit" style="background:var(--dorado);color:var(--negro);padding:0.8rem 2rem;border-radius:30px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;align-self:center;">ENVIAR</button>
         </form>
         <p id="form-success" style="display:none;text-align:center;color:var(--dorado);font-size:1rem;margin-top:1rem;">✓ Recibido! Te contacto en menos de 48h.</p>
@@ -966,6 +983,12 @@
         <div class="service-icon">📈</div>
         <h3>Amazon Ads / Prensa</h3>
         <p>Creo y gestiono tus campanas de publicidad en Amazon. Keywords, pujas y optimizacion para maximizar ventas con el minimo coste.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎤</div>
+        <h3>Presentacion del libro</h3>
+        <p>Organizo y gestiono la presentacion de tu libro. Evento presencial u online, material promocional, convocatoria y difusion en redes.</p>
       </div>
 
     </div>
