@@ -1143,18 +1143,18 @@
     <!-- Packs fijos -->
     <div class="pricing-grid">
 
-      <div class="price-card" style="display:flex;flex-direction:column;gap:1.5rem;">
+      <div class="price-card no-dynamic" style="display:flex;flex-direction:column;gap:1.5rem;">
         <h3>Booktrailer</h3>
         <div style="flex:1;">
-          <p style="color:var(--dorado);font-size:0.8rem;margin-bottom:0.2rem;">🎬 30 segundos</p>
           <div class="price">155€</div>
-          <div class="price-note">1 formato · Pago unico</div>
+          <div class="price-note">Pago unico</div>
+          <p style="color:var(--dorado);font-size:0.8rem;margin-top:0.5rem;">🎬 30 segundos · 1 formato</p>
           <a href="#empezar" class="btn-primary" style="display:block;text-align:center;font-size:0.8rem;padding:0.5rem 1rem;margin-top:0.8rem;">Elegir</a>
         </div>
         <div style="border-top:1px solid rgba(200,169,106,0.15);padding-top:1.2rem;flex:1;">
-          <p style="color:var(--dorado);font-size:0.8rem;margin-bottom:0.2rem;">🎥 1 minuto</p>
           <div class="price">205€</div>
-          <div class="price-note">1 formato · Pago unico</div>
+          <div class="price-note">Pago unico</div>
+          <p style="color:var(--dorado);font-size:0.8rem;margin-top:0.5rem;">🎥 1 minuto · 1 formato</p>
           <a href="#empezar" class="btn-primary" style="display:block;text-align:center;font-size:0.8rem;padding:0.5rem 1rem;margin-top:0.8rem;">Elegir</a>
         </div>
         <p style="font-size:0.7rem;color:rgba(237,230,214,0.4);text-align:center;">+50% si quieres horizontal y vertical</p>
@@ -1582,9 +1582,9 @@
 <script>
 // === PACK PRICES ===
 // [BT30, BT1min, Website, Impulso, Total] — ahora BT tiene 2 precios
-// [Booktrailer(skip), Website, Redes Sociales, Social Media Manager]
-const packPricesGeneral = [0, 347, 747, 1309];
-const packPricesMapea = [0, 277, 597, 1047];
+// [Website, Redes Sociales, Social Media Manager]
+const packPricesGeneral = [347, 747, 1309];
+const packPricesMapea = [277, 597, 1047];
 const markup3m = 1.10;
 const markup6m = 1.20;
 const ambassadorDiscount = 0.70;
@@ -1644,7 +1644,7 @@ function applyPayment(price) {
 }
 
 function updatePrices() {
-  var cards = document.querySelectorAll('.price-card');
+  var cards = document.querySelectorAll('.price-card:not(.no-dynamic)');
   var base = mapeaOn ? packPricesMapea : packPricesGeneral;
   cards.forEach(function(card, i) {
     var priceEl = card.querySelector('.price');
