@@ -302,8 +302,8 @@
     }
     .results-title-area {
       padding-right: 2rem;
-      align-self: start;
-      padding-top: 2rem;
+      align-self: end;
+      padding-bottom: 3rem;
     }
     .results-cards-stack {
       display: flex;
@@ -980,7 +980,7 @@
     <div class="results-grid">
       <div class="results-title-area">
         <h2 class="section-title" style="text-align:left;">Resultados reales</h2>
-        <p class="section-sub" style="text-align:left;margin-left:0;color:rgba(237,230,214,0.75);">Numeros que hablan por si solos</p>
+        <p class="section-sub" style="text-align:left;margin-left:0;color:#ffffff;">Numeros que hablan por si solos</p>
       </div>
       <div class="results-cards-stack">
       <a href="https://amzn.eu/d/0cyRmFLD" target="_blank" class="results-card">
@@ -1231,6 +1231,10 @@
             <button class="pay-toggle" onclick="setMapea(false)" style="border-radius:20px 0 0 20px;font-size:0.75rem;" id="mapea2-general">General</button>
             <button class="pay-toggle" onclick="setMapea(true)" style="border-radius:0 20px 20px 0;font-size:0.75rem;" id="mapea2-on">Soy MAPEA</button>
           </div>
+          <label style="display:inline-flex;align-items:center;gap:0.5rem;cursor:pointer;" onclick="var cb=document.getElementById('ambassador-toggle');cb.checked=!cb.checked;toggleAmbassador(cb.checked);">
+            <span style="font-size:0.75rem;color:var(--crema);">Skáld (embajador -30%)</span>
+            <div style="width:12px;height:12px;border-radius:3px;border:1px solid var(--magenta);background:var(--magenta);opacity:0.3;" id="skald-indicator"></div>
+          </label>
         </div>
 
         <!-- Booktrailers -->
@@ -1379,7 +1383,7 @@
               <span style="color:rgba(237,230,214,0.6);font-size:0.85rem;">Subtotal</span>
               <span id="subtotal" style="color:var(--crema);font-size:1rem;">0€</span>
             </div>
-            <div id="discount-row" style="display:none;display:flex;justify-content:space-between;align-items:center;margin-bottom:0.3rem;">
+            <div id="discount-row" style="display:none;justify-content:space-between;align-items:center;margin-bottom:0.3rem;">
               <span style="color:var(--magenta);font-size:0.85rem;" id="discount-label">Descuento</span>
               <span id="discount-amount" style="color:var(--magenta);font-size:1rem;">-0€</span>
             </div>
@@ -1404,7 +1408,7 @@
 <section style="padding:3rem 2rem;background:var(--negro);text-align:center;">
   <div class="container" style="max-width:800px;">
     <img src="youtube.jpg" alt="Hype Agent" style="width:70%;border-radius:12px;margin-bottom:2rem;" />
-    <h2 style="font-family:'Cinzel',serif;font-weight:900;font-size:3rem;color:var(--dorado);margin-bottom:1rem;">Empezamos?</h2>
+    <h2 style="font-family:'Cinzel',serif;font-weight:900;font-size:3rem;color:var(--dorado);margin-bottom:1rem;">¿Empezamos?</h2>
     <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto;">Rellena el formulario y te contacto con una propuesta personalizada.</p>
     <button onclick="document.getElementById('form-embed').style.display='block';document.getElementById('form-embed').scrollIntoView({behavior:'smooth',block:'center'});" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;border:none;cursor:pointer;">ENVIAR MI MATERIAL</button>
   </div>
@@ -1690,6 +1694,7 @@ function changeQty(key, delta) {
 }
 
 function updateTotal() {
+  if (!document.getElementById('web-type')) return;
   var items = [];
   var subtotal = 0;
 
