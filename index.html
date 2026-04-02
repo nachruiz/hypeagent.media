@@ -1809,11 +1809,14 @@ function updateTotal() {
     payRow.style.display = 'none';
   }
 
-  // Discount row
+  // Discount row - calculate what price would be without ambassador
   var discRow = document.getElementById('discount-row');
   if (ambassadorOn && subtotal > 0) {
+    var fullPrice = Math.round(subtotal / ambassadorDiscount);
+    var saved = fullPrice - subtotal;
     discRow.style.display = 'flex';
-    document.getElementById('discount-label').textContent = 'Embajador -30%';
+    document.getElementById('discount-label').textContent = 'Skáld -30%';
+    document.getElementById('discount-amount').textContent = '-' + saved + '€';
   } else {
     discRow.style.display = 'none';
   }
