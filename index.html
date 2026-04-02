@@ -1191,6 +1191,7 @@
           <li>4 posts diseñados</li>
           <li>Setup de Amazon Ads</li>
         </ul>
+        <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);margin-top:0.8rem;border-top:1px solid rgba(200,169,106,0.1);padding-top:0.8rem;">Renovacion mensual: <strong style="color:var(--crema);" class="monthly-price" data-mapea="119" data-general="149">149€/mes</strong></p>
         <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir</a>
       </div>
 
@@ -1199,12 +1200,13 @@
         <div class="price">1309€</div>
         <div class="price-note">Pago unico</div>
         <ul>
-          <li>Todo lo de Impulso</li>
+          <li>Todo lo de Redes Sociales</li>
           <li>Gestion de redes 3 meses</li>
           <li>Newsletter gestionada</li>
           <li>Estrategia continua</li>
           <li>Soporte prioritario</li>
         </ul>
+        <p style="font-size:0.75rem;color:rgba(237,230,214,0.5);margin-top:0.8rem;border-top:1px solid rgba(200,169,106,0.1);padding-top:0.8rem;">Renovacion mensual: <strong style="color:var(--crema);" class="monthly-price" data-mapea="209" data-general="261">261€/mes</strong></p>
         <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir</a>
       </div>
 
@@ -1550,9 +1552,9 @@
 <!-- ══ SKOOL ══ -->
 <section style="padding:4rem 2rem;background:rgba(237,230,214,0.05);text-align:center;">
   <div class="container" style="max-width:600px;">
+    <p style="font-size:1.05rem;color:var(--crema);margin-bottom:1rem;">¿Todavia no lo tienes claro?</p>
     <a href="https://www.skool.com/hype-agents-5337/about" target="_blank"><img src="Skool 3.png" alt="Hype Agents" style="width:100%;border-radius:12px;margin-bottom:1.5rem;" /></a>
-    <p style="font-size:1.05rem;color:var(--crema);margin-bottom:0.5rem;">¿Todavia no lo tienes claro?</p>
-    <p style="font-size:0.95rem;color:rgba(237,230,214,0.6);margin-bottom:0.5rem;">Unite <strong style="color:var(--magenta);">gratis</strong> a la comunidad. Estrategia, marketing editorial y autores como tu.</p>
+    <p style="font-size:0.95rem;color:rgba(237,230,214,0.6);margin-bottom:0.5rem;">Unete <strong style="color:var(--magenta);">gratis</strong> a la comunidad. Estrategia, marketing editorial y autores como tu.</p>
     <p style="font-size:0.85rem;color:rgba(237,230,214,0.45);margin-bottom:2rem;">Sin humo, solo lo que funciona.</p>
     <a href="https://www.skool.com/hype-agents-5337/about" target="_blank" class="btn-primary" style="font-size:0.9rem;padding:0.8rem 2rem;">UNIRME GRATIS</a>
   </div>
@@ -1653,6 +1655,14 @@ function updatePrices() {
       priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
       noteEl.textContent = '6 cuotas de ' + monthly + '€ (total ' + total + '€)';
     }
+  });
+
+  // Update monthly renewal prices
+  document.querySelectorAll('.monthly-price').forEach(function(el) {
+    var price = mapeaOn ? el.dataset.mapea : el.dataset.general;
+    var p = parseInt(price);
+    if (ambassadorOn) p = Math.round(p * ambassadorDiscount);
+    el.textContent = p + '€/mes';
   });
 }
 
