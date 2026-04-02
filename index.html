@@ -807,9 +807,49 @@
       </div>
 
       <!-- Embedded form (collapsible) -->
-      <div id="form-embed" style="display:none;margin:1.5rem 0;border-radius:12px;overflow:hidden;border:1px solid rgba(11,15,20,0.15);position:relative;">
-        <button onclick="toggleForm()" style="position:absolute;top:0.5rem;right:0.8rem;z-index:10;background:rgba(11,15,20,0.7);border:none;color:#fff;font-size:1.2rem;cursor:pointer;width:30px;height:30px;border-radius:50;line-height:1;">▲</button>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSffCzZaO8WDdG0NkjP7wI5zSEtNd9c1VeK--O4KethyKSakWQ/viewform?embedded=true" style="width:100%;height:500px;border:none;" allowfullscreen></iframe>
+      <div id="form-embed" style="display:none;margin:1.5rem 0;background:var(--negro);border-radius:12px;padding:2rem;position:relative;">
+        <button onclick="toggleForm()" style="position:absolute;top:0.8rem;right:1rem;background:none;border:none;color:var(--dorado);font-size:1.3rem;cursor:pointer;">▲</button>
+        <form id="hype-form" action="https://formspree.io/f/xojpnnqg" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">NOMBRE *</label>
+            <input type="text" name="nombre" required style="width:100%;padding:0.7rem 1rem;background:rgba(237,230,214,0.08);border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Tu nombre" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">EMAIL *</label>
+            <input type="email" name="email" required style="width:100%;padding:0.7rem 1rem;background:rgba(237,230,214,0.08);border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="tu@email.com" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">INSTAGRAM</label>
+            <input type="text" name="instagram" style="width:100%;padding:0.7rem 1rem;background:rgba(237,230,214,0.08);border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="@tuusuario" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿TIENES LIBRO PUBLICADO? *</label>
+            <select name="publicado" required style="width:100%;padding:0.7rem 1rem;background:rgba(237,230,214,0.08);border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;">
+              <option value="" disabled selected style="color:rgba(237,230,214,0.4);">Selecciona una opcion</option>
+              <option value="si">Si</option>
+              <option value="no">No</option>
+              <option value="en_proceso">En proceso</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.5rem;">¿QUE SERVICIOS TE INTERESAN?</label>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="booktrailer" style="accent-color:var(--dorado);"> Booktrailer</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="web" style="accent-color:var(--dorado);"> Web de autor</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="redes" style="accent-color:var(--dorado);"> Redes sociales</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="newsletter" style="accent-color:var(--dorado);"> Newsletter</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="portadas" style="accent-color:var(--dorado);"> Portadas</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="amazon_ads" style="accent-color:var(--dorado);"> Amazon Ads</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="asesoramiento" style="accent-color:var(--dorado);"> No se, asesorarme</label>
+            </div>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿ALGO QUE QUIERAS CONTARME?</label>
+            <textarea name="mensaje" rows="3" style="width:100%;padding:0.7rem 1rem;background:rgba(237,230,214,0.08);border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;resize:vertical;" placeholder="Titulo del libro, genero, lo que quieras..."></textarea>
+          </div>
+          <button type="submit" style="background:var(--dorado);color:var(--negro);padding:0.8rem 2rem;border-radius:30px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;align-self:center;">ENVIAR</button>
+        </form>
+        <p id="form-success" style="display:none;text-align:center;color:var(--dorado);font-size:1rem;margin-top:1rem;">✓ Recibido! Te contacto en menos de 48h.</p>
       </div>
 
       <button onclick="toggleForm()" class="email-cta" style="background:var(--negro);color:var(--crema);border:none;cursor:pointer;">ENVIAR MI MATERIAL</button>
@@ -1305,6 +1345,22 @@ function toggleForm() {
     form.style.display = 'none';
   }
 }
+
+document.getElementById('hype-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var data = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    if (response.ok) {
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+  });
+});
 </script>
 
 </body>
