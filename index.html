@@ -303,7 +303,7 @@
     .results-title-area {
       padding-right: 2rem;
       align-self: end;
-      padding-bottom: 5rem;
+      padding-bottom: 6.5rem;
     }
     .results-cards-stack {
       display: flex;
@@ -1632,6 +1632,8 @@ function toggleAmbassador(on) {
     thumb.style.background = 'rgba(237,230,214,0.5)';
     badge.style.display = 'none';
   }
+  var skald = document.getElementById('skald-indicator');
+  if (skald) skald.style.opacity = on ? '1' : '0.3';
   updatePrices();
   updateTotal();
 }
