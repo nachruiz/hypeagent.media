@@ -989,9 +989,9 @@
         <p class="section-sub" style="text-align:left;margin-left:0;color:rgba(237,230,214,0.75);">Numeros que hablan por si solos</p>
       </div>
       <div class="results-cards-stack">
-      <a href="https://amzn.eu/d/0cyRmFLD" target="_blank" class="results-card" style="flex-direction:column;">
-        <img src="arzan numero 1 fantasia epica.jpeg" alt="Arzan nº1 en Amazon" class="results-card-thumb" style="width:100%;height:auto;max-height:200px;object-fit:contain;" />
-        <div class="results-card-info" style="text-align:center;">
+      <a href="https://amzn.eu/d/0cyRmFLD" target="_blank" class="results-card">
+        <img src="arzan numero 1 fantasia epica.jpeg" alt="Arzan nº1 en Amazon" class="results-card-thumb" />
+        <div class="results-card-info">
           <h3>Arzan Cuernoscuro</h3>
           <div class="stat-number" style="font-size:2rem;">Nº1</div>
           <div class="stat-label">Amazon Fantasia Epica</div>
@@ -999,9 +999,9 @@
         </div>
       </a>
 
-      <a href="https://www.elconfidencial.com/cultura/2025-07-16/escritor-ia-novela-futuro-literatura_4172145/" target="_blank" class="results-card" style="flex-direction:column;">
-        <img src="thumbnail el confidencial 2.png" alt="El Confidencial" class="results-card-thumb" style="width:100%;height:auto;max-height:200px;object-fit:cover;" />
-        <div class="results-card-info" style="text-align:center;">
+      <a href="https://www.elconfidencial.com/cultura/2025-07-16/escritor-ia-novela-futuro-literatura_4172145/" target="_blank" class="results-card">
+        <img src="thumbnail el confidencial 2.png" alt="El Confidencial" class="results-card-thumb" />
+        <div class="results-card-info">
           <h3>El Confidencial</h3>
           <div class="stat-number" style="font-size:1.5rem;">Prensa</div>
           <div class="stat-label">Cobertura nacional</div>
@@ -1009,9 +1009,9 @@
         </div>
       </a>
 
-      <a href="https://www.tiktok.com/t/ZTkjur32Q/" target="_blank" class="results-card" style="flex-direction:column;">
-        <img src="Feria del libro.jpg" alt="TikTok Feria del Libro" class="results-card-thumb" style="width:100%;height:auto;max-height:200px;object-fit:cover;" />
-        <div class="results-card-info" style="text-align:center;">
+      <a href="https://www.tiktok.com/t/ZTkjur32Q/" target="_blank" class="results-card">
+        <img src="Feria del libro.jpg" alt="TikTok Feria del Libro" class="results-card-thumb" />
+        <div class="results-card-info">
           <h3>TikTok Feria del Libro</h3>
           <div class="stat-number" style="font-size:2rem;">4M+</div>
           <div class="stat-label">Visualizaciones</div>
@@ -1019,9 +1019,9 @@
         </div>
       </a>
 
-      <a href="https://youtu.be/tBhUbHQxeQ0" target="_blank" class="results-card" style="flex-direction:column;">
-        <img src="https://img.youtube.com/vi/tBhUbHQxeQ0/mqdefault.jpg" alt="TEDx" class="results-card-thumb" style="width:100%;height:auto;max-height:200px;object-fit:cover;" />
-        <div class="results-card-info" style="text-align:center;">
+      <a href="https://youtu.be/tBhUbHQxeQ0" target="_blank" class="results-card">
+        <img src="https://img.youtube.com/vi/tBhUbHQxeQ0/mqdefault.jpg" alt="TEDx" class="results-card-thumb" />
+        <div class="results-card-info">
           <h3>Charla TEDx</h3>
           <div class="stat-number" style="font-size:2rem;">+600K</div>
           <div class="stat-label">Visualizaciones</div>
@@ -1029,9 +1029,9 @@
         </div>
       </a>
 
-      <a href="https://www.tiktok.com/t/ZTkjuNnht/" target="_blank" class="results-card" style="flex-direction:column;">
-        <img src="padres adolescentes.jpg" alt="Relaciones padres e hijos" class="results-card-thumb" style="width:100%;height:auto;max-height:200px;object-fit:cover;" />
-        <div class="results-card-info" style="text-align:center;">
+      <a href="https://www.tiktok.com/t/ZTkjuNnht/" target="_blank" class="results-card">
+        <img src="padres adolescentes.jpg" alt="Relaciones padres e hijos" class="results-card-thumb" />
+        <div class="results-card-info">
           <h3>Relaciones padres e hijos</h3>
           <div class="stat-number" style="font-size:2rem;">+250K</div>
           <div class="stat-label">Visualizaciones</div>
@@ -1225,6 +1225,19 @@
 
       <!-- Servicios seleccionables -->
       <div style="display:flex;flex-direction:column;gap:1rem;">
+
+        <!-- Toggles duplicados -->
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:0.5rem;">
+          <div style="display:flex;gap:0;">
+            <button class="pay-toggle" onclick="setPayment('unico')" style="border-radius:20px 0 0 20px;font-size:0.75rem;" id="pay2-unico">Pago unico</button>
+            <button class="pay-toggle" onclick="setPayment('3m')" style="font-size:0.75rem;" id="pay2-3m">3 meses</button>
+            <button class="pay-toggle" onclick="setPayment('6m')" style="border-radius:0 20px 20px 0;font-size:0.75rem;" id="pay2-6m">6 meses</button>
+          </div>
+          <div style="display:flex;gap:0;">
+            <button class="pay-toggle" onclick="setMapea(false)" style="border-radius:20px 0 0 20px;font-size:0.75rem;" id="mapea2-general">General</button>
+            <button class="pay-toggle" onclick="setMapea(true)" style="border-radius:0 20px 20px 0;font-size:0.75rem;" id="mapea2-on">Soy MAPEA</button>
+          </div>
+        </div>
 
         <!-- Booktrailers -->
         <div style="background:rgba(237,230,214,0.04);border:1px solid rgba(200,169,106,0.15);border-radius:12px;padding:1.2rem;">
@@ -1588,8 +1601,9 @@ let mapeaOn = false;
 
 function setPayment(period) {
   currentPeriod = period;
-  document.querySelectorAll('#pay-unico,#pay-3m,#pay-6m').forEach(b => b.classList.remove('active'));
-  document.getElementById('pay-' + period).classList.add('active');
+  document.querySelectorAll('#pay-unico,#pay-3m,#pay-6m,#pay2-unico,#pay2-3m,#pay2-6m').forEach(function(b) { b.classList.remove('active'); });
+  var el1 = document.getElementById('pay-' + period); if (el1) el1.classList.add('active');
+  var el2 = document.getElementById('pay2-' + period); if (el2) el2.classList.add('active');
   updatePrices();
   updateTotal();
 }
@@ -1598,6 +1612,8 @@ function setMapea(on) {
   mapeaOn = on;
   document.getElementById('mapea-general').classList.toggle('active', !on);
   document.getElementById('mapea-on').classList.toggle('active', on);
+  var mg2 = document.getElementById('mapea2-general'); if (mg2) mg2.classList.toggle('active', !on);
+  var mo2 = document.getElementById('mapea2-on'); if (mo2) mo2.classList.toggle('active', on);
   updatePrices();
   updateTotal();
 }
@@ -1834,6 +1850,8 @@ document.getElementById('hype-form').addEventListener('submit', function(e) {
 // === INIT ===
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('mapea-general').classList.add('active');
+  document.getElementById('mapea2-general').classList.add('active');
+  document.getElementById('pay2-unico').classList.add('active');
   updatePrices();
 });
 </script>
