@@ -1125,10 +1125,11 @@
     </div>
 
     <div class="ambassador-box" style="margin-bottom:2rem;">
-      <h3>Programa Embajador</h3>
+      <h3>Programa Skáld</h3>
+      <p style="margin-bottom:0.3rem;font-size:0.85rem;color:rgba(237,230,214,0.6);">En la tradicion vikinga, el <strong style="color:var(--crema);">Skáld</strong> era el poeta que difundia la fama de los heroes. Se tu nuestro Skáld.</p>
       <p style="margin-bottom:1rem;font-size:0.85rem;color:rgba(237,230,214,0.6);">Comparte contenido de Hype Agent en tus redes (minimo 2 reposts/semana) y desbloquea un <strong>30% de descuento</strong>.</p>
       <label style="display:inline-flex;align-items:center;gap:0.8rem;cursor:pointer;" onclick="var cb=document.getElementById('ambassador-toggle');cb.checked=!cb.checked;toggleAmbassador(cb.checked);">
-        <span style="font-size:0.85rem;color:var(--crema);">Activar descuento embajador</span>
+        <span style="font-size:0.85rem;color:var(--crema);">Activar descuento Skáld</span>
         <div style="position:relative;width:50px;height:26px;">
           <input type="checkbox" id="ambassador-toggle" style="opacity:0;width:0;height:0;position:absolute;">
           <span id="toggle-track" style="position:absolute;inset:0;background:rgba(200,169,106,0.2);border-radius:13px;transition:all 0.3s;cursor:pointer;"></span>
@@ -1811,14 +1812,24 @@ function updateTotal() {
     payRow.style.display = 'none';
   }
 
-  // Discount row - calculate what price would be without ambassador
+  // Discount rows
   var discRow = document.getElementById('discount-row');
+  var discLabels = [];
+  var totalSaved = 0;
+
+  if (mapeaOn && subtotal > 0) {
+    discLabels.push('MAPEA');
+  }
   if (ambassadorOn && subtotal > 0) {
     var fullPrice = Math.round(subtotal / ambassadorDiscount);
-    var saved = fullPrice - subtotal;
+    totalSaved = fullPrice - subtotal;
+    discLabels.push('Skáld -30%');
+  }
+
+  if (discLabels.length > 0 && subtotal > 0) {
     discRow.style.display = 'flex';
-    document.getElementById('discount-label').textContent = 'Skáld -30%';
-    document.getElementById('discount-amount').textContent = '-' + saved + '€';
+    document.getElementById('discount-label').textContent = discLabels.join(' + ');
+    document.getElementById('discount-amount').textContent = totalSaved > 0 ? '-' + totalSaved + '€' : 'aplicado';
   } else {
     discRow.style.display = 'none';
   }
