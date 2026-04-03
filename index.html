@@ -838,38 +838,15 @@
       <div class="service-card">
         <div class="service-icon">📖</div>
         <h3>Informe editorial</h3>
-        <p>Analisis profesional de tu manuscrito: calidad, estilo, estructura, interes comercial y publico objetivo. Para que sepas donde estás y como mejorar.</p>
+        <p>Analisis profesional de tu manuscrito: calidad, estilo, estructura, interes comercial y publico objetivo. Para que sepas donde estás y cómo mejorar.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">📊</div>
         <h3>Posicionamiento e inteligencia de mercado</h3>
-        <p>Analisis de ventas en Amazon, testeo de portadas, estudio de competencia y tendencias de tu genero. Datos reales para tomar mejores decisiones.</p>
+        <p>Analisis de ventas en Amazon, categorias DILVE, estudio de competencia y tendencias de tu genero. Datos reales para tomar mejores decisiones.</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ══ HIGHLIGHTS ══ -->
-<section style="background:#1a1d22;padding:3.5rem 2rem;">
-  <div class="container">
-    <div class="pricing-highlights">
-      <div class="ph-item">
-        <div class="ph-icon">🚪</div>
-        <h4>Cancela cuando quieras</h4>
-        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion.</p>
-      </div>
-      <div class="ph-item">
-        <div class="ph-icon">💳</div>
-        <h4>Pago fraccionable</h4>
-        <p>Cuotas a 3 o 6 meses. Pago unico con descuento.</p>
-      </div>
-      <div class="ph-item">
-        <div class="ph-icon">📂</div>
-        <h4>Todo tuyo en Drive</h4>
-        <p>Todos los archivos te pertenecen. Si decides irte, te llevas todo.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -1007,14 +984,43 @@
   </div>
 </section>
 
+<!-- ══ HIGHLIGHTS ══ -->
+<section style="background:#1a1d22;padding:3.5rem 2rem;">
+  <div class="container">
+    <div class="pricing-highlights">
+      <div class="ph-item">
+        <div class="ph-icon">🚪</div>
+        <h4>Cancela cuando quieras</h4>
+        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">💳</div>
+        <h4>Pago fraccionable</h4>
+        <p>Cuotas a 3 o 6 meses. Pago unico con descuento.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">📂</div>
+        <h4>Todo tuyo en Drive</h4>
+        <p>Todos los archivos te pertenecen. Si decides irte, te llevas todo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ PRECIOS ══ -->
 <section id="precios" style="background:rgba(237,230,214,0.03);">
   <div class="container">
     <h2 class="section-title">Invierte en tu carrera</h2>
     <p class="section-sub">Elige un plan o personaliza el tuyo</p>
 
+    <!-- Packs vs Personalizado -->
+    <div style="display:flex;justify-content:center;gap:0;margin-bottom:2rem;">
+      <button class="pay-toggle active" onclick="togglePriceMode('packs')" id="mode-packs" style="border-radius:20px 0 0 20px;">Packs</button>
+      <button class="pay-toggle" onclick="togglePriceMode('custom')" id="mode-custom" style="border-radius:0 20px 20px 0;">Personalizado</button>
+    </div>
+
     <!-- Toggles -->
-    <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;">
+    <div id="price-toggles" style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;">
       <div style="display:flex;gap:0;">
         <button class="pay-toggle active" onclick="setPayment('unico')" id="pay-unico" style="border-radius:20px 0 0 20px;">Pago unico</button>
         <button class="pay-toggle" onclick="setPayment('3m')" id="pay-3m">3 meses</button>
@@ -1044,7 +1050,7 @@
     </div>
 
     <!-- Packs fijos -->
-    <div class="pricing-grid">
+    <div id="packs-view" class="pricing-grid">
 
       <div class="price-card no-dynamic" style="display:flex;flex-direction:column;gap:1.5rem;">
         <h3>Völva</h3>
@@ -1111,14 +1117,6 @@
         <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir</a>
       </div>
 
-    </div>
-
-    <!-- Desplegable personalizar -->
-    <div style="text-align:center;margin-top:3rem;">
-      <button onclick="var c=document.getElementById('custom-config');c.style.display=c.style.display==='none'?'grid':'none';this.querySelector('span').textContent=c.style.display==='none'?'▼':'▲'" style="background:none;border:1px solid rgba(200,169,106,0.3);color:var(--dorado);padding:0.8rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:0.9rem;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;">
-        Personaliza tu plan <span>▼</span>
-      </button>
-      <p style="color:rgba(237,230,214,0.4);font-size:0.8rem;margin-top:0.5rem;">Elige servicios sueltos o combina a tu manera</p>
     </div>
 
     <!-- Configurador -->
@@ -1563,7 +1561,7 @@
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
-          <p>Necesito tu manuscrito. El informe incluye: analisis de calidad, estilo y estructura, sugerencias de mejora, interes comercial, publico objetivo y posicionamiento en el mercado. Es un analisis profesional completo para que sepas donde estás y como mejorar.</p>
+          <p>Necesito tu manuscrito. El informe incluye: analisis de calidad, estilo y estructura, sugerencias de mejora, interes comercial, publico objetivo y posicionamiento en el mercado. Es un analisis profesional completo para que sepas donde estás y cómo mejorar.</p>
         </div>
       </div>
 
@@ -1878,6 +1876,24 @@ function updateTotal() {
     document.getElementById('discount-amount').textContent = totalSaved > 0 ? '-' + totalSaved + '€' : 'aplicado';
   } else {
     discRow.style.display = 'none';
+  }
+}
+
+// === PRICE MODE TOGGLE ===
+function togglePriceMode(mode) {
+  var packs = document.getElementById('packs-view');
+  var custom = document.getElementById('custom-config');
+  var toggles = document.getElementById('price-toggles');
+  document.getElementById('mode-packs').classList.toggle('active', mode === 'packs');
+  document.getElementById('mode-custom').classList.toggle('active', mode === 'custom');
+  if (mode === 'packs') {
+    packs.style.display = 'grid';
+    custom.style.display = 'none';
+    toggles.style.display = 'flex';
+  } else {
+    packs.style.display = 'none';
+    custom.style.display = 'grid';
+    toggles.style.display = 'flex';
   }
 }
 
