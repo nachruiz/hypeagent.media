@@ -988,10 +988,23 @@
     <h2 class="section-title">Invierte en tu carrera</h2>
     <p class="section-sub">Elige un plan o personaliza el tuyo</p>
 
-    <!-- Packs vs Personalizado -->
-    <div style="display:flex;justify-content:center;gap:0;margin-bottom:2rem;">
-      <button class="pay-toggle active" onclick="togglePriceMode('packs')" id="mode-packs" style="border-radius:20px 0 0 20px;">Packs</button>
-      <button class="pay-toggle" onclick="togglePriceMode('custom')" id="mode-custom" style="border-radius:0 20px 20px 0;">Personalizado</button>
+    <!-- Top bar: mode toggle + budget summary -->
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;">
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <!-- Packs vs Personalizado -->
+        <div style="display:flex;gap:0;">
+          <button class="pay-toggle active" onclick="togglePriceMode('packs')" id="mode-packs" style="border-radius:20px 0 0 20px;">Packs</button>
+          <button class="pay-toggle" onclick="togglePriceMode('custom')" id="mode-custom" style="border-radius:0 20px 20px 0;">Personalizado</button>
+        </div>
+      </div>
+      <!-- Mini resumen -->
+      <div style="background:rgba(237,230,214,0.06);border:1px solid rgba(200,169,106,0.25);border-radius:12px;padding:1rem 1.5rem;min-width:200px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1.5rem;">
+          <span style="color:var(--dorado);font-weight:700;font-size:0.85rem;letter-spacing:0.1em;">TOTAL</span>
+          <span id="packs-total" style="color:var(--dorado);font-weight:900;font-size:1.8rem;">0€</span>
+        </div>
+        <button onclick="document.getElementById('empezar').scrollIntoView({behavior:'smooth'})" style="width:100%;margin-top:0.5rem;background:var(--dorado);color:var(--negro);padding:0.5rem;border-radius:20px;font-weight:700;font-size:0.8rem;border:none;cursor:pointer;letter-spacing:0.05em;">SOLICITAR</button>
+      </div>
     </div>
 
     <!-- Toggles -->
@@ -1093,23 +1106,6 @@
         <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir</a>
       </div>
 
-    </div>
-
-    <!-- Resumen presupuesto (visible en ambas vistas) -->
-    <div style="max-width:400px;margin:2rem auto 0;">
-      <div id="budget-summary" style="background:rgba(237,230,214,0.06);border:1px solid rgba(200,169,106,0.25);border-radius:12px;padding:1.5rem;">
-        <h4 style="color:var(--dorado);font-size:0.85rem;letter-spacing:0.1em;margin-bottom:1rem;">TU PRESUPUESTO</h4>
-        <div id="packs-summary" style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;min-height:30px;">
-          <p style="color:rgba(237,230,214,0.4);font-size:0.85rem;">Selecciona un pack o personaliza tu plan</p>
-        </div>
-        <div style="border-top:1px solid rgba(200,169,106,0.2);padding-top:1rem;">
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span style="color:var(--dorado);font-weight:700;font-size:1rem;">TOTAL</span>
-            <span id="packs-total" style="color:var(--dorado);font-weight:900;font-size:1.8rem;">0€</span>
-          </div>
-        </div>
-        <button onclick="document.getElementById('empezar').scrollIntoView({behavior:'smooth'})" style="width:100%;margin-top:1rem;background:var(--dorado);color:var(--negro);padding:0.8rem;border-radius:30px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;">SOLICITAR PRESUPUESTO</button>
-      </div>
     </div>
 
     <!-- Configurador -->
