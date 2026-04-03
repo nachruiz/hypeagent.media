@@ -752,7 +752,8 @@
   <div class="hero-overlay"></div>
   <div class="hero-content" style="position:relative;z-index:2;">
     <h1 class="hero-logo" style="margin-bottom:0.2rem;">HYPE AGENT</h1>
-    <p class="hero-tagline" style="margin-bottom:0.5rem;"><strong>Multiplico</strong> tus lectores.</p>
+    <p class="hero-tagline" style="margin-bottom:0.3rem;"><strong>Multiplico</strong> tus lectores.</p>
+    <p style="color:#fff;font-size:0.9rem;margin-bottom:0.8rem;">Tú escribe. Yo me encargo del resto.</p>
     <div class="hero-buttons">
       <a href="#empezar" class="btn-primary">QUIERO EMPEZAR</a>
       <a href="#servicios" class="btn-secondary">Ver servicios</a>
@@ -1028,7 +1029,9 @@
 
       <div class="price-card no-dynamic" style="display:flex;flex-direction:column;gap:1.5rem;">
         <h3>Völva</h3>
-        <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);font-style:italic;margin-top:-0.5rem;">La profetisa que muestra visiones del futuro. Eso es tu booktrailer.</p>
+        <p style="font-size:0.65rem;color:rgba(237,230,214,0.35);letter-spacing:0.1em;margin-top:-0.5rem;">BOOKTRAILER</p>
+        <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);font-style:italic;">La profetisa que muestra visiones del futuro.</p>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.7rem;color:rgba(237,230,214,0.4);cursor:pointer;"><input type="checkbox" style="accent-color:var(--dorado);"> +50% horizontal y vertical</label>
         <div style="flex:1;">
           <div class="price">155€</div>
           <div class="price-note">Pago unico</div>
@@ -1041,7 +1044,6 @@
           <p style="color:var(--dorado);font-size:0.8rem;margin-top:0.5rem;">🎥 1 minuto · 1 formato</p>
           <a href="#empezar" class="btn-primary" style="display:block;text-align:center;font-size:0.8rem;padding:0.5rem 1rem;margin-top:0.8rem;">Elegir</a>
         </div>
-        <p style="font-size:0.7rem;color:rgba(237,230,214,0.4);text-align:center;">+50% si quieres horizontal y vertical</p>
       </div>
 
       <div class="price-card">
@@ -1091,6 +1093,23 @@
         <a href="#empezar" class="btn-primary" style="display:block;text-align:center;">Elegir</a>
       </div>
 
+    </div>
+
+    <!-- Resumen presupuesto (visible en ambas vistas) -->
+    <div style="max-width:400px;margin:2rem auto 0;">
+      <div id="budget-summary" style="background:rgba(237,230,214,0.06);border:1px solid rgba(200,169,106,0.25);border-radius:12px;padding:1.5rem;">
+        <h4 style="color:var(--dorado);font-size:0.85rem;letter-spacing:0.1em;margin-bottom:1rem;">TU PRESUPUESTO</h4>
+        <div id="packs-summary" style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;min-height:30px;">
+          <p style="color:rgba(237,230,214,0.4);font-size:0.85rem;">Selecciona un pack o personaliza tu plan</p>
+        </div>
+        <div style="border-top:1px solid rgba(200,169,106,0.2);padding-top:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="color:var(--dorado);font-weight:700;font-size:1rem;">TOTAL</span>
+            <span id="packs-total" style="color:var(--dorado);font-weight:900;font-size:1.8rem;">0€</span>
+          </div>
+        </div>
+        <button onclick="document.getElementById('empezar').scrollIntoView({behavior:'smooth'})" style="width:100%;margin-top:1rem;background:var(--dorado);color:var(--negro);padding:0.8rem;border-radius:30px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;">SOLICITAR PRESUPUESTO</button>
+      </div>
     </div>
 
     <!-- Configurador -->
