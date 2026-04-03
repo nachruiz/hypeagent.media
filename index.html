@@ -677,10 +677,18 @@
     }
 
     /* ══ RESPONSIVE ══ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 768px) {
       .nav-links a:not(.nav-cta) { display: none; }
-      .hero { min-height: auto; padding: 5rem 1.5rem 2rem; }
+      .hero { min-height: 100vh; padding: 5rem 1.5rem 2rem; }
       .hero-bg { object-position: 35% 30%; }
+      .hero-content {
+        animation: fadeInUp 1s ease-out 1.5s both;
+      }
       .hero-logo { font-size: 2.2rem; }
       .hero-tagline { font-size: 1rem; }
       .hero-flow { gap: 0.3rem; }
@@ -1455,7 +1463,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Necesito darte mis contraseñas de redes sociales?</h4>
+          <h4>¿Necesito darte mis contraseñas de redes sociales?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1465,7 +1473,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Que pasa si quiero cancelar?</h4>
+          <h4>¿Que pasa si quiero cancelar?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1475,7 +1483,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Cuanto tardo en ver resultados?</h4>
+          <h4>¿Cuanto tardo en ver resultados?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1485,7 +1493,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Que material necesitas de mi?</h4>
+          <h4>¿Que material necesitas de mi?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1495,7 +1503,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Puedo cambiar de plan mas adelante?</h4>
+          <h4>¿Puedo cambiar de plan mas adelante?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1505,7 +1513,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Puedo pedir el booktrailer en horizontal y vertical?</h4>
+          <h4>¿Puedo pedir el booktrailer en horizontal y vertical?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1515,7 +1523,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Como funciona la entrega del material?</h4>
+          <h4>¿Como funciona la entrega del material?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1525,7 +1533,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Tienes acceso a mis contactos de newsletter?</h4>
+          <h4>¿Tienes acceso a mis contactos de newsletter?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1535,7 +1543,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>El setup de newsletter va aparte?</h4>
+          <h4>¿El setup de newsletter va aparte?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1545,7 +1553,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Que incluye el informe editorial?</h4>
+          <h4>¿Que incluye el informe editorial?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1555,7 +1563,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Puedo contratar servicios sueltos?</h4>
+          <h4>¿Puedo contratar servicios sueltos?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1565,7 +1573,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Que es Hype Agents?</h4>
+          <h4>¿Que es Hype Agents?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
@@ -1575,7 +1583,7 @@
 
       <div class="faq-item">
         <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
-          <h4>Usas inteligencia artificial?</h4>
+          <h4>¿Usas inteligencia artificial?</h4>
           <span class="faq-arrow">▼</span>
         </button>
         <div class="faq-answer">
