@@ -691,7 +691,7 @@
     @media (max-width: 768px) {
       .nav-links a:not(.nav-cta) { display: none; }
       .hero { min-height: 100vh; padding: 5rem 1.5rem 2rem; }
-      .hero-bg { object-fit: contain; object-position: center top; }
+      .hero-bg { object-fit: cover; object-position: center 20%; }
       .hero-content {
         animation: fadeInUp 1s ease-out 1.5s both;
       }
@@ -798,164 +798,6 @@
   </div>
 </section>
 
-<!-- ══ EMPEZAR ══ -->
-<section id="empezar" style="background:#d6d3cd;">
-  <div class="container">
-    <div class="onboarding-box">
-      <h2 class="section-title" style="color:var(--negro);">Empezar es facil</h2>
-      <p class="section-sub" style="color:rgba(11,15,20,0.6);">Solo necesito que rellenes un formulario rapido.</p>
-
-      <div class="onboarding-steps">
-        <div class="onboarding-step" style="cursor:pointer;" onclick="toggleForm()">
-          <span class="step-num" style="color:rgba(11,15,20,0.15);">01</span>
-          <div class="step-text">
-            <h4 style="color:var(--negro);">Rellena el formulario</h4>
-            <p style="color:rgba(11,15,20,0.6);">Cuentame sobre ti, tu libro y que servicios te interesan. Tarda menos de 1 minuto.</p>
-            <span onclick="event.stopPropagation();toggleForm()" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:var(--negro);border-radius:8px;margin-top:0.5rem;cursor:pointer;font-size:1.3rem;">📝</span>
-          </div>
-        </div>
-        <div class="onboarding-step">
-          <span class="step-num" style="color:rgba(11,15,20,0.15);">02</span>
-          <div class="step-text">
-            <h4 style="color:var(--negro);">Te contacto con una propuesta</h4>
-            <p style="color:rgba(11,15,20,0.6);">Reviso tu informacion y te envio una propuesta personalizada en menos de 48h.</p>
-          </div>
-        </div>
-        <div class="onboarding-step">
-          <span class="step-num" style="color:rgba(11,15,20,0.15);">03</span>
-          <div class="step-text">
-            <h4 style="color:var(--negro);">Yo me encargo del resto</h4>
-            <p style="color:rgba(11,15,20,0.6);">Te creo una carpeta de Google Drive donde te entrego todo el material. Tú escribe, yo me encargo del resto.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Embedded form (collapsible) -->
-      <div id="form-embed" style="display:none;margin:1.5rem 0;background:var(--negro);border-radius:12px;padding:2rem;position:relative;">
-        <button onclick="toggleForm()" style="position:absolute;top:0.8rem;right:1rem;background:none;border:none;color:var(--dorado);font-size:1.3rem;cursor:pointer;">▲</button>
-        <form id="hype-form" action="https://script.google.com/macros/s/AKfycby_LZm0BOSRt62sZapBHu9lw9BvEBqkJMDrLwtMXkrvOUThyc3lhIfR691ccbY5G4SZVA/exec" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">NOMBRE *</label>
-            <input type="text" name="nombre" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Tu nombre" />
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">EMAIL *</label>
-            <input type="email" name="email" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="tu@email.com" />
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WHATSAPP *</label>
-            <input type="tel" name="whatsapp" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="+34 600 000 000" />
-          </div>
-          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-            <div style="flex:1;min-width:150px;">
-              <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">INSTAGRAM</label>
-              <input type="text" name="instagram" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="@tuusuario" />
-            </div>
-            <div style="flex:1;min-width:150px;">
-              <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">TIKTOK</label>
-              <input type="text" name="tiktok" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="@tuusuario" />
-            </div>
-            <div style="flex:1;min-width:150px;">
-              <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">FACEBOOK</label>
-              <input type="text" name="facebook" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Enlace o nombre de pagina" />
-            </div>
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿TIENES LIBRO(S) PUBLICADO(S)? *</label>
-            <select name="publicado" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;">
-              <option value="" disabled selected style="color:rgba(237,230,214,0.4);">Selecciona una opcion</option>
-              <option value="si">Si</option>
-              <option value="no">No</option>
-              <option value="en_proceso">En proceso</option>
-            </select>
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿QUE TIPO DE WEB NECESITAS?</label>
-            <select name="tipo_web" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;">
-              <option value="" disabled selected style="color:rgba(237,230,214,0.4);">Selecciona una opcion</option>
-              <option value="web_autor">Web de autor (todos mis libros + biografia)</option>
-              <option value="web_libro">Web de un libro concreto</option>
-              <option value="ya_tengo">Ya tengo web</option>
-              <option value="no_necesito">No necesito web ahora</option>
-            </select>
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WEB ACTUAL (si ya tienes)</label>
-            <input type="url" name="web_actual" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="https://tudominio.com" />
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WEBS DE AUTORES O LIBROS QUE TE GUSTEN</label>
-            <input type="text" name="webs_referencia" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Enlaces o nombres de webs que te inspiren" />
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.5rem;">¿QUE SERVICIOS TE INTERESAN?</label>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="booktrailer" style="accent-color:var(--dorado);"> Booktrailer</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="web" style="accent-color:var(--dorado);"> Web</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="posts_sueltos" style="accent-color:var(--dorado);"> Posts sueltos</label>
-              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="social_media_management" style="accent-color:var(--dorado);"> Social Media Management</label>
-            </div>
-            <div style="margin-top:0.8rem;">
-              <button type="button" onclick="var d=document.getElementById('otros-servicios');d.style.display=d.style.display==='none'?'flex':'none';this.querySelector('span').textContent=d.style.display==='none'?'▼':'▲'" style="background:none;border:none;color:var(--dorado);font-size:0.8rem;cursor:pointer;font-family:'Montserrat',sans-serif;">Otros servicios <span>▼</span></button>
-              <div id="otros-servicios" style="display:none;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;">
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="newsletter" style="accent-color:var(--dorado);"> Newsletter</label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="portadas" style="accent-color:var(--dorado);"> Selector de portadas</label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="testeo" style="accent-color:var(--dorado);"> Testeo en mercado</label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="amazon_ads" style="accent-color:var(--dorado);"> Amazon Ads</label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="informe" style="accent-color:var(--dorado);"> Informe editorial</label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="ventas_amazon" style="accent-color:var(--dorado);"> Analisis ventas Amazon</label>
-                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="presentacion" style="accent-color:var(--dorado);"> Presentacion del libro</label>
-              </div>
-            </div>
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">LINK A TU MATERIAL (si ya lo tienes)</label>
-            <input type="url" name="material_link" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Link a Google Drive, Dropbox, etc." />
-          </div>
-          <div>
-            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿ALGO QUE QUIERAS CONTARME?</label>
-            <textarea name="mensaje" rows="3" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;resize:vertical;" placeholder="Titulo del libro, genero, lo que quieras..."></textarea>
-          </div>
-          <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);text-align:center;line-height:1.6;">Tras enviar el formulario te creo una carpeta privada en Google Drive.<br>Necesitare: portada, contraportada, sinopsis, fotos de autor, enlaces de compra y booktrailer (si tienes).</p>
-          <button type="submit" style="background:var(--dorado);color:var(--negro);padding:0.8rem 2rem;border-radius:30px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;align-self:center;">ENVIAR</button>
-        </form>
-        <p id="form-success" style="display:none;text-align:center;color:var(--dorado);font-size:1rem;margin-top:1rem;">✓ Recibido! Te contacto en menos de 48h.</p>
-      </div>
-
-      <button onclick="toggleForm()" class="email-cta" style="background:var(--negro);color:var(--crema);border:none;cursor:pointer;">ENVIAR MI MATERIAL</button>
-
-      <p class="onboarding-note" style="color:rgba(11,15,20,0.55);">
-        Para empezar a trabajar necesitare: portada, fotos de autor, sinopsis, enlaces de compra y redes sociales.<br>
-        Si no tienes algun elemento, no pasa nada — trabajo con lo que tengas.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ HIGHLIGHTS ══ -->
-<section style="background:#1a1d22;padding:3.5rem 2rem;">
-  <div class="container">
-    <div class="pricing-highlights">
-      <div class="ph-item">
-        <div class="ph-icon">🚪</div>
-        <h4>Cancela cuando quieras</h4>
-        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion.</p>
-      </div>
-      <div class="ph-item">
-        <div class="ph-icon">💳</div>
-        <h4>Pago fraccionable</h4>
-        <p>Cuotas a 3 o 6 meses. Pago unico con descuento.</p>
-      </div>
-      <div class="ph-item">
-        <div class="ph-icon">📂</div>
-        <h4>Todo tuyo en Drive</h4>
-        <p>Todos los archivos te pertenecen. Si decides irte, te llevas todo.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ SERVICIOS ══ -->
 <section id="servicios" style="background:linear-gradient(to bottom, #1a1d22 0%, #1e1530 30%, #130e20 65%, #0b0f14 100%);">
   <div class="container">
@@ -1009,6 +851,29 @@
   </div>
 </section>
 
+<!-- ══ HIGHLIGHTS ══ -->
+<section style="background:#1a1d22;padding:3.5rem 2rem;">
+  <div class="container">
+    <div class="pricing-highlights">
+      <div class="ph-item">
+        <div class="ph-icon">🚪</div>
+        <h4>Cancela cuando quieras</h4>
+        <p>Si no estas contento, dejas de pagar y punto. Sin penalizacion.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">💳</div>
+        <h4>Pago fraccionable</h4>
+        <p>Cuotas a 3 o 6 meses. Pago unico con descuento.</p>
+      </div>
+      <div class="ph-item">
+        <div class="ph-icon">📂</div>
+        <h4>Todo tuyo en Drive</h4>
+        <p>Todos los archivos te pertenecen. Si decides irte, te llevas todo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ RESULTADOS ══ -->
 <section id="resultados" class="results-section">
   <img src="new hero 2.jpg" alt="Hype Agent" class="results-bg" />
@@ -1017,7 +882,7 @@
     <div class="results-grid">
       <div class="results-title-area">
         <h2 class="section-title" style="text-align:left;">Resultados reales</h2>
-        <p class="section-sub" style="text-align:left;margin-left:0;color:#ffffff;">Numeros que hablan por si solos</p>
+        <p class="section-sub" style="text-align:left;margin-left:0;color:#ffffff;">Hitos que hablan por si solos</p>
       </div>
       <div class="results-cards-stack">
       <a href="https://amzn.eu/d/0cyRmFLD" target="_blank" class="results-card">
@@ -1453,6 +1318,141 @@
     <h2 style="font-family:'Cinzel',serif;font-weight:900;font-size:3rem;color:var(--dorado);margin-bottom:1rem;">¿Empezamos?</h2>
     <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto;">Rellena el formulario y te contacto con una propuesta personalizada.</p>
     <button onclick="document.getElementById('form-embed').style.display='block';document.getElementById('form-embed').scrollIntoView({behavior:'smooth',block:'center'});" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;border:none;cursor:pointer;">ENVIAR MI MATERIAL</button>
+  </div>
+</section>
+
+<!-- ══ EMPEZAR ══ -->
+<section id="empezar" style="background:#d6d3cd;">
+  <div class="container">
+    <div class="onboarding-box">
+      <h2 class="section-title" style="color:var(--negro);">Empezar es facil</h2>
+      <p class="section-sub" style="color:rgba(11,15,20,0.6);">Solo necesito que rellenes un formulario rapido.</p>
+
+      <div class="onboarding-steps">
+        <div class="onboarding-step" style="cursor:pointer;" onclick="toggleForm()">
+          <span class="step-num" style="color:rgba(11,15,20,0.15);">01</span>
+          <div class="step-text">
+            <h4 style="color:var(--negro);">Rellena el formulario</h4>
+            <p style="color:rgba(11,15,20,0.6);">Cuentame sobre ti, tu libro y que servicios te interesan. Tarda menos de 1 minuto.</p>
+            <span onclick="event.stopPropagation();toggleForm()" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:var(--negro);border-radius:8px;margin-top:0.5rem;cursor:pointer;font-size:1.3rem;">📝</span>
+          </div>
+        </div>
+        <div class="onboarding-step">
+          <span class="step-num" style="color:rgba(11,15,20,0.15);">02</span>
+          <div class="step-text">
+            <h4 style="color:var(--negro);">Te contacto con una propuesta</h4>
+            <p style="color:rgba(11,15,20,0.6);">Reviso tu informacion y te envio una propuesta personalizada en menos de 48h.</p>
+          </div>
+        </div>
+        <div class="onboarding-step">
+          <span class="step-num" style="color:rgba(11,15,20,0.15);">03</span>
+          <div class="step-text">
+            <h4 style="color:var(--negro);">Yo me encargo del resto</h4>
+            <p style="color:rgba(11,15,20,0.6);">Te creo una carpeta de Google Drive donde te entrego todo el material. Tú escribe, yo me encargo del resto.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedded form (collapsible) -->
+      <div id="form-embed" style="display:none;margin:1.5rem 0;background:var(--negro);border-radius:12px;padding:2rem;position:relative;">
+        <button onclick="toggleForm()" style="position:absolute;top:0.8rem;right:1rem;background:none;border:none;color:var(--dorado);font-size:1.3rem;cursor:pointer;">▲</button>
+        <form id="hype-form" action="https://script.google.com/macros/s/AKfycby_LZm0BOSRt62sZapBHu9lw9BvEBqkJMDrLwtMXkrvOUThyc3lhIfR691ccbY5G4SZVA/exec" method="POST" style="display:flex;flex-direction:column;gap:1rem;">
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">NOMBRE *</label>
+            <input type="text" name="nombre" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Tu nombre" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">EMAIL *</label>
+            <input type="email" name="email" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="tu@email.com" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WHATSAPP *</label>
+            <input type="tel" name="whatsapp" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="+34 600 000 000" />
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <div style="flex:1;min-width:150px;">
+              <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">INSTAGRAM</label>
+              <input type="text" name="instagram" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="@tuusuario" />
+            </div>
+            <div style="flex:1;min-width:150px;">
+              <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">TIKTOK</label>
+              <input type="text" name="tiktok" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="@tuusuario" />
+            </div>
+            <div style="flex:1;min-width:150px;">
+              <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">FACEBOOK</label>
+              <input type="text" name="facebook" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Enlace o nombre de pagina" />
+            </div>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿TIENES LIBRO(S) PUBLICADO(S)? *</label>
+            <select name="publicado" required style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;">
+              <option value="" disabled selected style="color:rgba(237,230,214,0.4);">Selecciona una opcion</option>
+              <option value="si">Si</option>
+              <option value="no">No</option>
+              <option value="en_proceso">En proceso</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿QUE TIPO DE WEB NECESITAS?</label>
+            <select name="tipo_web" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;">
+              <option value="" disabled selected style="color:rgba(237,230,214,0.4);">Selecciona una opcion</option>
+              <option value="web_autor">Web de autor (todos mis libros + biografia)</option>
+              <option value="web_libro">Web de un libro concreto</option>
+              <option value="ya_tengo">Ya tengo web</option>
+              <option value="no_necesito">No necesito web ahora</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WEB ACTUAL (si ya tienes)</label>
+            <input type="url" name="web_actual" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="https://tudominio.com" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">WEBS DE AUTORES O LIBROS QUE TE GUSTEN</label>
+            <input type="text" name="webs_referencia" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Enlaces o nombres de webs que te inspiren" />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.5rem;">¿QUE SERVICIOS TE INTERESAN?</label>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="booktrailer" style="accent-color:var(--dorado);"> Booktrailer</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="web" style="accent-color:var(--dorado);"> Web</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="posts_sueltos" style="accent-color:var(--dorado);"> Posts sueltos</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="social_media_management" style="accent-color:var(--dorado);"> Social Media Management</label>
+            </div>
+            <div style="margin-top:0.8rem;">
+              <button type="button" onclick="var d=document.getElementById('otros-servicios');d.style.display=d.style.display==='none'?'flex':'none';this.querySelector('span').textContent=d.style.display==='none'?'▼':'▲'" style="background:none;border:none;color:var(--dorado);font-size:0.8rem;cursor:pointer;font-family:'Montserrat',sans-serif;">Otros servicios <span>▼</span></button>
+              <div id="otros-servicios" style="display:none;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;">
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="newsletter" style="accent-color:var(--dorado);"> Newsletter</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="portadas" style="accent-color:var(--dorado);"> Selector de portadas</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="testeo" style="accent-color:var(--dorado);"> Testeo en mercado</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="amazon_ads" style="accent-color:var(--dorado);"> Amazon Ads</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="informe" style="accent-color:var(--dorado);"> Informe editorial</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="ventas_amazon" style="accent-color:var(--dorado);"> Analisis ventas Amazon</label>
+                <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.85rem;color:var(--crema);cursor:pointer;"><input type="checkbox" name="servicios" value="presentacion" style="accent-color:var(--dorado);"> Presentacion del libro</label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">LINK A TU MATERIAL (si ya lo tienes)</label>
+            <input type="url" name="material_link" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;" placeholder="Link a Google Drive, Dropbox, etc." />
+          </div>
+          <div>
+            <label style="font-size:0.75rem;color:var(--dorado);letter-spacing:0.05em;display:block;margin-bottom:0.3rem;">¿ALGO QUE QUIERAS CONTARME?</label>
+            <textarea name="mensaje" rows="3" style="width:100%;padding:0.7rem 1rem;background:#1a1e25;border:1px solid rgba(200,169,106,0.2);border-radius:8px;color:var(--crema);font-family:'Montserrat',sans-serif;font-size:0.9rem;outline:none;resize:vertical;" placeholder="Titulo del libro, genero, lo que quieras..."></textarea>
+          </div>
+          <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);text-align:center;line-height:1.6;">Tras enviar el formulario te creo una carpeta privada en Google Drive.<br>Necesitare: portada, contraportada, sinopsis, fotos de autor, enlaces de compra y booktrailer (si tienes).</p>
+          <button type="submit" style="background:var(--dorado);color:var(--negro);padding:0.8rem 2rem;border-radius:30px;font-weight:700;font-size:0.95rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;align-self:center;">ENVIAR</button>
+        </form>
+        <p id="form-success" style="display:none;text-align:center;color:var(--dorado);font-size:1rem;margin-top:1rem;">✓ Recibido! Te contacto en menos de 48h.</p>
+      </div>
+
+      <button onclick="toggleForm()" class="email-cta" style="background:var(--negro);color:var(--crema);border:none;cursor:pointer;">ENVIAR MI MATERIAL</button>
+
+      <p class="onboarding-note" style="color:rgba(11,15,20,0.55);">
+        Para empezar a trabajar necesitare: portada, fotos de autor, sinopsis, enlaces de compra y redes sociales.<br>
+        Si no tienes algun elemento, no pasa nada — trabajo con lo que tengas.
+      </p>
+    </div>
+
   </div>
 </section>
 
