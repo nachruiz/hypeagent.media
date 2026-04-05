@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparador de imágenes — Hype Agent</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0B0F14; color: #EDE6D6; font-family: 'Montserrat', sans-serif; padding: 2rem; }
+    h1 { font-family: 'Cinzel', serif; color: #C8A96A; text-align: center; margin-bottom: 0.5rem; font-size: 1.8rem; }
+    p.sub { text-align: center; color: rgba(237,230,214,0.5); margin-bottom: 3rem; font-size: 0.85rem; }
+    .section { margin-bottom: 4rem; }
+    .section h2 { font-family: 'Cinzel', serif; color: #C8A96A; font-size: 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .card { border: 1px solid rgba(200,169,106,0.15); border-radius: 12px; overflow: hidden; background: rgba(237,230,214,0.03); transition: all 0.3s; }
+    .card:hover { border-color: rgba(200,169,106,0.4); transform: translateY(-4px); }
+    .card img { width: 100%; display: block; }
+    .card .label { padding: 1rem; text-align: center; font-size: 0.8rem; color: rgba(237,230,214,0.6); }
+    .card .label strong { color: #C8A96A; }
+    .current { border-color: #00e5ff; }
+    .current .label::after { content: ' (ACTUAL)'; color: #00e5ff; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<h1>Comparador de imágenes</h1>
+<p class="sub">Haz click en cada imagen para verla a pantalla completa. Borde cyan = versión actual.</p>
+
+<div class="section">
+  <h2>Hero (Desktop)</h2>
+  <div class="grid">
+    <div class="card current"><img src="new hero.jpg" /><div class="label"><strong>new hero.jpg</strong></div></div>
+    <div class="card"><img src="new hero 2.jpg" /><div class="label"><strong>new hero 2.jpg</strong></div></div>
+    <div class="card"><img src="Neon hacker in a cyberpunk world.png" /><div class="label"><strong>Neon hacker</strong></div></div>
+    <div class="card"><img src="Hitos.png" /><div class="label"><strong>Hitos.png</strong></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Hero (Movil)</h2>
+  <div class="grid">
+    <div class="card current"><img src="hero movil.jpeg" /><div class="label"><strong>hero movil.jpeg</strong></div></div>
+    <div class="card"><img src="hero para movil.jpg" /><div class="label"><strong>hero para movil.jpg</strong></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Quien soy</h2>
+  <div class="grid">
+    <div class="card current"><img src="quien soy 5.png" /><div class="label"><strong>quien soy 5.png</strong></div></div>
+    <div class="card"><img src="quien-soy.png" /><div class="label"><strong>quien-soy.png</strong> (anterior)</div></div>
+    <div class="card"><img src="Retrato místico de tecnología y redes.png" /><div class="label"><strong>Retrato místico</strong></div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Resultados / Hitos</h2>
+  <div class="grid">
+    <div class="card current"><img src="Neon hacker in a cyberpunk world.png" /><div class="label"><strong>Neon hacker</strong></div></div>
+    <div class="card"><img src="Hitos.png" /><div class="label"><strong>Hitos.png</strong> (anterior)</div></div>
+    <div class="card"><img src="new hero 2.jpg" /><div class="label"><strong>new hero 2.jpg</strong></div></div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.card img').forEach(function(img) {
+  img.style.cursor = 'pointer';
+  img.onclick = function() {
+    var overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:1rem;';
+    overlay.onclick = function() { document.body.removeChild(overlay); };
+    var bigImg = document.createElement('img');
+    bigImg.src = this.src;
+    bigImg.style.cssText = 'max-width:95vw;max-height:95vh;border-radius:8px;';
+    overlay.appendChild(bigImg);
+    document.body.appendChild(overlay);
+  };
+});
+</script>
+
+</body>
+</html>
