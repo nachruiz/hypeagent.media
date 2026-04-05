@@ -1085,37 +1085,37 @@
 
       <div class="service-card">
         <div class="service-icon">🎬</div>
-        <h3>Booktrailers</h3>
-        <p>Video cinematografico para promocionar tu libro. Formato corto (30s) o largo (1 min). Imagenes IA, musica profesional y edicion de calidad.</p>
+        <h3>Te preparo un booktrailer espectacular</h3>
+        <p>Vídeo cinematográfico para promocionar tu libro. Formato corto o largo, imágenes IA, música profesional y edición de calidad. Si eliges un solo formato, vertical es lo ideal para TikTok e Instagram. Si también quieres YouTube, te lo hago en horizontal.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">🌐</div>
-        <h3>Web oficial de autor</h3>
-        <p>Tu web profesional con dominio propio. Landing page, enlaces de compra, biografia, reseñas y newsletter integrada.</p>
+        <h3>Te monto tu web de autor oficial, totalmente profesional</h3>
+        <p>Con dominio propio, biografía, libros, enlaces de compra, reseñas y newsletter integrada. Tu escaparate en internet.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">📱</div>
-        <h3>Redes sociales</h3>
-        <p>Estrategia de contenido, creacion de reels y carruseles, gestion de perfiles. Contenido que conecta con lectores y genera comunidad.</p>
+        <h3>Te gestiono las redes sociales</h3>
+        <p>Estrategia de contenido, creación de reels y carruseles, gestión de perfiles. Contenido que conecta con lectores y genera comunidad.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">📰</div>
-        <h3>Newsletter / Eventos</h3>
-        <p>Configuro y gestiono tu newsletter. Comunico firmas, eventos, lanzamientos y contenido exclusivo. Dime el tono que quieres y comparte PDFs o extractos de tu libro para enganchar a tus lectores.</p>
+        <h3>Te configuro y gestiono tu newsletter</h3>
+        <p>Comunico firmas, eventos, lanzamientos y contenido exclusivo. Dime el tono que quieres y comparte extractos de tu libro para enganchar a tus lectores.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">🎨</div>
-        <h3>Selector de portadas</h3>
-        <p>Te ayudo a elegir o crear la portada perfecta para tu libro. Analisis de mercado, tendencias del genero y testing visual.</p>
+        <h3>Te preparo carruseles de venta</h3>
+        <p>Diseño carruseles profesionales para Instagram y TikTok que presentan tu libro, conectan con tu público y generan ventas.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">📈</div>
-        <h3>Campañas de publicidad en RRSS y Amazon</h3>
+        <h3>Lanzo tus campañas de publicidad en RRSS y Amazon</h3>
         <p>Hago que tus contenidos lleguen a tu público objetivo. Campañas en RRSS y Amazon para que te descubran los lectores que te están buscando.</p>
       </div>
 
@@ -1193,16 +1193,31 @@
 <style>
   .eventos { background: var(--negro); padding: 2.5rem 0 2rem; overflow: hidden; }
   .eventos p.eventos-text { font-size:0.75rem;letter-spacing:0.15em;color:rgba(237,230,214,0.35);text-transform:uppercase;text-align:center;margin-bottom:1rem; }
+  .evento-name { cursor: pointer; transition: color 0.3s; }
+  .evento-name:hover, .evento-name.active { color: var(--dorado); font-weight: 700; }
+  .evento-card.highlighted img { filter: grayscale(0); transform: scale(1.15); z-index: 2; }
+  .evento-card.highlighted .evento-label { opacity: 1; }
   .eventos-track {
     display: flex; gap: 1rem; width: max-content;
     animation: eventos-scroll 30s linear infinite;
   }
   .eventos-track:hover { animation-play-state: paused; }
+  .eventos-track .evento-card {
+    position: relative; flex-shrink: 0; height: 200px;
+  }
   .eventos-track img {
     height: 200px; width: auto; border-radius: 10px; object-fit: cover;
     filter: grayscale(0.3); transition: filter 0.3s, transform 0.3s;
   }
-  .eventos-track img:hover { filter: grayscale(0); transform: scale(1.03); }
+  .eventos-track .evento-card:hover img { filter: grayscale(0); transform: scale(1.03); }
+  .evento-label {
+    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    background: rgba(11,15,20,0.85); color: var(--crema); font-size: 0.65rem;
+    padding: 0.3rem 0.7rem; border-radius: 6px; white-space: nowrap;
+    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    font-family: 'Montserrat', sans-serif; letter-spacing: 0.03em;
+  }
+  .evento-card:hover .evento-label { opacity: 1; }
   @keyframes eventos-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -1212,21 +1227,27 @@
   }
 </style>
 <section class="eventos">
-  <p class="eventos-text">Festival de Cine Fantástico de Sitges · Fnac Barcelona · Fnac Valencia · Feria del Libro · Japan Weekend</p>
+  <p class="eventos-text">
+    <span class="evento-name" onmouseover="highlightEvento('sitges')" onmouseout="unhighlightEvento()">Festival de Cine Fantástico de Sitges</span> ·
+    <span class="evento-name" onmouseover="highlightEvento('fnac-bcn')" onmouseout="unhighlightEvento()">Fnac Barcelona</span> ·
+    <span class="evento-name" onmouseover="highlightEvento('fnac-vlc')" onmouseout="unhighlightEvento()">Fnac Valencia</span> ·
+    <span class="evento-name" onmouseover="highlightEvento('feria')" onmouseout="unhighlightEvento()">Feria del Libro</span> ·
+    <span class="evento-name" onmouseover="highlightEvento('japan')" onmouseout="unhighlightEvento()">Japan Weekend</span>
+  </p>
   <div class="eventos-track">
-    <img src="Sitges festival.jpeg" alt="Festival de Cine Fantástico de Sitges" loading="lazy" />
-    <img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" />
-    <img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" />
-    <img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" />
-    <img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" />
-    <img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" />
+    <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
+    <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
+    <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
+    <div class="evento-card" data-evento="sitges"><img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
+    <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" /><span class="evento-label">Feria del Libro</span></div>
+    <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
     <!-- duplicado para loop continuo -->
-    <img src="Sitges festival.jpeg" alt="Festival de Cine Fantástico de Sitges" loading="lazy" />
-    <img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" />
-    <img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" />
-    <img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" />
-    <img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" />
-    <img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" />
+    <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
+    <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
+    <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
+    <div class="evento-card" data-evento="sitges"><img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
+    <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" /><span class="evento-label">Feria del Libro</span></div>
+    <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
   </div>
 </section>
 
@@ -1303,7 +1324,7 @@
       <button onclick="var panel=document.getElementById('discount-explainer');panel.style.display=panel.style.display==='none'?'block':'none';" style="background:none;border:none;color:var(--dorado);font-size:0.75rem;cursor:pointer;text-decoration:underline;font-family:'Montserrat',sans-serif;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">¿Cómo funcionan los descuentos?</button>
       <div id="discount-explainer" style="display:none;text-align:left;margin:0.8rem auto 0;max-width:600px;padding:1rem;background:rgba(11,15,20,0.8);border:1px solid rgba(200,169,106,0.15);border-radius:10px;font-size:0.75rem;line-height:1.6;">
         <p style="color:var(--cyan);font-weight:700;margin-bottom:0.3rem;">FÉLAGI (-20%)</p>
-        <p style="color:rgba(237,230,214,0.55);margin-bottom:0.8rem;">«Socio que comparte la aventura» en nórdico antiguo. Precios reducidos para miembros de comunidades aliadas (MAPEA, etc.). Selecciona "Soy Félagi" arriba.</p>
+        <p style="color:rgba(237,230,214,0.55);margin-bottom:0.8rem;">«Socio que comparte la aventura» en nórdico antiguo. Precios reducidos para miembros de comunidades aliadas (<strong style="color:#fff;">MAPEA</strong>, etc.). Selecciona "Soy Félagi" arriba.</p>
         <p style="color:var(--magenta);font-weight:700;margin-bottom:0.3rem;">PROGRAMA SKÁLD (-30%)</p>
         <p style="color:rgba(237,230,214,0.55);margin-bottom:0.8rem;">En la tradición vikinga, el skáld difundía la fama de los héroes. Comparte contenido de Hype Agent o de Nacho Ruiz Hens en tus redes (mínimo 2 reposts/semana) y desbloqueas un 30% de descuento. Ambos descuentos son acumulables.</p>
         <p style="color:var(--dorado);font-weight:700;margin-bottom:0.3rem;">PAGO FRACCIONADO</p>
@@ -1321,7 +1342,7 @@
       <div style="display:flex;gap:0;">
         <button class="pay-toggle" onclick="setMapea(false)" id="mapea-general" style="border-radius:20px 0 0 20px;">General</button>
         <button class="pay-toggle" onclick="setMapea(true)" id="mapea-on" style="border-radius:0 20px 20px 0;position:relative;color:var(--cyan);">Soy Félagi
-          <span class="felagi-tooltip" style="display:none;position:absolute;bottom:calc(100% + 0.5rem);left:50%;transform:translateX(-50%);width:240px;background:rgba(11,15,20,0.95);color:var(--crema);border:1px solid rgba(0,229,255,0.25);border-radius:10px;padding:0.8rem;font-size:0.75rem;line-height:1.5;box-shadow:0 12px 30px rgba(0,0,0,0.3);z-index:10;pointer-events:none;text-align:left;font-weight:400;"><strong style="color:var(--cyan);">Félagi</strong> — «socio que comparte la aventura» en nórdico antiguo. Descuento para miembros de comunidades aliadas (MAPEA, etc.).</span>
+          <span class="felagi-tooltip" style="display:none;position:absolute;bottom:calc(100% + 0.5rem);left:50%;transform:translateX(-50%);width:240px;background:rgba(11,15,20,0.95);color:var(--crema);border:1px solid rgba(0,229,255,0.25);border-radius:10px;padding:0.8rem;font-size:0.75rem;line-height:1.5;box-shadow:0 12px 30px rgba(0,0,0,0.3);z-index:10;pointer-events:none;text-align:left;font-weight:400;"><strong style="color:var(--cyan);">Félagi</strong> — «socio que comparte la aventura» en nórdico antiguo. Descuento para miembros de comunidades aliadas (<strong style="color:#fff;">MAPEA</strong>, etc.).</span>
         </button>
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
@@ -1855,9 +1876,13 @@ function togglePlan(btn) {
 function updatePlanTotal() {
   var total = 0;
   var totalFull = 0;
+  var totalNoDiscount = 0;
+  var totalMapeaOnly = 0;
   Object.keys(selectedPlans).forEach(function(plan) {
     var base = selectedPlans[plan];
     totalFull += applyPayment(base);
+    totalNoDiscount += applyPayment(base);
+    totalMapeaOnly += applyPayment(Math.round(base * 0.80));
     var bp = applyModifiers(base);
     var finalPrice = applyPayment(bp);
     total += finalPrice;
@@ -1884,7 +1909,8 @@ function updatePlanTotal() {
     }
     var discLines = [];
     if (mapeaOn) {
-      discLines.push('<span style="color:var(--cyan);">Félagi: precios reducidos aplicados</span>');
+      var mapeaSaved = totalNoDiscount - totalMapeaOnly;
+      discLines.push('<span style="color:var(--cyan);">Félagi (<strong>MAPEA</strong>) -20%: -' + mapeaSaved + '€</span>');
     }
     if (ambassadorOn) {
       var saved = totalFull - total;
@@ -2301,6 +2327,22 @@ document.getElementById('hype-form').addEventListener('submit', function(e) {
     document.getElementById('form-success').style.display = 'block';
   });
 });
+
+// === EVENTOS HIGHLIGHT ===
+function highlightEvento(name) {
+  document.querySelectorAll('.evento-card').forEach(function(card) {
+    if (card.dataset.evento === name) {
+      card.classList.add('highlighted');
+    }
+  });
+  document.querySelector('.eventos-track').style.animationPlayState = 'paused';
+}
+function unhighlightEvento() {
+  document.querySelectorAll('.evento-card').forEach(function(card) {
+    card.classList.remove('highlighted');
+  });
+  document.querySelector('.eventos-track').style.animationPlayState = '';
+}
 
 // === INIT ===
 document.addEventListener('DOMContentLoaded', function() {
