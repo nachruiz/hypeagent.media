@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hype Agent — Agencia digital para autores</title>
   <meta name="description" content="Multiplico tus lectores. Booktrailers, redes sociales, web oficial de autor y estrategia digital. Todo en un solo lugar." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hype Agent — Agencia digital para autores" />
+  <meta property="og:description" content="Multiplico tus lectores. Booktrailers, redes sociales, web oficial de autor y estrategia digital." />
+  <meta property="og:image" content="https://hypeagent.media/og-image.jpg" />
+  <meta property="og:url" content="https://hypeagent.media" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Hype Agent — Agencia digital para autores" />
+  <meta name="twitter:description" content="Multiplico tus lectores. Booktrailers, redes sociales, web oficial de autor y estrategia digital." />
+  <meta name="twitter:image" content="https://hypeagent.media/og-image.jpg" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%230B0F14'/><g transform='translate(32,30) scale(0.85)' fill='%23C8A96A'><path d='M0-22 C2-22 3-21 3-19 L3-8 14-8 C16-8 17-7 17-5 L17 2 C17 4 16 5 14 5 L3 5 3 12 C4 14 3 16 2 18 L0 20 -2 18 C-3 16 -4 14 -3 12 L-3 5 -14 5 C-16 5 -17 4 -17 2 L-17-5 C-17-7 -16-8 -14-8 L-3-8 -3-19 C-3-21 -2-22 0-22Z'/><circle cx='0' cy='-2' r='3' fill='%230B0F14' opacity='0.3'/><rect x='-10' y='-6' width='20' height='9' rx='1' fill='none' stroke='%230B0F14' stroke-width='0.8' opacity='0.2'/></g></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -640,6 +651,16 @@
       margin: 0.5rem 0;
     }
 
+    /* ══ FÉLAGI ACTIVE MODE ══ */
+    #precios.felagi-active {
+      background: linear-gradient(to bottom, #0a1628 0%, #0d1f3a 50%, #0a1628 100%) !important;
+      transition: background 0.5s;
+    }
+    #precios.felagi-active .plan-price,
+    #precios.felagi-active [style*="color:var(--cyan)"] {
+      color: #fff !important;
+    }
+
     /* ══ ONBOARDING / CTA ══ */
     #empezar {
       background: rgba(200,169,106,0.03);
@@ -969,12 +990,12 @@
 <section id="quien-soy" style="padding:4rem 2rem;background:var(--negro);">
   <div class="container" style="max-width:1000px;display:flex;align-items:center;gap:3rem;flex-wrap:wrap;">
     <div style="position:relative;width:520px;flex-shrink:0;cursor:pointer;" onmouseover="this.querySelector('.who-reveal').style.opacity='1'" onmouseout="this.querySelector('.who-reveal').style.opacity='0'" onclick="document.getElementById('who-lightbox').style.display='flex'">
-      <img src="Retrato místico de tecnología y redes.png" alt="Nacho Ruiz Hens" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(200,169,106,0.15);transition:opacity 0.5s;" />
-      <img class="who-reveal" src="quien soy 5.png" alt="Nacho Ruiz Hens" style="width:100%;border-radius:16px;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.5s;box-shadow:0 8px 32px rgba(200,169,106,0.15);" />
+      <img src="quien soy 5.png" alt="Nacho Ruiz Hens" style="width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(200,169,106,0.15);transition:opacity 0.5s;" />
+      <img class="who-reveal" src="Primer plano redes.png" alt="Nacho Ruiz Hens" style="width:100%;border-radius:16px;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.5s;box-shadow:0 8px 32px rgba(200,169,106,0.15);" />
     </div>
     <!-- Lightbox -->
     <div id="who-lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;cursor:pointer;">
-      <img src="quien soy 5.png" alt="Nacho Ruiz Hens" style="max-width:90vw;max-height:90vh;border-radius:16px;box-shadow:0 12px 48px rgba(200,169,106,0.25);" />
+      <img src="Primer plano redes.png" alt="Nacho Ruiz Hens" style="max-width:90vw;max-height:90vh;border-radius:16px;box-shadow:0 12px 48px rgba(200,169,106,0.25);" />
     </div>
     <div style="flex:1;min-width:250px;">
       <div style="width:50px;height:2px;background:linear-gradient(to right,transparent,var(--dorado),transparent);margin-bottom:1.5rem;"></div>
@@ -1821,14 +1842,17 @@ function setMapea(on) {
   document.getElementById('mapea-general').classList.toggle('active', !on);
   document.getElementById('mapea-on').classList.toggle('active', on);
   var btn = document.getElementById('mapea-on');
+  var preciosSection = document.getElementById('precios');
   if (on) {
     btn.style.background = 'var(--cyan)';
     btn.style.color = '#fff';
     btn.style.borderColor = 'var(--cyan)';
+    preciosSection.classList.add('felagi-active');
   } else {
     btn.style.background = '';
     btn.style.color = 'var(--cyan)';
     btn.style.borderColor = '';
+    preciosSection.classList.remove('felagi-active');
   }
   updatePrices();
   updateTotal();
