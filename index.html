@@ -1198,10 +1198,10 @@
   .evento-card.highlighted img { filter: grayscale(0); transform: scale(1.15); z-index: 2; }
   .evento-card.highlighted .evento-label { opacity: 1; }
   .eventos-track {
-    display: flex; gap: 1rem; width: max-content;
-    animation: eventos-scroll 30s linear infinite;
+    display: flex; gap: 1rem; overflow-x: auto; scroll-behavior: smooth;
+    padding-bottom: 0.5rem; scrollbar-width: none;
   }
-  .eventos-track:hover { animation-play-state: paused; }
+  .eventos-track::-webkit-scrollbar { display: none; }
   .eventos-track .evento-card {
     position: relative; flex-shrink: 0; height: 200px;
   }
@@ -1235,13 +1235,6 @@
     <span class="evento-name" onmouseover="highlightEvento('japan')" onmouseout="unhighlightEvento()">Japan Weekend</span>
   </p>
   <div class="eventos-track">
-    <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
-    <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
-    <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
-    <div class="evento-card" data-evento="sitges"><img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
-    <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" /><span class="evento-label">Feria del Libro</span></div>
-    <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
-    <!-- duplicado para loop continuo -->
     <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
     <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
     <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
@@ -1781,7 +1774,7 @@
       <img src="Skool 3-opt.jpg" alt="Hype Agents en Skool" class="skool-base" />
       <img src="Skool 6-opt.jpg" alt="Hype Agents en Skool" class="skool-reveal" />
     </a>
-    <a href="https://www.skool.com/hype-agents-5337" target="_blank" style="display:inline-block;font-size:0.9rem;padding:0.8rem 2rem;background:#fff;color:var(--negro);font-weight:700;border-radius:30px;text-decoration:none;letter-spacing:0.05em;transition:all 0.3s;">UNIRME <span style="color:var(--magenta);font-weight:900;">GRATIS</span></a>
+    <a href="https://www.skool.com/hype-agents-5337" target="_blank" style="display:inline-block;font-size:0.9rem;padding:0.8rem 2rem;background:#fff;color:var(--negro);font-weight:700;border-radius:30px;text-decoration:none;letter-spacing:0.05em;transition:all 0.3s;">UNIRME <span style="color:var(--cyan);font-weight:900;">GRATIS</span></a>
   </div>
 </section>
 
