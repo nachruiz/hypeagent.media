@@ -1170,13 +1170,6 @@
     <h2 class="section-title">Invierte en tu carrera</h2>
     <p class="section-sub">Elige un plan o personaliza el tuyo</p>
 
-    <!-- MODE TOGGLE -->
-    <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
-      <div style="display:flex;gap:0.5rem;">
-        <button id="mode-packs" onclick="togglePriceMode('packs')" style="padding:0.6rem 1.8rem;border-radius:30px;border:2px solid var(--dorado);background:var(--dorado);color:var(--negro);font-family:'Cinzel',serif;font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.3s;letter-spacing:0.05em;">Elegir plan</button>
-        <button id="mode-custom" onclick="togglePriceMode('custom')" style="padding:0.6rem 1.8rem;border-radius:30px;border:2px solid var(--dorado);background:transparent;color:var(--dorado);font-family:'Cinzel',serif;font-weight:700;font-size:0.9rem;cursor:pointer;transition:all 0.3s;letter-spacing:0.05em;">Personalizar</button>
-      </div>
-    </div>
     <div style="text-align:center;margin-bottom:1rem;">
       <button onclick="var panel=document.getElementById('discount-explainer');panel.style.display=panel.style.display==='none'?'block':'none';" style="background:none;border:none;color:var(--dorado);font-size:0.75rem;cursor:pointer;text-decoration:underline;font-family:'Montserrat',sans-serif;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">¿Cómo funcionan los descuentos?</button>
       <div id="discount-explainer" style="display:none;text-align:left;margin:0.8rem auto 0;max-width:600px;padding:1rem;background:rgba(11,15,20,0.8);border:1px solid rgba(200,169,106,0.15);border-radius:10px;font-size:0.75rem;line-height:1.6;">
@@ -1322,186 +1315,6 @@
     </div>
 
     </div><!-- /packs-section -->
-
-    <!-- 3. TABLA COMPARATIVA DETALLADA (custom mode) -->
-    <div id="custom-section" style="display:none;">
-    <div style="overflow-x:auto;margin-bottom:2rem;">
-    <table class="pricing-table" id="comparison-table" style="width:100%;border-collapse:collapse;">
-      <thead>
-        <tr>
-          <th style="text-align:left;min-width:200px;"></th>
-          <th style="min-width:90px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.2);color:var(--cyan);">Tu plan<br><small style="font-weight:400;opacity:0.8;">Personalizado</small></th>
-          <th style="min-width:90px;">Völva<br><small style="font-weight:400;opacity:0.6;">TikTok</small></th>
-          <th style="min-width:90px;">Völva<br><small style="font-weight:400;opacity:0.6;">Netflix</small></th>
-          <th style="min-width:90px;">Thing<br><small style="font-weight:400;opacity:0.6;">Website</small></th>
-          <th style="min-width:90px;"><small style="background:var(--magenta);color:#fff;font-size:0.6rem;padding:0.15rem 0.5rem;border-radius:10px;white-space:nowrap;">POPULAR</small><br>Raider<br><small style="font-weight:400;opacity:0.6;">Redes</small></th>
-          <th style="min-width:90px;">Jarl<br><small style="font-weight:400;opacity:0.6;">All-in-one</small></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Todo tuyo en Google Drive</td>
-          <td style="background:rgba(0,229,255,0.04);color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Booktrailer 30s <small style="color:rgba(237,230,214,0.35);">(155€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="155" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Booktrailer 1 min <small style="color:rgba(237,230,214,0.35);">(205€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="205" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Web oficial con dominio <small style="color:rgba(237,230,214,0.35);">(197€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="197" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Newsletter integrada</td>
-          <td style="background:rgba(0,229,255,0.04);color:rgba(237,230,214,0.3);font-size:0.7rem;">con web</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Newsletter periódica gestionada <small style="color:rgba(237,230,214,0.35);">(desde 27€/envío)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="27" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Estrategia de redes sociales</td>
-          <td style="background:rgba(0,229,255,0.04);color:rgba(237,230,214,0.3);font-size:0.7rem;">incluida</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Posts diseñados <small style="color:rgba(237,230,214,0.35);">(27€/ud)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="27" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Carruseles <small style="color:rgba(237,230,214,0.35);">(78€/ud)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="78" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Setup de Amazon Ads <small style="color:rgba(237,230,214,0.35);">(150€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="150" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Amazon Ads mensual <small style="color:rgba(237,230,214,0.35);">(97€/mes)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="97" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Análisis ventas Amazon <small style="color:rgba(237,230,214,0.35);">(13€/mes)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="13" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Selector de portadas <small style="color:rgba(237,230,214,0.35);">(57€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="57" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Testeo de mercado <small style="color:rgba(237,230,214,0.35);">(386€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="386" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Informe mensual de resultados <small style="color:rgba(237,230,214,0.35);">(375€)</small></td>
-          <td style="background:rgba(0,229,255,0.04);"><input type="checkbox" class="custom-check" data-price="375" onchange="updateCustomTotal()" style="accent-color:var(--cyan);width:18px;height:18px;cursor:pointer;"></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr>
-          <td style="text-align:left;color:var(--crema);">Gestión de redes mensual</td>
-          <td style="background:rgba(0,229,255,0.04);color:rgba(237,230,214,0.3);font-size:0.7rem;">contactar</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td style="color:var(--dorado);font-size:1.2rem;">✓</td>
-        </tr>
-        <tr style="border-top:2px solid rgba(200,169,106,0.3);">
-          <td style="text-align:left;color:var(--dorado);font-weight:700;">Precio</td>
-          <td style="background:rgba(0,229,255,0.08);color:var(--cyan);font-weight:700;font-size:1.1rem;" id="custom-total-cell">0€</td>
-          <td class="plan-price" data-base="155" style="color:var(--dorado);font-weight:700;"></td>
-          <td class="plan-price" data-base="205" style="color:var(--dorado);font-weight:700;"></td>
-          <td class="plan-price" data-base="347" style="color:var(--dorado);font-weight:700;"></td>
-          <td class="plan-price" data-base="747" style="color:var(--dorado);font-weight:700;"></td>
-          <td class="plan-price" data-base="1492" style="color:var(--dorado);font-weight:700;"></td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-    <div style="text-align:center;margin-bottom:2rem;">
-      <button onclick="document.getElementById('empezar').scrollIntoView({behavior:'smooth'})" style="background:var(--cyan);color:var(--negro);padding:0.7rem 2rem;border-radius:30px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">SOLICITAR MI PLAN PERSONALIZADO</button>
-      <p style="font-size:0.8rem;color:rgba(237,230,214,0.4);margin-top:0.5rem;">Los precios pueden variar con descuentos Skáld o Félagi.</p>
-    </div>
-
-    <!-- Configurador -->
-    </div><!-- /custom-section -->
   </div>
 </section>
 
@@ -1966,6 +1779,16 @@ function setMapea(on) {
   mapeaOn = on;
   document.getElementById('mapea-general').classList.toggle('active', !on);
   document.getElementById('mapea-on').classList.toggle('active', on);
+  var btn = document.getElementById('mapea-on');
+  if (on) {
+    btn.style.background = 'var(--cyan)';
+    btn.style.color = '#fff';
+    btn.style.borderColor = 'var(--cyan)';
+  } else {
+    btn.style.background = '';
+    btn.style.color = 'var(--cyan)';
+    btn.style.borderColor = '';
+  }
   updatePrices();
   updateTotal();
   updatePlanTotal();
