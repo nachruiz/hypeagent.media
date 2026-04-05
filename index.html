@@ -917,7 +917,7 @@
       .pricing-grid { grid-template-columns: 1fr; }
       .pricing-highlights { grid-template-columns: 1fr; }
       .results-section { padding-bottom: 2rem; }
-      .results-bg { object-position: 30% center; }
+      .results-bg { object-position: center top; object-fit: cover; }
       .results-overlay {
         background: linear-gradient(to bottom, rgba(11,15,20,0.3) 0%, rgba(11,15,20,0.85) 60%, rgba(11,15,20,0.95) 100%);
       }
@@ -934,6 +934,7 @@
       .portfolio-embed img { object-position: center center !important; }
       .portfolio-embed img.guardian-img { object-position: left top !important; }
       .pay-toggle { padding: 0.5rem 1rem; font-size: 0.7rem; }
+      .price-card { background: rgba(200,169,106,0.08); border: 1px solid rgba(200,169,106,0.25); }
     }
   </style>
 </head>
@@ -955,7 +956,7 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <picture>
-    <source media="(max-width: 768px)" srcset="hero-vertical.png" />
+    <source media="(max-width: 768px)" srcset="hero-vertical-2.png" />
     <img class="hero-bg" src="hero-desktop-opt.jpg" alt="Hype Agent" loading="eager" decoding="async" fetchpriority="high" width="1920" height="1080" />
   </picture>
   <div class="hero-overlay"></div>
