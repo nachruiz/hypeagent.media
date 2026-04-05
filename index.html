@@ -999,7 +999,18 @@
     </div>
     <div style="flex:1;min-width:250px;">
       <div style="width:50px;height:2px;background:linear-gradient(to right,transparent,var(--dorado),transparent);margin-bottom:1.5rem;"></div>
-      <p style="font-size:1.05rem;color:var(--crema);line-height:1.8;"><strong style="color:var(--dorado);">Soy Nacho Ruiz Hens.</strong> Escritor, nº1 en Amazon con Arzan Cuernoscuro. Publicado por Valhalla, representado por Editabundo. He pasado por donde tú estás — y ahora, desde Hype Agent, ayudo a otros autores a llegar mas lejos.</p>
+      <style>
+        .who-tooltip { position: relative; display: inline; cursor: pointer; border-bottom: 1px dotted rgba(200,169,106,0.4); }
+        .who-tooltip:hover { color: var(--dorado); }
+        .who-tooltip .who-tip {
+          display: none; position: absolute; bottom: calc(100% + 0.5rem); left: 50%; transform: translateX(-50%);
+          background: rgba(11,15,20,0.95); border: 1px solid rgba(200,169,106,0.2); border-radius: 10px;
+          padding: 0.6rem; z-index: 10; box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .who-tooltip:hover .who-tip { display: block; }
+        .who-tip img { height: 60px; width: auto; display: block; border-radius: 4px; }
+      </style>
+      <p style="font-size:1.05rem;color:var(--crema);line-height:1.8;"><strong style="color:var(--dorado);">Soy Nacho Ruiz Hens.</strong> Escritor, <span class="who-tooltip">nº1 en Amazon<span class="who-tip"><img src="arzan numero 1 fantasia epica-opt.jpg" alt="Arzan nº1 en Amazon" /></span></span> con Arzan Cuernoscuro. Publicado por <span class="who-tooltip">Valhalla<span class="who-tip"><img src="logo valhalla.png" alt="Editorial Valhalla" /></span></span>, representado por <span class="who-tooltip">Editabundo<span class="who-tip"><img src="editabundo agencia literaria.png" alt="Editabundo Agencia Literaria" /></span></span>. He pasado por donde tú estás — y ahora, desde Hype Agent, ayudo a otros autores a llegar mas lejos.</p>
     </div>
   </div>
 </section>
@@ -1312,6 +1323,13 @@
   <div class="container">
     <h2 class="section-title">Invierte en tu carrera</h2>
     <p class="section-sub">Elige un plan o personaliza el tuyo</p>
+    <p style="text-align:center;font-size:0.75rem;color:rgba(237,230,214,0.4);margin-bottom:1.5rem;">Todos los pagos fraccionados son a 3 o 6 meses. No son suscripciones.</p>
+
+    <div style="text-align:center;margin-bottom:2rem;">
+      <button onclick="var c=document.getElementById('pricing-content');c.style.display=c.style.display==='none'?'block':'none';this.style.display='none';" style="display:inline-block;padding:0.9rem 2.5rem;background:var(--dorado);color:var(--negro);font-family:'Cinzel',serif;font-weight:700;font-size:0.95rem;border:none;border-radius:30px;cursor:pointer;letter-spacing:0.05em;transition:all 0.3s;">Ver planes y precios</button>
+    </div>
+
+    <div id="pricing-content" style="display:none;">
 
     <div style="text-align:center;margin-bottom:1rem;">
       <button onclick="var panel=document.getElementById('discount-explainer');panel.style.display=panel.style.display==='none'?'block':'none';" style="background:none;border:none;color:var(--dorado);font-size:0.75rem;cursor:pointer;text-decoration:underline;font-family:'Montserrat',sans-serif;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">¿Cómo funcionan los descuentos?</button>
@@ -1385,8 +1403,7 @@
 
       <div class="price-card no-dynamic volva-dynamic" onclick="document.getElementById('empezar').scrollIntoView({behavior:'smooth'})" style="display:flex;flex-direction:column;gap:1.5rem;">
         <h3>Völva</h3>
-        <p style="font-size:0.65rem;color:rgba(237,230,214,0.35);letter-spacing:0.1em;margin-top:-0.5rem;">BOOKTRAILER</p>
-        <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);font-style:italic;">La profetisa que muestra visiones del futuro. Tu <span style="color:var(--cyan);font-weight:700;">BOOKTRAILER</span>.</p>
+        <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);font-style:italic;margin-top:-0.5rem;">La profetisa que muestra visiones del futuro. Tu <span style="color:var(--cyan);font-weight:700;">BOOKTRAILER</span>.</p>
         <div style="flex:1;">
           <div class="price volva-price" data-base="155" id="volva-tiktok-price">155€</div>
           <div class="price-note volva-note" id="volva-tiktok-note">Pago unico</div>
@@ -1492,6 +1509,7 @@
     <p style="font-size:0.9rem;color:rgba(237,230,214,0.6);margin-bottom:1.5rem;max-width:450px;margin-left:auto;margin-right:auto;">Rellena el formulario y te contacto con una propuesta personalizada.</p>
     <button onclick="document.getElementById('form-embed').style.display='block';document.getElementById('form-embed').scrollIntoView({behavior:'smooth',block:'center'});" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem;border:none;cursor:pointer;">ENVIAR MI MATERIAL</button>
   </div>
+  </div><!-- /pricing-content -->
 </section>
 
 <!-- ══ EMPEZAR ══ -->
@@ -1774,7 +1792,7 @@
       <img src="Skool 3-opt.jpg" alt="Hype Agents en Skool" class="skool-base" />
       <img src="Skool 6-opt.jpg" alt="Hype Agents en Skool" class="skool-reveal" />
     </a>
-    <a href="https://www.skool.com/hype-agents-5337" target="_blank" style="display:inline-block;font-size:0.9rem;padding:0.8rem 2rem;background:#fff;color:var(--negro);font-weight:700;border-radius:30px;text-decoration:none;letter-spacing:0.05em;transition:all 0.3s;">UNIRME <span style="color:var(--cyan);font-weight:900;">GRATIS</span></a>
+    <a href="https://www.skool.com/hype-agents-5337" target="_blank" style="display:inline-block;font-size:0.9rem;padding:0.8rem 2rem;background:var(--negro);color:var(--crema);font-weight:700;border-radius:30px;text-decoration:none;letter-spacing:0.05em;transition:all 0.3s;border:1px solid rgba(200,169,106,0.3);">UNIRME <span style="color:var(--cyan);font-weight:900;">GRATIS</span></a>
   </div>
 </section>
 
