@@ -1981,6 +1981,7 @@ function toggleAmbassador(on) {
 }
 
 function applyModifiers(price) {
+  if (mapeaOn) price = Math.round(price * 0.80);
   if (ambassadorOn) price = Math.round(price * ambassadorDiscount);
   return price;
 }
