@@ -1004,6 +1004,75 @@
   </div>
 </section>
 
+<!-- ══ ¿CÓMO PUEDO AYUDARTE? ══ -->
+<style>
+  .help-section { background: var(--negro); padding: 4rem 2rem; }
+  .help-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 900; color: var(--crema); margin-bottom: 0.5rem; }
+  .help-title strong { color: var(--dorado); }
+  .help-sub { text-align: center; font-size: 0.95rem; color: rgba(237,230,214,0.5); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .help-list { max-width: 800px; margin: 0 auto; }
+  .help-item { border-top: 1px solid rgba(200,169,106,0.15); }
+  .help-item:last-child { border-bottom: 1px solid rgba(200,169,106,0.15); }
+  .help-q {
+    display: flex; justify-content: space-between; align-items: center; width: 100%;
+    background: none; border: none; padding: 1.2rem 0; cursor: pointer;
+    font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700;
+    color: var(--crema); text-align: left; letter-spacing: 0.03em; transition: color 0.3s;
+  }
+  .help-q:hover { color: var(--dorado); }
+  .help-q span { font-size: 1.4rem; color: var(--dorado); flex-shrink: 0; margin-left: 1rem; transition: transform 0.3s; }
+  .help-item.open .help-q { color: var(--dorado); }
+  .help-item.open .help-q span { transform: rotate(45deg); }
+  .help-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+  .help-item.open .help-a { max-height: 200px; padding-bottom: 1.2rem; }
+  .help-a p { font-size: 0.9rem; color: rgba(237,230,214,0.6); line-height: 1.7; }
+  .help-a a { color: var(--dorado); text-decoration: underline; }
+</style>
+<section class="help-section">
+  <div class="container">
+    <h2 class="help-title">¿Cómo puedo <strong>ayudarte</strong>?</h2>
+    <p class="help-sub">Si te identificas con alguna de estas situaciones, estás en el lugar correcto.</p>
+    <div class="help-list">
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Has publicado un libro pero no sabes cómo promocionarlo?<span>+</span></button>
+        <div class="help-a"><p>Te preparo un plan de marketing y comunicación completo: booktrailer, redes sociales, newsletter y campañas de publicidad para que tu libro llegue a los lectores que te están buscando.</p></div>
+      </div>
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Tienes redes sociales pero no consigues crecer?<span>+</span></button>
+        <div class="help-a"><p>Me encargo de tu contenido, tu calendario editorial y tu estrategia. Tú solo tienes que seguir escribiendo — yo hago que te descubran.</p></div>
+      </div>
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Necesitas una web de autor profesional?<span>+</span></button>
+        <div class="help-a"><p>Diseño tu web con todo lo que necesitas: biografía, libros, enlaces de compra, newsletter integrada y dominio propio. Lista en 5-7 días.</p></div>
+      </div>
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Quieres un booktrailer pero no sabes por dónde empezar?<span>+</span></button>
+        <div class="help-a"><p>Tú me das la portada, la sinopsis y el tono que buscas. Yo me encargo del guion, la edición y la producción. En formato TikTok, YouTube o ambos.</p></div>
+      </div>
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Tienes lectores pero no una forma de comunicarte con ellos?<span>+</span></button>
+        <div class="help-a"><p>Te configuro y gestiono tu newsletter: firmas, eventos, lanzamientos, contenido exclusivo. Tú defines el tono, yo me ocupo del resto.</p></div>
+      </div>
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Quieres vender más en Amazon pero no entiendes los Ads?<span>+</span></button>
+        <div class="help-a"><p>Gestiono tus campañas de publicidad en Amazon y RRSS. Keywords, pujas y optimización para que tu libro aparezca donde tiene que aparecer.</p></div>
+      </div>
+
+      <div class="help-item" onclick="this.classList.toggle('open')">
+        <button class="help-q">¿Necesitas que alguien se encargue de todo?<span>+</span></button>
+        <div class="help-a"><p>El plan Jarl incluye gestión completa: redes, web, booktrailer, newsletter, ads y estrategia. Tú escribe, yo me encargo del resto. <a href="#precios">Ver planes</a></p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ══ SERVICIOS ══ -->
 <section id="servicios" style="background:linear-gradient(to bottom, #1a1d22 0%, #1e1530 30%, #130e20 65%, #0b0f14 100%);">
   <div class="container">
