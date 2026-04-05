@@ -1248,17 +1248,23 @@
         <p style="font-size:0.65rem;color:rgba(237,230,214,0.35);letter-spacing:0.1em;margin-top:-0.5rem;">BOOKTRAILER</p>
         <p style="font-size:0.75rem;color:rgba(237,230,214,0.45);font-style:italic;">La profetisa que muestra visiones del futuro. Tu <span style="color:var(--cyan);font-weight:700;">BOOKTRAILER</span>.</p>
         <div style="flex:1;">
-          <div class="price volva-price" data-base="155">155€</div>
-          <div class="price-note volva-note">Pago unico</div>
+          <div class="price volva-price" data-base="155" id="volva-tiktok-price">155€</div>
+          <div class="price-note volva-note" id="volva-tiktok-note">Pago unico</div>
           <p style="color:var(--dorado);font-size:0.8rem;margin-top:0.5rem;">🎬 Völva TikTok · 30 segundos · 1 formato</p>
-          <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.7rem;color:rgba(237,230,214,0.4);cursor:pointer;margin-top:0.4rem;position:relative;" onclick="event.stopPropagation()"><input type="checkbox" style="accent-color:var(--dorado);"> +50% ambos formatos <span class="format-help" style="display:inline-block;width:16px;height:16px;border-radius:50%;background:rgba(200,169,106,0.2);color:var(--dorado);font-size:0.6rem;text-align:center;line-height:16px;cursor:help;margin-left:0.3rem;">?<span class="format-tooltip" style="display:none;position:absolute;bottom:calc(100% + 0.5rem);left:0;width:220px;background:rgba(11,15,20,0.95);color:var(--crema);border:1px solid rgba(200,169,106,0.25);border-radius:10px;padding:0.7rem;font-size:0.7rem;line-height:1.4;z-index:10;text-transform:none;letter-spacing:normal;font-weight:400;">Vertical (9:16) para TikTok e Instagram (Recomendado). Horizontal (16:9) para YouTube. Por defecto se incluye un formato. Con +50% recibes ambos.</span></span></label>
+          <div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.5rem;" onclick="event.stopPropagation()">
+            <label style="display:flex;align-items:center;gap:0.3rem;font-size:0.7rem;color:rgba(237,230,214,0.4);cursor:pointer;"><input type="checkbox" id="dual-tiktok" onchange="updateVolvaCards()" style="accent-color:var(--dorado);"> +50% ambos formatos</label>
+            <label style="font-size:0.7rem;color:rgba(237,230,214,0.4);display:flex;align-items:center;gap:0.3rem;">×<select id="qty-tiktok" onchange="updateVolvaCards()" style="background:#1a1e25;color:var(--crema);border:1px solid rgba(200,169,106,0.3);border-radius:4px;padding:0.15rem 0.3rem;font-size:0.7rem;cursor:pointer;"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></label>
+          </div>
           <a href="#empezar" class="btn-primary" style="display:block;text-align:center;font-size:0.8rem;padding:0.5rem 1rem;margin-top:0.8rem;">Elegir</a>
         </div>
         <div style="border-top:1px solid rgba(200,169,106,0.15);padding-top:1.2rem;flex:1;">
-          <div class="price volva-price" data-base="205">205€</div>
-          <div class="price-note volva-note">Pago unico</div>
+          <div class="price volva-price" data-base="205" id="volva-netflix-price">205€</div>
+          <div class="price-note volva-note" id="volva-netflix-note">Pago unico</div>
           <p style="color:var(--dorado);font-size:0.8rem;margin-top:0.5rem;">🎥 Völva Netflix · 1 minuto · 1 formato</p>
-          <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.7rem;color:rgba(237,230,214,0.4);cursor:pointer;margin-top:0.4rem;position:relative;" onclick="event.stopPropagation()"><input type="checkbox" style="accent-color:var(--dorado);"> +50% ambos formatos <span class="format-help" style="display:inline-block;width:16px;height:16px;border-radius:50%;background:rgba(200,169,106,0.2);color:var(--dorado);font-size:0.6rem;text-align:center;line-height:16px;cursor:help;margin-left:0.3rem;">?<span class="format-tooltip" style="display:none;position:absolute;bottom:calc(100% + 0.5rem);left:0;width:220px;background:rgba(11,15,20,0.95);color:var(--crema);border:1px solid rgba(200,169,106,0.25);border-radius:10px;padding:0.7rem;font-size:0.7rem;line-height:1.4;z-index:10;text-transform:none;letter-spacing:normal;font-weight:400;">Vertical (9:16) para TikTok e Instagram (Recomendado). Horizontal (16:9) para YouTube. Por defecto se incluye un formato. Con +50% recibes ambos.</span></span></label>
+          <div style="display:flex;align-items:center;gap:0.8rem;margin-top:0.5rem;" onclick="event.stopPropagation()">
+            <label style="display:flex;align-items:center;gap:0.3rem;font-size:0.7rem;color:rgba(237,230,214,0.4);cursor:pointer;"><input type="checkbox" id="dual-netflix" onchange="updateVolvaCards()" style="accent-color:var(--dorado);"> +50% ambos formatos</label>
+            <label style="font-size:0.7rem;color:rgba(237,230,214,0.4);display:flex;align-items:center;gap:0.3rem;">×<select id="qty-netflix" onchange="updateVolvaCards()" style="background:#1a1e25;color:var(--crema);border:1px solid rgba(200,169,106,0.3);border-radius:4px;padding:0.15rem 0.3rem;font-size:0.7rem;cursor:pointer;"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></label>
+          </div>
           <a href="#empezar" class="btn-primary" style="display:block;text-align:center;font-size:0.8rem;padding:0.5rem 1rem;margin-top:0.8rem;">Elegir</a>
         </div>
       </div>
@@ -1994,6 +2000,38 @@ function applyPayment(price) {
   return price;
 }
 
+function updateVolvaCards() {
+  var types = [
+    {base: 155, dual: 'dual-tiktok', qty: 'qty-tiktok', priceEl: 'volva-tiktok-price', noteEl: 'volva-tiktok-note'},
+    {base: 205, dual: 'dual-netflix', qty: 'qty-netflix', priceEl: 'volva-netflix-price', noteEl: 'volva-netflix-note'}
+  ];
+  types.forEach(function(t) {
+    var dualEl = document.getElementById(t.dual);
+    var qtyEl = document.getElementById(t.qty);
+    if (!dualEl || !qtyEl) return;
+    var unitPrice = t.base;
+    if (dualEl.checked) unitPrice = Math.round(t.base * 1.5);
+    var qty = parseInt(qtyEl.value);
+    var total = applyModifiers(unitPrice) * qty;
+    var priceEl = document.getElementById(t.priceEl);
+    var noteEl = document.getElementById(t.noteEl);
+    if (currentPeriod === 'unico') {
+      priceEl.innerHTML = total + '€';
+      noteEl.textContent = qty > 1 ? qty + ' booktrailers · Pago único' : 'Pago único';
+    } else if (currentPeriod === '3m') {
+      var finalTotal = Math.round(total * markup3m);
+      var monthly = Math.round(finalTotal / 3);
+      priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
+      noteEl.textContent = '3 cuotas de ' + monthly + '€ (total ' + finalTotal + '€)';
+    } else {
+      var finalTotal = Math.round(total * markup6m);
+      var monthly = Math.round(finalTotal / 6);
+      priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
+      noteEl.textContent = '6 cuotas de ' + monthly + '€ (total ' + finalTotal + '€)';
+    }
+  });
+}
+
 function updatePrices() {
   var cards = document.querySelectorAll('.price-card.pack-dynamic');
   cards.forEach(function(card) {
@@ -2017,6 +2055,9 @@ function updatePrices() {
       noteEl.textContent = '6 cuotas de ' + monthly + '€ (total ' + total + '€)';
     }
   });
+
+  // Update Völva card prices with dual format + quantity
+  updateVolvaCards();
 
   // Update Völva booktrailer prices
   document.querySelectorAll('.volva-price').forEach(function(priceEl, i) {
