@@ -1208,11 +1208,22 @@
   .evento-name:hover, .evento-name.active { color: var(--dorado); font-weight: 700; }
   .evento-card.highlighted img { filter: grayscale(0); transform: scale(1.15); z-index: 2; }
   .evento-card.highlighted .evento-label { opacity: 1; }
+  .eventos-wrapper { position: relative; }
   .eventos-track {
     display: flex; gap: 1rem; overflow-x: auto; scroll-behavior: smooth;
     padding-bottom: 0.5rem; scrollbar-width: none;
   }
   .eventos-track::-webkit-scrollbar { display: none; }
+  .eventos-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+    background: rgba(11,15,20,0.8); color: var(--dorado); border: 1px solid rgba(200,169,106,0.3);
+    width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .eventos-arrow:hover { background: var(--dorado); color: var(--negro); }
+  .eventos-arrow.left { left: 0.5rem; }
+  .eventos-arrow.right { right: 0.5rem; }
   .eventos-track .evento-card {
     position: relative; flex-shrink: 0; height: 200px;
   }
@@ -1245,13 +1256,16 @@
     <span class="evento-name" onmouseover="highlightEvento('feria')" onmouseout="unhighlightEvento()">Feria del Libro</span> ·
     <span class="evento-name" onmouseover="highlightEvento('japan')" onmouseout="unhighlightEvento()">Japan Weekend</span>
   </p>
-  <div class="eventos-track">
-    <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
-    <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
-    <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
-    <div class="evento-card" data-evento="sitges"><img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
-    <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" /><span class="evento-label">Feria del Libro</span></div>
-    <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
+  <div class="eventos-wrapper">
+    <button class="eventos-arrow left" onclick="document.getElementById('eventos-scroll').scrollBy({left:-300,behavior:'smooth'})">‹</button>
+    <div class="eventos-track" id="eventos-scroll">
+      <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
+      <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
+      <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
+      <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro" loading="lazy" /><span class="evento-label">Feria del Libro</span></div>
+      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
+    </div>
+    <button class="eventos-arrow right" onclick="document.getElementById('eventos-scroll').scrollBy({left:300,behavior:'smooth'})">›</button>
   </div>
 </section>
 
