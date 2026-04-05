@@ -1097,9 +1097,49 @@
 </section>
 
 <!-- ══ EVENTOS ══ -->
-<div style="background:var(--negro);text-align:center;padding:1.5rem 2rem;">
-  <p style="font-size:0.75rem;letter-spacing:0.15em;color:rgba(237,230,214,0.35);text-transform:uppercase;">Festival de Cine Fantastico de Sitges · Fnac Barcelona · Fnac Valencia · Feria del Libro · Japan Weekend</p>
-</div>
+<style>
+  .eventos { background: var(--negro); padding: 2.5rem 0 2rem; overflow: hidden; }
+  .eventos h2 { text-align: center; font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 0.15em; color: rgba(237,230,214,0.35); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .eventos-track {
+    display: flex; gap: 1rem; width: max-content;
+    animation: eventos-scroll 30s linear infinite;
+  }
+  .eventos-track:hover { animation-play-state: paused; }
+  .eventos-track img {
+    height: 200px; width: auto; border-radius: 10px; object-fit: cover;
+    filter: grayscale(0.3); transition: filter 0.3s, transform 0.3s;
+  }
+  .eventos-track img:hover { filter: grayscale(0); transform: scale(1.03); }
+  @keyframes eventos-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (max-width: 768px) {
+    .eventos-track img { height: 140px; }
+  }
+</style>
+<section class="eventos">
+  <h2>Donde hemos estado</h2>
+  <div class="eventos-track">
+    <img src="Sitges festival.jpeg" alt="Festival de Cine Fantástico de Sitges" loading="lazy" />
+    <img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" />
+    <img src="fnac barcelona 2.jpeg" alt="Fnac Barcelona" loading="lazy" />
+    <img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" />
+    <img src="feria del libro.jpg" alt="Feria del Libro" loading="lazy" />
+    <img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" />
+    <img src="Japan weekend 2.jpeg" alt="Japan Weekend" loading="lazy" />
+    <img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" />
+    <!-- duplicado para loop continuo -->
+    <img src="Sitges festival.jpeg" alt="Festival de Cine Fantástico de Sitges" loading="lazy" />
+    <img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" />
+    <img src="fnac barcelona 2.jpeg" alt="Fnac Barcelona" loading="lazy" />
+    <img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" />
+    <img src="feria del libro.jpg" alt="Feria del Libro" loading="lazy" />
+    <img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" />
+    <img src="Japan weekend 2.jpeg" alt="Japan Weekend" loading="lazy" />
+    <img src="sitges festival (2).jpeg" alt="Sitges Festival" loading="lazy" />
+  </div>
+</section>
 
 <!-- ══ PORTFOLIO ══ -->
 <section id="portfolio">
@@ -2069,20 +2109,24 @@ function updateTotal() {
   var discRow = document.getElementById('discount-row');
   var discLabels = [];
   var totalSaved = 0;
+  var fullPrice = subtotal;
 
   if (mapeaOn && subtotal > 0) {
-    discLabels.push('Félagi');
+    fullPrice = Math.round(subtotal / 0.80);
+    totalSaved += fullPrice - subtotal;
+    discLabels.push('Félagi -20%');
   }
   if (ambassadorOn && subtotal > 0) {
-    var fullPrice = Math.round(subtotal / ambassadorDiscount);
-    totalSaved = fullPrice - subtotal;
+    var preAmbassador = mapeaOn ? fullPrice : subtotal;
+    var savedByAmbassador = Math.round(preAmbassador - preAmbassador * ambassadorDiscount);
+    totalSaved += savedByAmbassador;
     discLabels.push('Skáld -30%');
   }
 
   if (discLabels.length > 0 && subtotal > 0) {
     discRow.style.display = 'flex';
     document.getElementById('discount-label').textContent = discLabels.join(' + ');
-    document.getElementById('discount-amount').textContent = totalSaved > 0 ? '-' + totalSaved + '€' : 'aplicado';
+    document.getElementById('discount-amount').textContent = '-' + totalSaved + '€';
   } else {
     discRow.style.display = 'none';
   }
