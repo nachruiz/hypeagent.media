@@ -190,6 +190,25 @@
     }
     .btn-secondary:hover { border-color: var(--dorado); background: rgba(200,169,106,0.08); }
     .skald-hover { display: flex; justify-content: center; margin-bottom: 1rem; }
+    .custom-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .custom-row:hover { background: rgba(200,169,106,0.08); }
+    .custom-row input[type="checkbox"] {
+      width: 18px; height: 18px; accent-color: var(--dorado);
+      cursor: pointer; flex-shrink: 0;
+    }
+    .custom-row .custom-name { flex: 1; color: var(--crema); font-size: 0.85rem; }
+    .custom-row .custom-price {
+      color: var(--dorado); font-weight: 700; font-size: 0.85rem;
+      white-space: nowrap; min-width: 60px; text-align: right;
+    }
     .skald-help { position: relative; }
     .skald-tooltip {
       display: none;
@@ -1547,19 +1566,32 @@
         <span>¿Necesitas un servicio a medida?</span>
         <span class="chevron" style="font-size:0.7rem;transition:transform 0.3s;display:inline-block;">▼</span>
       </button>
-      <div id="custom-service" style="max-height:0px;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s;background:rgba(237,230,214,0.03);border:1px solid rgba(200,169,106,0.15);border-top:none;border-radius:0 0 12px 12px;padding:0 1.5rem;font-size:0.85rem;color:rgba(237,230,214,0.7);line-height:1.7;">
-        <p style="margin-bottom:0.8rem;">Si ninguno de los packs se ajusta a lo que necesitas, puedo prepararte una <strong style="color:var(--crema);">propuesta personalizada</strong>.</p>
-        <p style="margin-bottom:0.8rem;">Algunos ejemplos de servicios sueltos o combinaciones a medida:</p>
-        <ul style="margin-bottom:1rem;padding-left:1.2rem;">
-          <li>Estrategia de lanzamiento (sin redes, solo plan)</li>
-          <li>Booktrailer premium con actor/actriz</li>
-          <li>Gestión de campañas de Amazon, Meta o TikTok Ads por separado</li>
-          <li>Rediseño de portada + A/B testing</li>
-          <li>Consultoría puntual (1 sesión de 60 min)</li>
-          <li>Formación para que lo hagas tú mismo</li>
-        </ul>
-        <p style="margin-bottom:0.5rem;">Cuéntame qué necesitas en el formulario de abajo y te envío presupuesto en menos de 48h.</p>
-        <a href="#empezar" style="display:inline-block;margin-top:0.3rem;margin-bottom:0.3rem;color:var(--dorado);font-weight:700;text-decoration:none;border-bottom:1px solid var(--dorado);">Ir al formulario →</a>
+      <div id="custom-service" style="max-height:0px;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s;background:rgba(237,230,214,0.03);border:1px solid rgba(200,169,106,0.15);border-top:none;border-radius:0 0 12px 12px;padding:0 1.5rem;font-size:0.85rem;color:rgba(237,230,214,0.7);line-height:1.7;">
+        <p style="margin-bottom:1rem;">Marca los servicios que necesitas y ve el precio en tiempo real. Los descuentos Felagi y Skald se aplican automaticamente.</p>
+
+        <div style="display:grid;gap:0.5rem;margin-bottom:1.2rem;">
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-tiktok"><span class="custom-name">Booktrailer TikTok (30s)</span><span class="custom-price" id="cust-price-bt-tiktok">155€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-netflix"><span class="custom-name">Booktrailer Netflix (1 min)</span><span class="custom-price" id="cust-price-bt-netflix">205€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-web"><span class="custom-name">Web de autor con dominio + newsletter</span><span class="custom-price" id="cust-price-web">347€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-portadas"><span class="custom-name">Selector de portadas</span><span class="custom-price" id="cust-price-portadas">57€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-testeo"><span class="custom-name">Testeo de mercado / A-B testing</span><span class="custom-price" id="cust-price-testeo">386€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-ads-setup"><span class="custom-name">Setup Amazon, Meta o TikTok Ads</span><span class="custom-price" id="cust-price-ads-setup">150€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-ads-monthly"><span class="custom-name">Gestion mensual de Ads</span><span class="custom-price" id="cust-price-ads-monthly">97€/mes</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-news"><span class="custom-name">Setup newsletter</span><span class="custom-price" id="cust-price-news">47€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-informe"><span class="custom-name">Informe de estrategia digital</span><span class="custom-price" id="cust-price-informe">375€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-consultoria"><span class="custom-name">Consultoria puntual (60 min)</span><span class="custom-price" id="cust-price-consultoria">120€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-formacion"><span class="custom-name">Formacion DIY (2 sesiones)</span><span class="custom-price" id="cust-price-formacion">195€</span></label>
+        </div>
+
+        <div id="custom-total-box" style="display:none;background:rgba(237,230,214,0.06);border:1px solid rgba(200,169,106,0.25);border-radius:10px;padding:0.8rem 1.2rem;margin-bottom:1rem;text-align:center;">
+          <span style="color:rgba(237,230,214,0.5);font-size:0.8rem;">Tu presupuesto a medida:</span>
+          <div style="display:flex;justify-content:center;align-items:center;gap:0.8rem;margin-top:0.3rem;">
+            <span style="color:var(--dorado);font-weight:900;font-size:1.6rem;" id="custom-total-val">0€</span>
+          </div>
+          <div id="custom-total-disc" style="font-size:0.7rem;margin-top:0.3rem;"></div>
+        </div>
+
+        <a href="#empezar" style="display:inline-block;margin-bottom:0.5rem;color:var(--dorado);font-weight:700;text-decoration:none;border-bottom:1px solid var(--dorado);">Solicitar presupuesto personalizado →</a>
       </div>
     </div>
 
@@ -2468,6 +2500,44 @@ document.querySelectorAll('.evento-card').forEach(function(card) {
   card.addEventListener('mouseenter', function() { highlightEvento(card.dataset.evento); });
   card.addEventListener('mouseleave', unhighlightEvento);
 });
+
+// === CUSTOM SERVICE CALCULATOR ===
+var customPrices = {
+  'cust-bt-tiktok': 155, 'cust-bt-netflix': 205, 'cust-web': 347,
+  'cust-portadas': 57, 'cust-testeo': 386, 'cust-ads-setup': 150,
+  'cust-ads-monthly': 97, 'cust-news': 47, 'cust-informe': 375,
+  'cust-consultoria': 120, 'cust-formacion': 195
+};
+
+function updateCustomTotal() {
+  setTimeout(function() {
+    var total = 0;
+    var totalBase = 0;
+    Object.keys(customPrices).forEach(function(id) {
+      var cb = document.getElementById(id);
+      if (cb && cb.checked) {
+        totalBase += customPrices[id];
+        total += applyModifiers(customPrices[id]);
+      }
+    });
+    var box = document.getElementById('custom-total-box');
+    if (total > 0) {
+      box.style.display = 'block';
+      document.getElementById('custom-total-val').textContent = total + '€';
+      var discLines = [];
+      if (totalBase !== total) {
+        discLines.push('<span style="text-decoration:line-through;color:rgba(237,230,214,0.4);">' + totalBase + '€</span>');
+        var saved = totalBase - total;
+        if (mapeaOn) discLines.push('<span style="color:var(--cyan);">Felagi -20%</span>');
+        if (ambassadorOn) discLines.push('<span style="color:var(--magenta);">Skald -30%</span>');
+        discLines.push('<span style="color:var(--dorado);">Ahorras ' + saved + '€</span>');
+      }
+      document.getElementById('custom-total-disc').innerHTML = discLines.join(' · ');
+    } else {
+      box.style.display = 'none';
+    }
+  }, 50);
+}
 
 // === INIT ===
 document.addEventListener('DOMContentLoaded', function() {
