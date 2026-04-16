@@ -1569,7 +1569,7 @@
       <div id="custom-service" style="max-height:0px;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s;background:rgba(237,230,214,0.03);border:1px solid rgba(200,169,106,0.15);border-top:none;border-radius:0 0 12px 12px;padding:0 1.5rem;font-size:0.85rem;color:rgba(237,230,214,0.7);line-height:1.7;">
         <p style="margin-bottom:1rem;">Marca los servicios que necesitas y ve el precio en tiempo real. Los descuentos Felagi y Skald se aplican automaticamente.</p>
 
-        <div style="display:grid;gap:0.5rem;margin-bottom:1.2rem;">
+        <div style="display:grid;gap:0.5rem;margin-bottom:1.2rem;max-height:400px;overflow-y:auto;padding-right:0.5rem;">
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-tiktok"><span class="custom-name">Booktrailer TikTok (30s)</span><span class="custom-price" id="cust-price-bt-tiktok">155€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-netflix"><span class="custom-name">Booktrailer Netflix (1 min)</span><span class="custom-price" id="cust-price-bt-netflix">205€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-web"><span class="custom-name">Web de autor con dominio + newsletter</span><span class="custom-price" id="cust-price-web">347€</span></label>
@@ -1578,6 +1578,9 @@
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-ads-setup"><span class="custom-name">Setup Amazon, Meta o TikTok Ads</span><span class="custom-price" id="cust-price-ads-setup">150€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-ads-monthly"><span class="custom-name">Gestion mensual de Ads</span><span class="custom-price" id="cust-price-ads-monthly">97€/mes</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-news"><span class="custom-name">Setup newsletter</span><span class="custom-price" id="cust-price-news">47€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-news-weekly"><span class="custom-name">Newsletter semanal (redaccion + envio)</span><span class="custom-price" id="cust-price-news-weekly">197€/mes</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-news-biweekly"><span class="custom-name">Newsletter quincenal</span><span class="custom-price" id="cust-price-news-biweekly">127€/mes</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-news-monthly"><span class="custom-name">Newsletter mensual</span><span class="custom-price" id="cust-price-news-monthly">77€/mes</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-informe"><span class="custom-name">Informe de estrategia digital</span><span class="custom-price" id="cust-price-informe">375€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-consultoria"><span class="custom-name">Consultoria puntual (60 min)</span><span class="custom-price" id="cust-price-consultoria">120€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-formacion"><span class="custom-name">Formacion DIY (2 sesiones)</span><span class="custom-price" id="cust-price-formacion">195€</span></label>
@@ -2505,8 +2508,9 @@ document.querySelectorAll('.evento-card').forEach(function(card) {
 var customPrices = {
   'cust-bt-tiktok': 155, 'cust-bt-netflix': 205, 'cust-web': 347,
   'cust-portadas': 57, 'cust-testeo': 386, 'cust-ads-setup': 150,
-  'cust-ads-monthly': 97, 'cust-news': 47, 'cust-informe': 375,
-  'cust-consultoria': 120, 'cust-formacion': 195
+  'cust-ads-monthly': 97, 'cust-news': 47,
+  'cust-news-weekly': 197, 'cust-news-biweekly': 127, 'cust-news-monthly': 77,
+  'cust-informe': 375, 'cust-consultoria': 120, 'cust-formacion': 195
 };
 
 function updateCustomTotal() {
