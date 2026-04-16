@@ -1449,13 +1449,14 @@
 
     <!-- Resultado presupuesto -->
     <div style="display:flex;justify-content:center;margin-bottom:2rem;">
-      <div style="background:rgba(237,230,214,0.06);border:1px solid rgba(200,169,106,0.25);border-radius:12px;padding:1rem 2rem;text-align:center;min-width:280px;">
+      <div style="background:rgba(237,230,214,0.06);border:1px solid rgba(200,169,106,0.25);border-radius:12px;padding:1.2rem 2rem;text-align:center;min-width:300px;">
+        <div id="plan-base-price" style="font-size:0.8rem;color:rgba(237,230,214,0.45);margin-bottom:0.4rem;"></div>
+        <div id="plan-discount-detail" style="font-size:0.75rem;margin-bottom:0.6rem;"></div>
         <div style="display:flex;justify-content:center;align-items:center;gap:1rem;">
           <span style="color:var(--dorado);font-weight:700;font-size:0.85rem;letter-spacing:0.1em;">TOTAL</span>
           <span id="packs-total" style="color:var(--dorado);font-weight:900;font-size:2.2rem;">0€</span>
         </div>
         <div id="plan-discounts" style="font-size:0.8rem;color:rgba(237,230,214,0.5);margin-top:0.3rem;"></div>
-        <div id="plan-discount-detail" style="font-size:0.75rem;margin-top:0.4rem;"></div>
         <div id="volva-warning" style="display:none;font-size:0.75rem;color:#ff4444;font-weight:700;margin-top:0.4rem;">⚠ Has seleccionado ambos booktrailers. ¿Es correcto?</div>
         <button onclick="document.getElementById('empezar').scrollIntoView({behavior:'smooth'})" style="margin-top:0.8rem;background:var(--dorado);color:var(--negro);padding:0.6rem 2rem;border-radius:20px;font-weight:700;font-size:0.85rem;border:none;cursor:pointer;letter-spacing:0.05em;">SOLICITAR</button>
       </div>
@@ -1965,14 +1966,41 @@ function updatePlanTotal() {
   var el = document.getElementById('packs-total');
   var discEl = document.getElementById('plan-discounts');
   var detailEl = document.getElementById('plan-discount-detail');
+  var baseEl = document.getElementById('plan-base-price');
   if (total === 0) {
     el.textContent = '0€';
     discEl.innerHTML = 'Selecciona un plan';
     detailEl.innerHTML = '';
+    baseEl.innerHTML = '';
   } else {
+    var hasDiscount = mapeaOn || ambassadorOn;
+    // Precio base (antes de descuentos)
+    if (hasDiscount) {
+      if (currentPeriod === 'unico') {
+        baseEl.innerHTML = 'Sin descuentos: <span style="text-decoration:line-through;">' + totalNoDiscount + '€</span>';
+      } else if (currentPeriod === '3m') {
+        baseEl.innerHTML = 'Sin descuentos: <span style="text-decoration:line-through;">' + Math.round(totalNoDiscount / 3) + '€/mes</span> · <span style="text-decoration:line-through;">' + totalNoDiscount + '€</span>';
+      } else {
+        baseEl.innerHTML = 'Sin descuentos: <span style="text-decoration:line-through;">' + Math.round(totalNoDiscount / 6) + '€/mes</span> · <span style="text-decoration:line-through;">' + totalNoDiscount + '€</span>';
+      }
+    } else {
+      baseEl.innerHTML = '';
+    }
+    // Descuentos
+    var discLines = [];
+    if (mapeaOn) {
+      var mapeaSaved = totalNoDiscount - totalMapeaOnly;
+      discLines.push('<span style="color:var(--cyan);">Felagi (<strong>MAPEA</strong>) -20%: -' + mapeaSaved + '€</span>');
+    }
+    if (ambassadorOn) {
+      var saved = totalFull - total;
+      discLines.push('<span style="color:var(--magenta);">Skald -30%: -' + saved + '€</span><br><span style="font-size:0.65rem;color:rgba(237,230,214,0.45);">Comparte contenido de Hype Agent o de Nacho Ruiz Hens</span>');
+    }
+    detailEl.innerHTML = discLines.join('<br>');
+    // Total final
     if (currentPeriod === 'unico') {
       el.textContent = total + '€';
-      discEl.innerHTML = 'Pago único';
+      discEl.innerHTML = 'Pago unico';
     } else if (currentPeriod === '3m') {
       var monthly = Math.round(total / 3);
       el.textContent = monthly + '€/mes';
@@ -1982,16 +2010,6 @@ function updatePlanTotal() {
       el.textContent = monthly + '€/mes';
       discEl.innerHTML = '6 cuotas · Total ' + total + '€';
     }
-    var discLines = [];
-    if (mapeaOn) {
-      var mapeaSaved = totalNoDiscount - totalMapeaOnly;
-      discLines.push('<span style="color:var(--cyan);">Félagi (<strong>MAPEA</strong>) -20%: -' + mapeaSaved + '€</span>');
-    }
-    if (ambassadorOn) {
-      var saved = totalFull - total;
-      discLines.push('<span style="color:var(--magenta);font-size:0.7rem;">Skáld -30%: -' + saved + '€</span><br><span style="font-size:0.65rem;color:rgba(237,230,214,0.5);">Comparte contenido de Hype Agent o de Nacho Ruiz Hens</span>');
-    }
-    detailEl.innerHTML = discLines.join('<br>');
   }
 }
 let ambassadorOn = false;
