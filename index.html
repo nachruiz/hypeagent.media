@@ -194,10 +194,10 @@
     .skald-tooltip {
       display: none;
       position: absolute;
-      top: calc(100% + 0.5rem);
-      left: 50%;
-      transform: translateX(-50%);
-      width: 260px;
+      bottom: calc(100% + 0.5rem);
+      right: 0;
+      transform: none;
+      width: 280px;
       background: rgba(11,15,20,0.95);
       color: var(--crema);
       border: 1px solid rgba(200,169,106,0.25);
@@ -1418,7 +1418,7 @@
       </div>
       <div style="display:flex;gap:0.5rem;align-items:center;">
         <button class="btn-secondary skald-help" type="button" style="position:relative;">Programa SKÁLD
-          <span class="skald-tooltip" style="display:none;position:absolute;bottom:calc(100% + 0.5rem);left:50%;transform:translateX(-50%);width:260px;background:#000;color:var(--crema);border:1px solid rgba(192,96,255,0.4);border-radius:10px;padding:1rem;font-size:0.75rem;line-height:1.5;box-shadow:0 12px 30px rgba(0,0,0,0.6);z-index:10;pointer-events:none;text-align:left;font-weight:400;text-transform:none;letter-spacing:normal;"><strong style="color:var(--magenta);">Skáld</strong> — el poeta que difundía la fama de los héroes. Comparte contenido de Hype Agent en tus redes (mínimo 2 reposts/semana) y desbloquea un 30% de descuento.</span>
+          <span class="skald-tooltip" style="display:none;position:absolute;bottom:calc(100% + 0.5rem);right:0;transform:none;width:280px;background:#000;color:var(--crema);border:1px solid rgba(192,96,255,0.4);border-radius:10px;padding:1rem;font-size:0.75rem;line-height:1.5;box-shadow:0 12px 30px rgba(0,0,0,0.6);z-index:10;pointer-events:none;text-align:left;font-weight:400;text-transform:none;letter-spacing:normal;"><strong style="color:var(--magenta);">Skáld</strong> — el poeta que difundía la fama de los héroes. Comparte contenido de Hype Agent o del autor Nacho Ruiz Hens en tus redes (mínimo 2 reposts/semana) y desbloquea un 30% de descuento.</span>
         </button>
         <label style="display:inline-flex;align-items:center;gap:0.8rem;cursor:pointer;" onclick="var cb=document.getElementById('ambassador-toggle');cb.checked=!cb.checked;toggleAmbassador(cb.checked);">
           <div style="position:relative;width:50px;height:26px;">
@@ -1985,7 +1985,7 @@ function updatePlanTotal() {
     }
     if (ambassadorOn) {
       var saved = totalFull - total;
-      discLines.push('<span style="color:var(--magenta);">Skáld -30%: -' + saved + '€</span>');
+      discLines.push('<span style="color:var(--magenta);font-size:0.7rem;">Skáld -30%: -' + saved + '€</span><br><span style="font-size:0.65rem;color:rgba(237,230,214,0.5);">Comparte contenido de Hype Agent o de Nacho Ruiz Hens</span>');
     }
     detailEl.innerHTML = discLines.join('<br>');
   }
