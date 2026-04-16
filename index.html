@@ -1237,19 +1237,20 @@
   .eventos-arrow.left { left: 0.5rem; }
   .eventos-arrow.right { right: 0.5rem; }
   .eventos-track .evento-card {
-    position: relative; flex-shrink: 0; height: 200px;
+    position: relative; flex-shrink: 0; height: 200px; margin-bottom: 2.5rem; overflow: visible;
   }
   .eventos-track img {
     height: 200px; width: auto; border-radius: 10px; object-fit: cover;
     filter: grayscale(0.3); transition: filter 0.3s, transform 0.3s;
   }
-  .eventos-track .evento-card:hover img { filter: grayscale(0); transform: scale(1.4); z-index: 2; }
+  .eventos-track .evento-card:hover img { filter: grayscale(0); transform: scale(1.05); z-index: 2; }
   .evento-label {
-    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
-    background: rgba(11,15,20,0.85); color: var(--crema); font-size: 0.65rem;
-    padding: 0.3rem 0.7rem; border-radius: 6px; white-space: nowrap;
+    position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+    color: var(--crema); font-size: 0.65rem;
+    padding: 0.3rem 0; white-space: nowrap;
     opacity: 0; transition: opacity 0.3s; pointer-events: none;
     font-family: 'Montserrat', sans-serif; letter-spacing: 0.03em;
+    text-align: center;
   }
   .evento-card:hover .evento-label { opacity: 1; }
   @keyframes eventos-scroll {
@@ -1272,10 +1273,10 @@
     <button class="eventos-arrow left" onclick="document.getElementById('eventos-scroll').scrollBy({left:-300,behavior:'smooth'})">‹</button>
     <div class="eventos-track" id="eventos-scroll">
       <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
-      <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — con Oscar Bastante</span></div>
-      <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia</span></div>
+      <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — Presentacion con el autor Oscar Bastante</span></div>
+      <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia — Presentacion con la autora y coach literaria Irene Genoves</span></div>
       <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro de Madrid" loading="lazy" /><span class="evento-label">Feria del Libro de Madrid</span></div>
-      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
+      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend — Firma con otros autores de Valhalla Ediciones</span></div>
     </div>
     <button class="eventos-arrow right" onclick="document.getElementById('eventos-scroll').scrollBy({left:300,behavior:'smooth'})">›</button>
   </div>
