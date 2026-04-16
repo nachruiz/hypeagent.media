@@ -1573,6 +1573,8 @@
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-tiktok"><span class="custom-name">Booktrailer TikTok (30s)</span><span class="custom-price" id="cust-price-bt-tiktok">155€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-netflix"><span class="custom-name">Booktrailer Netflix (1 min)</span><span class="custom-price" id="cust-price-bt-netflix">205€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-web"><span class="custom-name">Web de autor con dominio + newsletter</span><span class="custom-price" id="cust-price-web">347€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-post"><span class="custom-name">Post suelto (diseño + copy)</span><span class="custom-price" id="cust-price-post">27€</span></label>
+          <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-carrusel"><span class="custom-name">Carrusel (diseño + copy)</span><span class="custom-price" id="cust-price-carrusel">78€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-portadas"><span class="custom-name">Selector de portadas</span><span class="custom-price" id="cust-price-portadas">57€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-testeo"><span class="custom-name">Testeo de mercado / A-B testing</span><span class="custom-price" id="cust-price-testeo">386€</span></label>
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-ads-setup"><span class="custom-name">Setup Amazon, Meta o TikTok Ads</span><span class="custom-price" id="cust-price-ads-setup">150€</span></label>
@@ -2507,6 +2509,7 @@ document.querySelectorAll('.evento-card').forEach(function(card) {
 // === CUSTOM SERVICE CALCULATOR ===
 var customPrices = {
   'cust-bt-tiktok': 155, 'cust-bt-netflix': 205, 'cust-web': 347,
+  'cust-post': 27, 'cust-carrusel': 78,
   'cust-portadas': 57, 'cust-testeo': 386, 'cust-ads-setup': 150,
   'cust-ads-monthly': 97, 'cust-news': 47,
   'cust-news-weekly': 197, 'cust-news-biweekly': 127, 'cust-news-monthly': 77,
@@ -2517,11 +2520,16 @@ function updateCustomTotal() {
   setTimeout(function() {
     var total = 0;
     var totalBase = 0;
+    var items = [];
     Object.keys(customPrices).forEach(function(id) {
       var cb = document.getElementById(id);
       if (cb && cb.checked) {
-        totalBase += customPrices[id];
-        total += applyModifiers(customPrices[id]);
+        var base = customPrices[id];
+        var modified = applyModifiers(base);
+        totalBase += base;
+        total += modified;
+        var label = cb.parentElement.querySelector('.custom-name').textContent;
+        items.push(label);
       }
     });
     var box = document.getElementById('custom-total-box');
@@ -2530,10 +2538,10 @@ function updateCustomTotal() {
       document.getElementById('custom-total-val').textContent = total + '€';
       var discLines = [];
       if (totalBase !== total) {
-        discLines.push('<span style="text-decoration:line-through;color:rgba(237,230,214,0.4);">' + totalBase + '€</span>');
-        var saved = totalBase - total;
+        discLines.push('<span style="text-decoration:line-through;color:rgba(237,230,214,0.4);">Sin dto: ' + totalBase + '€</span>');
         if (mapeaOn) discLines.push('<span style="color:var(--cyan);">Felagi -20%</span>');
         if (ambassadorOn) discLines.push('<span style="color:var(--magenta);">Skald -30%</span>');
+        var saved = totalBase - total;
         discLines.push('<span style="color:var(--dorado);">Ahorras ' + saved + '€</span>');
       }
       document.getElementById('custom-total-disc').innerHTML = discLines.join(' · ');
@@ -2542,6 +2550,11 @@ function updateCustomTotal() {
     }
   }, 50);
 }
+// Re-run custom total when Felagi/Skald change
+var origSetMapea = setMapea;
+setMapea = function(on) { origSetMapea(on); updateCustomTotal(); };
+var origToggleAmb = toggleAmbassador;
+toggleAmbassador = function(on) { origToggleAmb(on); updateCustomTotal(); };
 
 // === INIT ===
 document.addEventListener('DOMContentLoaded', function() {
