@@ -1263,20 +1263,20 @@
 </style>
 <section class="eventos">
   <p class="eventos-text">
-    <span class="evento-name" onmouseover="highlightEvento('sitges')" onmouseout="unhighlightEvento()">Sitges Film Festival</span> ·
-    <span class="evento-name" onmouseover="highlightEvento('fnac-bcn')" onmouseout="unhighlightEvento()">Fnac Barcelona</span> ·
-    <span class="evento-name" onmouseover="highlightEvento('fnac-vlc')" onmouseout="unhighlightEvento()">Fnac Valencia</span> ·
-    <span class="evento-name" onmouseover="highlightEvento('feria')" onmouseout="unhighlightEvento()">Feria del Libro de Madrid</span> ·
-    <span class="evento-name" onmouseover="highlightEvento('japan')" onmouseout="unhighlightEvento()">Japan Weekend</span>
+    <span class="evento-name" data-evento="sitges" onmouseover="highlightEvento('sitges')" onmouseout="unhighlightEvento()">Sitges Film Festival</span> ·
+    <span class="evento-name" data-evento="fnac-bcn" onmouseover="highlightEvento('fnac-bcn')" onmouseout="unhighlightEvento()">Fnac Barcelona</span> ·
+    <span class="evento-name" data-evento="fnac-vlc" onmouseover="highlightEvento('fnac-vlc')" onmouseout="unhighlightEvento()">Fnac Valencia</span> ·
+    <span class="evento-name" data-evento="feria" onmouseover="highlightEvento('feria')" onmouseout="unhighlightEvento()">Feria del Libro de Madrid</span> ·
+    <span class="evento-name" data-evento="japan" onmouseover="highlightEvento('japan')" onmouseout="unhighlightEvento()">Japan Weekend</span>
   </p>
   <div class="eventos-wrapper">
     <button class="eventos-arrow left" onclick="document.getElementById('eventos-scroll').scrollBy({left:-300,behavior:'smooth'})">‹</button>
     <div class="eventos-track" id="eventos-scroll">
       <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
       <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — Presentacion con el autor Oscar Bastante</span></div>
-      <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia — Presentacion con la autora y coach literaria Irene Genoves</span></div>
+      <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia — Presentacion con la autora y coach literaria Irene Genovés</span></div>
       <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro de Madrid" loading="lazy" /><span class="evento-label">Feria del Libro de Madrid</span></div>
-      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend — Firma con otros autores de Valhalla Ediciones</span></div>
+      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
     </div>
     <button class="eventos-arrow right" onclick="document.getElementById('eventos-scroll').scrollBy({left:300,behavior:'smooth'})">›</button>
   </div>
@@ -2399,12 +2399,13 @@ document.getElementById('hype-form').addEventListener('submit', function(e) {
   });
 });
 
-// === EVENTOS HIGHLIGHT ===
+// === EVENTOS HIGHLIGHT (bidireccional: texto <-> foto) ===
 function highlightEvento(name) {
   document.querySelectorAll('.evento-card').forEach(function(card) {
-    if (card.dataset.evento === name) {
-      card.classList.add('highlighted');
-    }
+    if (card.dataset.evento === name) card.classList.add('highlighted');
+  });
+  document.querySelectorAll('.evento-name').forEach(function(span) {
+    if (span.dataset.evento === name) span.classList.add('active');
   });
   document.querySelector('.eventos-track').style.animationPlayState = 'paused';
 }
@@ -2412,8 +2413,16 @@ function unhighlightEvento() {
   document.querySelectorAll('.evento-card').forEach(function(card) {
     card.classList.remove('highlighted');
   });
+  document.querySelectorAll('.evento-name').forEach(function(span) {
+    span.classList.remove('active');
+  });
   document.querySelector('.eventos-track').style.animationPlayState = '';
 }
+// Hover en las fotos resalta el texto correspondiente
+document.querySelectorAll('.evento-card').forEach(function(card) {
+  card.addEventListener('mouseenter', function() { highlightEvento(card.dataset.evento); });
+  card.addEventListener('mouseleave', unhighlightEvento);
+});
 
 // === INIT ===
 document.addEventListener('DOMContentLoaded', function() {
