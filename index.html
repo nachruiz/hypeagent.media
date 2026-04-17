@@ -1288,7 +1288,7 @@
   .evento-label {
     position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
     color: var(--crema); font-size: 0.65rem;
-    padding: 0.3rem 0; white-space: nowrap;
+    padding: 0.3rem 0; white-space: normal; width: max-content; max-width: 200px;
     opacity: 0; transition: opacity 0.3s; pointer-events: none;
     font-family: 'Montserrat', sans-serif; letter-spacing: 0.03em;
     text-align: center;
@@ -1314,7 +1314,7 @@
     <button class="eventos-arrow left" onclick="document.getElementById('eventos-scroll').scrollBy({left:-300,behavior:'smooth'})">‹</button>
     <div class="eventos-track" id="eventos-scroll">
       <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
-      <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — Presentacion con el autor Oscar Bastante</span></div>
+      <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — Presentacion con el autor Óscar Bastante</span></div>
       <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia — Presentacion con la autora y coach literaria Irene Genovés</span></div>
       <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro de Madrid" loading="lazy" /><span class="evento-label">Firmando en el stand de Interleo</span></div>
       <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Posando con los autores de Valhalla Ediciones</span></div>
