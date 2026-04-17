@@ -1456,6 +1456,10 @@
       </div>
     </div>
 
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <a href="#custom-service" onclick="var el=document.getElementById('custom-service');if(el.style.maxHeight==='0px'){document.querySelector('#custom-service').previousElementSibling.click();}setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'center'});},300);" style="color:rgba(237,230,214,0.45);font-size:0.8rem;text-decoration:none;border-bottom:1px solid rgba(237,230,214,0.2);">¿Prefieres armar tu plan a medida? →</a>
+    </div>
+
     <!-- 1. SELECTOR DE PLANES + PRESUPUESTO -->
     <div id="packs-section">
     <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem;margin-bottom:1.5rem;">
@@ -1567,7 +1571,28 @@
         <span class="chevron" style="font-size:0.7rem;transition:transform 0.3s;display:inline-block;">▼</span>
       </button>
       <div id="custom-service" style="max-height:0px;overflow:hidden;transition:max-height 0.4s ease,padding 0.4s;background:rgba(237,230,214,0.03);border:1px solid rgba(200,169,106,0.15);border-top:none;border-radius:0 0 12px 12px;padding:0 1.5rem;font-size:0.85rem;color:rgba(237,230,214,0.7);line-height:1.7;">
-        <p style="margin-bottom:1rem;">Marca los servicios que necesitas y ve el precio en tiempo real. Los descuentos Felagi y Skald se aplican automaticamente.</p>
+        <p style="margin-bottom:1rem;">Marca los servicios que necesitas y ve el precio en tiempo real.</p>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid rgba(200,169,106,0.15);">
+          <div style="display:flex;gap:0;">
+            <button class="pay-toggle" onclick="setPayment('unico');updateCustomTotal()" style="border-radius:20px 0 0 20px;font-size:0.7rem;padding:0.4rem 0.8rem;" id="cust-pay-unico">Pago unico</button>
+            <button class="pay-toggle" onclick="setPayment('3m');updateCustomTotal()" style="font-size:0.7rem;padding:0.4rem 0.8rem;" id="cust-pay-3m">3 meses</button>
+            <button class="pay-toggle" onclick="setPayment('6m');updateCustomTotal()" style="border-radius:0 20px 20px 0;font-size:0.7rem;padding:0.4rem 0.8rem;" id="cust-pay-6m">6 meses</button>
+          </div>
+          <div style="display:flex;gap:0;">
+            <button class="pay-toggle" onclick="setMapea(false);updateCustomTotal()" style="border-radius:20px 0 0 20px;font-size:0.7rem;padding:0.4rem 0.8rem;" id="cust-mapea-off">General</button>
+            <button class="pay-toggle" onclick="setMapea(true);updateCustomTotal()" style="border-radius:0 20px 20px 0;font-size:0.7rem;padding:0.4rem 0.8rem;color:var(--cyan);" id="cust-mapea-on">Felagi</button>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="font-size:0.7rem;color:var(--magenta);">Skald</span>
+            <label style="cursor:pointer;" onclick="var cb=document.getElementById('ambassador-toggle');cb.checked=!cb.checked;toggleAmbassador(cb.checked);updateCustomTotal();">
+              <div style="position:relative;width:36px;height:20px;">
+                <span id="cust-toggle-track" style="position:absolute;inset:0;background:rgba(200,169,106,0.2);border-radius:10px;transition:all 0.3s;"></span>
+                <span id="cust-toggle-thumb" style="position:absolute;top:2px;left:2px;width:16px;height:16px;background:rgba(237,230,214,0.5);border-radius:50%;transition:all 0.3s;"></span>
+              </div>
+            </label>
+          </div>
+        </div>
 
         <div style="display:grid;gap:0.5rem;margin-bottom:1.2rem;max-height:400px;overflow-y:auto;padding-right:0.5rem;">
           <label class="custom-row" onclick="updateCustomTotal()"><input type="checkbox" id="cust-bt-tiktok"><span class="custom-name">Booktrailer TikTok (30s)</span><span class="custom-price" id="cust-price-bt-tiktok">155€</span></label>
@@ -2499,7 +2524,6 @@ function updateCustomTotal() {
   setTimeout(function() {
     var total = 0;
     var totalBase = 0;
-    var items = [];
     Object.keys(customPrices).forEach(function(id) {
       var cb = document.getElementById(id);
       if (cb && cb.checked) {
@@ -2507,21 +2531,42 @@ function updateCustomTotal() {
         var modified = applyModifiers(base);
         totalBase += base;
         total += modified;
-        var label = cb.parentElement.querySelector('.custom-name').textContent;
-        items.push(label);
       }
     });
+    // Apply payment period markup
+    var totalWithPayment = applyPayment(total);
+    var totalBaseWithPayment = applyPayment(totalBase);
+
+    // Sync custom toggle buttons with main toggles
+    var custPayBtns = ['cust-pay-unico','cust-pay-3m','cust-pay-6m'];
+    custPayBtns.forEach(function(id) { var el = document.getElementById(id); if(el) el.classList.remove('active'); });
+    var activePayId = 'cust-pay-' + currentPeriod;
+    if (document.getElementById(activePayId)) document.getElementById(activePayId).classList.add('active');
+    var custOff = document.getElementById('cust-mapea-off');
+    var custOn = document.getElementById('cust-mapea-on');
+    if (custOff) custOff.classList.toggle('active', !mapeaOn);
+    if (custOn) custOn.classList.toggle('active', mapeaOn);
+
     var box = document.getElementById('custom-total-box');
     if (total > 0) {
       box.style.display = 'block';
-      document.getElementById('custom-total-val').textContent = total + '€';
+      if (currentPeriod === 'unico') {
+        document.getElementById('custom-total-val').textContent = totalWithPayment + '€';
+      } else if (currentPeriod === '3m') {
+        document.getElementById('custom-total-val').textContent = Math.round(totalWithPayment / 3) + '€/mes';
+      } else {
+        document.getElementById('custom-total-val').textContent = Math.round(totalWithPayment / 6) + '€/mes';
+      }
       var discLines = [];
-      if (totalBase !== total) {
+      if (totalBase !== total || totalWithPayment !== total) {
         discLines.push('<span style="text-decoration:line-through;color:rgba(237,230,214,0.4);">Sin dto: ' + totalBase + '€</span>');
         if (mapeaOn) discLines.push('<span style="color:var(--cyan);">Felagi -20%</span>');
         if (ambassadorOn) discLines.push('<span style="color:var(--magenta);">Skald -30%</span>');
+        if (currentPeriod !== 'unico') discLines.push('<span style="color:rgba(237,230,214,0.5);">' + (currentPeriod === '3m' ? '3 cuotas' : '6 cuotas') + ' · Total ' + totalWithPayment + '€</span>');
         var saved = totalBase - total;
-        discLines.push('<span style="color:var(--dorado);">Ahorras ' + saved + '€</span>');
+        if (saved > 0) discLines.push('<span style="color:var(--dorado);">Ahorras ' + saved + '€</span>');
+      } else if (currentPeriod !== 'unico') {
+        discLines.push('<span style="color:rgba(237,230,214,0.5);">' + (currentPeriod === '3m' ? '3 cuotas' : '6 cuotas') + ' · Total ' + totalWithPayment + '€</span>');
       }
       document.getElementById('custom-total-disc').innerHTML = discLines.join(' · ');
     } else {
