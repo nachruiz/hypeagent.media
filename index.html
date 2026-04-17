@@ -1946,6 +1946,187 @@
   </div>
 </section>
 
+<!-- ══ TESTIMONIOS ══ -->
+<style>
+  .testimonials-section { padding: 4rem 2rem; background: rgba(200,169,106,0.03); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .testimonial-card {
+    background: rgba(237,230,214,0.05);
+    border: 1px solid rgba(200,169,106,0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--dorado);
+  }
+  .testimonial-thumb {
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 9/12;
+    overflow: hidden;
+  }
+  .testimonial-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+  .testimonial-card:hover .testimonial-thumb img {
+    transform: scale(1.05);
+  }
+  .testimonial-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    background: rgba(11,15,20,0.7);
+    border: 2px solid var(--dorado);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .testimonial-card:hover .testimonial-play {
+    background: var(--dorado);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  .testimonial-play svg { width: 22px; height: 22px; }
+  .testimonial-card:hover .testimonial-play svg path { fill: var(--negro); }
+  .testimonial-info {
+    padding: 1rem 1.2rem;
+    text-align: center;
+  }
+  .testimonial-info h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--dorado);
+    margin-bottom: 0.3rem;
+  }
+  .testimonial-info p {
+    font-size: 0.75rem;
+    color: rgba(237,230,214,0.5);
+    line-height: 1.4;
+  }
+  @media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr; max-width: 320px; }
+  }
+
+  /* Lightbox video */
+  .video-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+  .video-lightbox.open { display: flex; }
+  .video-lightbox iframe {
+    width: 360px;
+    height: 640px;
+    max-width: 90vw;
+    max-height: 85vh;
+    border: none;
+    border-radius: 12px;
+  }
+  .video-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: rgba(237,230,214,0.1);
+    border: 1px solid rgba(200,169,106,0.3);
+    border-radius: 50%;
+    color: var(--crema);
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+<section class="testimonials-section">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title">Lo que dicen nuestros autores</h2>
+    <p class="section-sub" style="margin-bottom:2.5rem;">Testimonios reales de autores que trabajan con Hype Agent</p>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-thumb" onclick="openTestimonial('3hwXliGAiA0')">
+          <img src="Primavera zoom.jpeg" alt="Primavera Gomez" loading="lazy" />
+          <div class="testimonial-play">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--dorado)"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-info">
+          <h4>Primavera Gomez</h4>
+          <p>Autora · Web + Redes + Booktrailer</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-thumb" onclick="openTestimonial('SOLknoRiC5g')">
+          <img src="Julio-2025-gorra-mini.webp" alt="Julio" loading="lazy" />
+          <div class="testimonial-play">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--dorado)"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-info">
+          <h4>Julio</h4>
+          <p>Autor · Estrategia digital</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-thumb" onclick="openTestimonial('J1S5LgVaRKE')">
+          <img src="Pili Color.jpeg" alt="Pili" loading="lazy" />
+          <div class="testimonial-play">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="var(--dorado)"/></svg>
+          </div>
+        </div>
+        <div class="testimonial-info">
+          <h4>Pili</h4>
+          <p>Autora · Web + Newsletter</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox para videos -->
+<div class="video-lightbox" id="videoLightbox" onclick="closeTestimonial()">
+  <button class="video-lightbox-close" onclick="closeTestimonial()">x</button>
+  <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<script>
+function openTestimonial(videoId) {
+  document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+  document.getElementById('videoLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeTestimonial() {
+  document.getElementById('videoFrame').src = '';
+  document.getElementById('videoLightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeTestimonial(); });
+</script>
+
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-newsletter">
