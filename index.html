@@ -1266,7 +1266,25 @@
     height: 200px; width: auto; border-radius: 10px; object-fit: cover;
     filter: grayscale(0.3); transition: filter 0.3s, transform 0.3s;
   }
-  .eventos-track .evento-card:hover img { filter: grayscale(0); transform: scale(1.05); z-index: 2; }
+  .eventos-track .evento-card:hover img { filter: grayscale(0); transform: scale(1.05); z-index: 2; cursor: pointer; }
+  .evento-lightbox {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.92); z-index: 200;
+    align-items: center; justify-content: center; cursor: pointer;
+  }
+  .evento-lightbox.open { display: flex; }
+  .evento-lightbox img {
+    max-width: 90vw; max-height: 85vh;
+    border-radius: 12px; object-fit: contain;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .evento-lightbox-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 44px; height: 44px;
+    background: rgba(237,230,214,0.1); border: 1px solid rgba(200,169,106,0.3);
+    border-radius: 50%; color: var(--crema); font-size: 22px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
   .evento-label {
     position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
     color: var(--crema); font-size: 0.65rem;
@@ -1298,12 +1316,33 @@
       <div class="evento-card" data-evento="sitges"><img src="Sitges festival.jpeg" alt="Sitges Film Festival" loading="lazy" /><span class="evento-label">Sitges Film Festival 2025</span></div>
       <div class="evento-card" data-evento="fnac-bcn"><img src="fnac barcelona.jpeg" alt="Fnac Barcelona" loading="lazy" /><span class="evento-label">Fnac Barcelona — Presentacion con el autor Oscar Bastante</span></div>
       <div class="evento-card" data-evento="fnac-vlc"><img src="fnac valencia.jpeg" alt="Fnac Valencia" loading="lazy" /><span class="evento-label">Fnac Valencia — Presentacion con la autora y coach literaria Irene Genovés</span></div>
-      <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro de Madrid" loading="lazy" /><span class="evento-label">Feria del Libro de Madrid</span></div>
-      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Japan Weekend</span></div>
+      <div class="evento-card" data-evento="feria"><img src="feria del libro-opt.jpg" alt="Feria del Libro de Madrid" loading="lazy" /><span class="evento-label">Firmando en el stand de Interleo</span></div>
+      <div class="evento-card" data-evento="japan"><img src="japan weekend 1.jpeg" alt="Japan Weekend" loading="lazy" /><span class="evento-label">Posando con los autores de Valhalla Ediciones</span></div>
     </div>
     <button class="eventos-arrow right" onclick="document.getElementById('eventos-scroll').scrollBy({left:300,behavior:'smooth'})">›</button>
   </div>
 </section>
+
+<!-- Lightbox para fotos de eventos -->
+<div class="evento-lightbox" id="eventoLightbox" onclick="closeEventoLightbox()">
+  <button class="evento-lightbox-close" onclick="closeEventoLightbox()">x</button>
+  <img id="eventoLightboxImg" src="" alt="" />
+</div>
+<script>
+document.querySelectorAll('.evento-card img').forEach(function(img) {
+  img.addEventListener('click', function(e) {
+    e.stopPropagation();
+    document.getElementById('eventoLightboxImg').src = img.src;
+    document.getElementById('eventoLightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+function closeEventoLightbox() {
+  document.getElementById('eventoLightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeEventoLightbox(); });
+</script>
 
 <!-- ══ PORTFOLIO ══ -->
 <section id="portfolio">
