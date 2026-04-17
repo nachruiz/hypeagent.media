@@ -2198,27 +2198,6 @@ function updatePrices() {
   // Update Völva card prices with dual format + quantity
   updateVolvaCards();
 
-  // Update Völva booktrailer prices
-  document.querySelectorAll('.volva-price').forEach(function(priceEl, i) {
-    var noteEl = document.querySelectorAll('.volva-note')[i];
-    var base = parseInt(priceEl.dataset.base);
-    var bp = applyModifiers(base);
-    if (currentPeriod === 'unico') {
-      priceEl.innerHTML = bp + '€';
-      noteEl.textContent = 'Pago unico';
-    } else if (currentPeriod === '3m') {
-      var total = Math.round(bp * markup3m);
-      var monthly = Math.round(total / 3);
-      priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
-      noteEl.textContent = '3 cuotas de ' + monthly + '€ (total ' + total + '€)';
-    } else {
-      var total = Math.round(bp * markup6m);
-      var monthly = Math.round(total / 6);
-      priceEl.innerHTML = monthly + '€<span style="font-size:0.9rem;font-weight:400;color:rgba(237,230,214,0.5);">/mes</span>';
-      noteEl.textContent = '6 cuotas de ' + monthly + '€ (total ' + total + '€)';
-    }
-  });
-
   updateTable();
 
   // Update monthly renewal prices
